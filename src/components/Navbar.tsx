@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary">
       <div className="container mx-auto flex items-center justify-between py-4">
         <a href="/" className="text-2xl font-bold text-dark">
-          Naked
+          Attract Acquisition
         </a>
         <div className="hidden md:flex items-center gap-8">
           <a href="#" className="text-dark font-medium hover:opacity-80 transition-opacity">
@@ -20,7 +20,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center gap-4">
           <Button variant="dark" size="sm">
-            Get my price
+            Get Attractive
           </Button>
           <a href="#" className="text-dark font-medium hover:opacity-80 transition-opacity hidden md:block">
             Log in
