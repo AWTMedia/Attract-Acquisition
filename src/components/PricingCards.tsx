@@ -3,23 +3,23 @@ import { Car, Home, Smartphone } from "lucide-react";
 const PricingCards = () => {
   const cards = [
     {
-      title: "Fix your first impression so views turn into clicks, trust, and DMs.",
+      title: "We rebuild your profile funnel + content structure so the right people want to DM you.",
       subtitle: "Stage 1",
-      price: "Profile Funnel",
+      price: "Attract",
       icon: Car,
       iconBg: "bg-primary",
     },
     {
-      title: "A weekly structure built around problems, proof, and conversion triggers.",
+      title: "We install stories + DM touchpoints that build trust and move people forward.",
       subtitle: "Stage 2",
-      price: "Content System",
+      price: "Nurture",
       icon: Home,
       iconBg: "bg-primary",
     },
     {
-      title: "A simple path that turns “interested” into booked calls and paying clients.",
+      title: "We create the path from view → DM → booking → sale, with scripts and tracking.",
       subtitle: "Stage 3",
-      price: "DM → Booking Flow",
+      price: "Convert",
       icon: Smartphone,
       iconBg: "bg-primary",
     },
@@ -29,10 +29,10 @@ const PricingCards = () => {
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-          100% digital insurance for all
+          The 3 Stage
         </h2>
         <p className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">
-          your favourite things
+          Instagram Attraction Engine
         </p>
         <div className="grid md:grid-cols-3 gap-6">
           {cards.map((card, index) => (
