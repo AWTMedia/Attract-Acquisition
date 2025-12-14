@@ -1,7 +1,7 @@
 const Footer = () => {
   const footerLinks = {
     Resources: ["Help Centre", "Contact Us"],
-    Company: ["About Us", "Careers", "Blog", "Press"],
+    Company: ["About Us", "Careers", "Press"],
     Legal: ["Terms of Use", "Privacy Policy", "POPIA", "Complaints"],
   };
 
