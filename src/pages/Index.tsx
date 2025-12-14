@@ -11,17 +11,21 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen aa-bg text-white">
       <Navbar />
-      <HeroSection />
-      <PricingCards />
-      <TestimonialsSection />
-      <FeatureSection />
-      <ReferralSection />
-      <MadeWithLoveSection />
-      <FAQSection />
-      <AppSection />
-      <Footer />
+
+      {/* Give breathing room under the fixed glass navbar */}
+      <div className="pt-20 md:pt-24">
+        <HeroSection />
+        <PricingCards />
+        <TestimonialsSection />
+        <FeatureSection />
+        <ReferralSection />
+        <MadeWithLoveSection />
+        <FAQSection />
+        <AppSection />
+        <Footer />
+      </div>
     </main>
   );
 };
