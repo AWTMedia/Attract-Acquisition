@@ -3,23 +3,23 @@ import { Car, Home, Smartphone } from "lucide-react";
 const PricingCards = () => {
   const cards = [
     {
-      title: "Car insurance",
-      subtitle: "from",
-      price: "R180pm",
+      title: "Fix your first impression so views turn into clicks, trust, and DMs.",
+      subtitle: "Stage 1",
+      price: "Profile Funnel",
       icon: Car,
       iconBg: "bg-primary",
     },
     {
-      title: "Home insurance",
-      subtitle: "from",
-      price: "R43pm",
+      title: "A weekly structure built around problems, proof, and conversion triggers.",
+      subtitle: "Stage 2",
+      price: "Content System",
       icon: Home,
       iconBg: "bg-primary",
     },
     {
-      title: "Single item insurance",
-      subtitle: "from",
-      price: "R15pm",
+      title: "A simple path that turns “interested” into booked calls and paying clients.",
+      subtitle: "Stage 3",
+      price: "DM → Booking Flow",
       icon: Smartphone,
       iconBg: "bg-primary",
     },
