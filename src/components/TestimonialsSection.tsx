@@ -89,9 +89,9 @@ const TestimonialsSection = () => {
     >
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-black text-foreground inline-flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+          <h2 className="text-3xl md:text-4xl font-black text-foreground inline-flex flex-wrap items-baseline justify-center">
             <motion.span className="inline-block" variants={headlineItem} custom={0}>
-              Businesses are
+              Businesses are&nbsp;
             </motion.span>
 
             <motion.span className="inline-block text-primary" variants={headlineItem} custom={1}>
@@ -137,7 +137,7 @@ const TestimonialsSection = () => {
             </motion.div>
           ))}
 
-          {/* Third card */}
+          {/* Third card: premium “highlight” but still white-section friendly */}
           <motion.div
             variants={cardIn}
             whileHover={{ y: -6, scale: 1.01 }}
