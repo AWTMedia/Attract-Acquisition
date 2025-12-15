@@ -62,23 +62,23 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* MINIMIZED PILL (TOP-RIGHT) */}
-      <div
-        className={[
-          "fixed top-4 right-4 z-50",
-          "transition-all duration-300 ease-out",
-          minimized
-            ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
-            : "opacity-0 -translate-y-2 scale-95 pointer-events-none",
-        ].join(" ")}
-      >
-        <div className="glass-purple-strong border border-white/10 rounded-2xl px-3 py-3 shadow-[0_18px_50px_rgba(11,15,25,0.45)]">
-          <Button variant="dark" size="sm" asChild>
-            <a href="#get-attractive" aria-label="Get Attractive">
-              Get Attractive
-            </a>
-          </Button>
-        </div>
+{/* MINIMIZED PILL (TOP-RIGHT) */}
+<div
+  className={[
+    "fixed top-4 right-4 z-50",
+    "transition-all duration-300 ease-out",
+    minimized
+      ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+      : "opacity-0 -translate-y-2 scale-95 pointer-events-none",
+  ].join(" ")}
+>
+  {/* No glass / no purple border — just the button */}
+  <Button variant="dark" size="sm" asChild>
+    <a href="#get-attractive" aria-label="Get Attractive">
+      Get Attractive
+    </a>
+  </Button>
+</div>
       </div>
     </nav>
   );
