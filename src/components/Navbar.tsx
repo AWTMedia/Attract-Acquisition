@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 
+const CALENDLY_URL =
+  "https://calendly.com/attractacquisition/attract-acquisition-1-1-call";
+
 const Navbar = () => {
   const [minimized, setMinimized] = useState(false);
   const location = useLocation();
@@ -34,7 +37,9 @@ const Navbar = () => {
               : "opacity-100 translate-y-0 scale-100",
           ].join(" ")}
         >
-          <div className={`rounded-2xl px-5 md:px-6 py-3 flex items-center justify-between ${navPillClass}`}>
+          <div
+            className={`rounded-2xl px-5 md:px-6 py-3 flex items-center justify-between ${navPillClass}`}
+          >
             {/* Clicking brand name -> back to landing page */}
             <Link to="/" className="text-xl md:text-2xl font-bold text-white">
               Attract Acquisition
@@ -57,8 +62,12 @@ const Navbar = () => {
 
             <div className="flex items-center gap-4">
               <Button variant="dark" size="sm" asChild>
-                {/* keep hash jump */}
-                <a href="/#get-attractive" aria-label="Get Attractive">
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Get Attractive"
+                >
                   Get Attractive
                 </a>
               </Button>
@@ -86,7 +95,12 @@ const Navbar = () => {
       >
         <div className="rounded-2xl px-5 md:px-6 py-3 bg-transparent">
           <Button variant="dark" size="sm" asChild>
-            <a href="/#get-attractive" aria-label="Get Attractive">
+            <a
+              href={CALENDLY_URL}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Get Attractive"
+            >
               Get Attractive
             </a>
           </Button>
