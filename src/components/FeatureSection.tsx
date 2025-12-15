@@ -15,7 +15,7 @@ const FeatureSection = () => {
     <section className="bg-transparent py-16 md:py-24">
       <div className="container mx-auto">
         {/* ONE unified purple “curved box” that contains BOTH features */}
-        <div className="relative bg-white rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.25)]">
+        <div className="relative bg-primary rounded-[2rem] md:rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_30px_80px_rgba(0,0,0,0.25)]">
           {/* Inner glow for depth */}
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-white/10 blur-3xl" />
