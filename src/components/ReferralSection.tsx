@@ -1,44 +1,24 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-function CountUp({
-  to,
-  duration = 900, // ms
-  start = 0,
-  startWhen = true,
-}: {
-  to: number;
-  duration?: number;
-  start?: number;
-  startWhen?: boolean;
-}) {
-  const [value, setValue] = useState(start);
+const ReferralSection = () => {
+  const numberRef = useRef<HTMLParagraphElement | null>(null);
+  const inView = useInView(numberRef, { once: true, amount: 0.5 });
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!startWhen) return;
+    if (!inView) return;
 
-    let raf = 0;
-    const t0 = performance.now();
+    const controls = animate(0, 100, {
+      duration: 0.9,
+      ease: "easeOut",
+      onUpdate: (v) => setCount(Math.round(v)),
+    });
 
-    const tick = (now: number) => {
-      const p = Math.min(1, (now - t0) / duration);
-      // easeOutCubic
-      const eased = 1 - Math.pow(1 - p, 3);
-      const next = Math.round(start + (to - start) * eased);
-      setValue(next);
+    return () => controls.stop();
+  }, [inView]);
 
-      if (p < 1) raf = requestAnimationFrame(tick);
-    };
-
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [to, duration, start, startWhen]);
-
-  return <>{value}</>;
-}
-
-const ReferralSection = () => {
   return (
     <motion.section
       className="bg-background py-16 md:py-24"
@@ -122,13 +102,14 @@ const ReferralSection = () => {
           <div className="flex items-center justify-center">
             <div className="text-center">
               <motion.p
+                ref={numberRef}
                 className="text-7xl md:text-8xl font-black text-primary leading-none"
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
               >
-                +<CountUp to={100} duration={900} />
+                +{count}
               </motion.p>
 
               <motion.p
