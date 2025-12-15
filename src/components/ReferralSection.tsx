@@ -47,9 +47,6 @@ const ReferralSection = () => {
               </p>
 
               <p className="text-muted-foreground mt-4">delivered… and counting</p>
-              <p className="text-xs text-muted-foreground mt-2">
-                (Remove this stat if it’s not true)
-              </p>
             </div>
           </div>
         </div>
