@@ -4,14 +4,12 @@ import { motion } from "framer-motion";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      text:
-        "We finally stopped ‘posting to post’. The profile funnel + weekly structure made DMs predictable — and bookings followed.",
+      text: "We finally stopped ‘posting to post’. The profile funnel + weekly structure made DMs predictable — and bookings followed.",
       author: "Gym Owner",
       verified: true,
     },
     {
-      text:
-        "The DM flow changed everything. Enquiries became qualified conversations, and we started tracking what actually converts.",
+      text: "The DM flow changed everything. Enquiries became qualified conversations, and we started tracking what actually converts.",
       author: "Clinic Founder",
       verified: true,
     },
@@ -87,25 +85,17 @@ const TestimonialsSection = () => {
       variants={sectionIn}
       initial="hidden"
       whileInView="show"
-      // later trigger on scroll (was 0.3)
       viewport={{ once: true, amount: 0.45 }}
     >
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-black text-foreground">
-            <motion.span
-              className="inline-block"
-              variants={headlineItem}
-              custom={0}
-            >
-              Businesses are {" "}
+          <h2 className="text-3xl md:text-4xl font-black text-foreground inline-flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+            <motion.span className="inline-block" variants={headlineItem} custom={0}>
+              Businesses are
             </motion.span>
-            <motion.span
-              className="inline-block text-primary"
-              variants={headlineItem}
-              custom={1}
-            >
-              {" "} Getting Attractive
+
+            <motion.span className="inline-block text-primary" variants={headlineItem} custom={1}>
+              Getting Attractive
             </motion.span>
           </h2>
 
@@ -113,8 +103,8 @@ const TestimonialsSection = () => {
             className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             variants={subheadIn}
           >
-            Don’t just take our word for it — here’s what happens when you stop random posting
-            and install an Attraction Engine.
+            Don’t just take our word for it — here’s what happens when you stop random posting and
+            install an Attraction Engine.
           </motion.p>
         </div>
 
@@ -147,7 +137,7 @@ const TestimonialsSection = () => {
             </motion.div>
           ))}
 
-          {/* Third card: premium “highlight” but still white-section friendly */}
+          {/* Third card */}
           <motion.div
             variants={cardIn}
             whileHover={{ y: -6, scale: 1.01 }}
