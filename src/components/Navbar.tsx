@@ -5,6 +5,8 @@ import { Link, useLocation } from "react-router-dom";
 const CALENDLY_URL =
   "https://calendly.com/attractacquisition/attract-acquisition-1-1-call";
 
+const LOGIN_URL = "https://attractacq.lovable.app";
+
 const Navbar = () => {
   const [minimized, setMinimized] = useState(false);
   const location = useLocation();
@@ -73,7 +75,9 @@ const Navbar = () => {
               </Button>
 
               <a
-                href="#"
+                href={LOGIN_URL}
+                target="_blank"
+                rel="noreferrer"
                 className="hidden md:block text-white/80 font-medium hover:text-white transition-colors"
               >
                 Log in
