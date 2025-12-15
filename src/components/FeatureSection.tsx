@@ -1,3 +1,5 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 const METRICS = [
@@ -12,14 +14,70 @@ const METRICS = [
 
 const FeatureSection = () => {
   const hoverCard =
-    "hover:border-white/15 hover:-translate-y-[2px] transition-all cursor-pointer";
+    "hover:border-white/15 transition-all cursor-pointer";
+
+  // -----------------------------
+  // Feature A (Engine) scroll-linked
+  // -----------------------------
+  const engineRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress: engineProgress } = useScroll({
+    target: engineRef,
+    // 0 when section starts entering, 1 when leaving
+    offset: ["start 0.85", "end 0.25"],
+  });
+
+  const pathScaleY = useTransform(engineProgress, [0, 1], [0, 1]);
+
+  const stageAnim = (i: number) => {
+    const start = i / 3;
+    const mid = start + 0.18;
+    const end = start + 0.33;
+
+    const y = useTransform(engineProgress, [start, mid], [14, 0]);
+    const opacity = useTransform(engineProgress, [start, mid], [0.45, 1]);
+    const scale = useTransform(engineProgress, [start, mid], [0.985, 1]);
+
+    // subtle “active” emphasis that follows the current stage band
+    const glow = useTransform(
+      engineProgress,
+      [start, start + 0.05, end - 0.05, end],
+      [0, 1, 1, 0]
+    );
+
+    return { y, opacity, scale, glow };
+  };
+
+  const s0 = stageAnim(0);
+  const s1 = stageAnim(1);
+  const s2 = stageAnim(2);
+
+  // Right headline reveal (once, staggered)
+  const headlineWrap = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08 } },
+  };
+  const headlineLine = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
+  };
+
+  // -----------------------------
+  // Feature B (Metrics) scroll storytelling
+  // -----------------------------
+  const metricsRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress: metricsProgress } = useScroll({
+    target: metricsRef,
+    offset: ["start 0.85", "end 0.25"],
+  });
+
+  const stackParallaxY = useTransform(metricsProgress, [0, 1], [10, -10]);
 
   return (
     <section className="bg-background py-16 md:py-24">
       <div className="container mx-auto">
         {/* WHITE section, PURPLE inner curved box */}
         <div className="relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden aa-bg">
-          {/* Hero-style depth layers (same as hero/made-with-love/footer) */}
+          {/* Depth layers */}
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute -top-24 -left-24 h-[520px] w-[520px] rounded-full bg-white/10 blur-[90px]" />
             <div className="absolute -bottom-40 -right-32 h-[560px] w-[560px] rounded-full bg-white/8 blur-[110px]" />
@@ -27,10 +85,10 @@ const FeatureSection = () => {
             <div className="absolute inset-0 opacity-[0.06] mix-blend-overlay [background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22400%22 height=%22400%22 filter=%22url(%23n)%22 opacity=%220.55%22/%3E%3C/svg%3E')]" />
           </div>
 
-          {/* Feature A */}
-          <div className="relative px-6 md:px-12 py-14 md:py-16">
+          {/* Feature A: Engine */}
+          <div ref={engineRef} className="relative px-6 md:px-12 py-14 md:py-16">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* 3-stage stack (fixed line + arrow spacing) */}
+              {/* 3-stage stack */}
               <div className="max-w-md mx-auto w-full">
                 <div className="mb-4">
                   <p className="text-white/70 text-sm font-medium">3-stage flow</p>
@@ -38,14 +96,34 @@ const FeatureSection = () => {
                 </div>
 
                 <div className="relative">
-                  {/* Vertical line centered with arrows */}
-                  <div className="absolute left-[18px] top-6 bottom-6 w-px bg-white/15" />
+                  {/* Vertical path (draw on scroll) */}
+                  <div className="absolute left-[18px] top-6 bottom-6 w-px bg-white/15 overflow-hidden">
+                    <motion.div
+                      className="absolute inset-0 bg-white/55 origin-top"
+                      style={{ scaleY: pathScaleY }}
+                    />
+                  </div>
 
                   {/* Stage 1 */}
                   <div className="relative pl-12">
-                    <div
+                    <motion.div
                       className={`glass-purple rounded-2xl p-6 border border-white/10 ${hoverCard}`}
+                      style={{ y: s0.y, opacity: s0.opacity, scale: s0.scale }}
+                      whileHover={{ y: -4, scale: 1.01 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 18 }}
                     >
+                      <div className="pointer-events-none absolute inset-0 rounded-2xl"
+                        style={{
+                          opacity: 0,
+                        }}
+                      />
+                      <motion.div
+                        className="pointer-events-none absolute -inset-[1px] rounded-2xl"
+                        style={{
+                          opacity: s0.glow,
+                          boxShadow: "0 0 0 1px rgba(255,255,255,0.14), 0 20px 60px rgba(0,0,0,0.25)",
+                        }}
+                      />
                       <p className="text-[11px] uppercase tracking-wide text-white/60 mb-2">
                         Stage 1
                       </p>
@@ -53,9 +131,8 @@ const FeatureSection = () => {
                       <p className="text-white/75 text-sm mt-2">
                         Profile + content structure
                       </p>
-                    </div>
+                    </motion.div>
 
-                    {/* Arrow sits on the line, between cards */}
                     <div className="absolute left-[18px] -bottom-5 -translate-x-1/2">
                       <ArrowDown className="w-4 h-4 text-white/35" />
                     </div>
@@ -63,9 +140,19 @@ const FeatureSection = () => {
 
                   {/* Stage 2 */}
                   <div className="relative pl-12 mt-10">
-                    <div
+                    <motion.div
                       className={`glass-purple rounded-2xl p-6 border border-white/10 ${hoverCard}`}
+                      style={{ y: s1.y, opacity: s1.opacity, scale: s1.scale }}
+                      whileHover={{ y: -4, scale: 1.01 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 18 }}
                     >
+                      <motion.div
+                        className="pointer-events-none absolute -inset-[1px] rounded-2xl"
+                        style={{
+                          opacity: s1.glow,
+                          boxShadow: "0 0 0 1px rgba(255,255,255,0.14), 0 20px 60px rgba(0,0,0,0.25)",
+                        }}
+                      />
                       <p className="text-[11px] uppercase tracking-wide text-white/60 mb-2">
                         Stage 2
                       </p>
@@ -73,7 +160,7 @@ const FeatureSection = () => {
                       <p className="text-white/75 text-sm mt-2">
                         Stories + DM touchpoints
                       </p>
-                    </div>
+                    </motion.div>
 
                     <div className="absolute left-[18px] -bottom-5 -translate-x-1/2">
                       <ArrowDown className="w-4 h-4 text-white/35" />
@@ -82,9 +169,19 @@ const FeatureSection = () => {
 
                   {/* Stage 3 */}
                   <div className="relative pl-12 mt-10">
-                    <div
+                    <motion.div
                       className={`glass-purple rounded-2xl p-6 border border-white/10 ${hoverCard}`}
+                      style={{ y: s2.y, opacity: s2.opacity, scale: s2.scale }}
+                      whileHover={{ y: -4, scale: 1.01 }}
+                      transition={{ type: "spring", stiffness: 260, damping: 18 }}
                     >
+                      <motion.div
+                        className="pointer-events-none absolute -inset-[1px] rounded-2xl"
+                        style={{
+                          opacity: s2.glow,
+                          boxShadow: "0 0 0 1px rgba(255,255,255,0.14), 0 20px 60px rgba(0,0,0,0.25)",
+                        }}
+                      />
                       <p className="text-[11px] uppercase tracking-wide text-white/60 mb-2">
                         Stage 3
                       </p>
@@ -92,7 +189,7 @@ const FeatureSection = () => {
                       <p className="text-white/75 text-sm mt-2">
                         DM → booking → sale
                       </p>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
 
@@ -108,19 +205,36 @@ const FeatureSection = () => {
 
               {/* Feature A copy */}
               <div className="text-white">
-                <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-                  Build a system
-                  <br />
-                  <span className="text-white/70">not just content</span>
-                  <br />
-                  that gets clients
-                </h2>
+                <motion.div
+                  variants={headlineWrap}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.35 }}
+                >
+                  <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                    <motion.span variants={headlineLine} className="block">
+                      Build a system
+                    </motion.span>
+                    <motion.span variants={headlineLine} className="block text-white/70">
+                      not just content
+                    </motion.span>
+                    <motion.span variants={headlineLine} className="block">
+                      that gets clients
+                    </motion.span>
+                  </h2>
+                </motion.div>
 
-                <p className="text-white/85 text-lg leading-relaxed max-w-xl">
+                <motion.p
+                  className="text-white/85 text-lg leading-relaxed max-w-xl"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.08 }}
+                >
                   Most agencies add volume. We build the infrastructure behind your content:
                   profile funnel, weekly content structure, and a DM → booking flow — so Instagram
                   becomes predictable.
-                </p>
+                </motion.p>
               </div>
             </div>
           </div>
@@ -128,11 +242,17 @@ const FeatureSection = () => {
           {/* Divider */}
           <div className="relative h-px bg-white/12" />
 
-          {/* Feature B */}
-          <div className="relative px-6 md:px-12 py-14 md:py-16">
+          {/* Feature B: Metrics */}
+          <div ref={metricsRef} className="relative px-6 md:px-12 py-14 md:py-16">
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* left copy */}
-              <div className="order-2 md:order-1 text-white">
+              {/* left copy (fade-up once) */}
+              <motion.div
+                className="order-2 md:order-1 text-white"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.55, ease: "easeOut" }}
+              >
                 <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
                   Know what’s working
                   <br />
@@ -145,32 +265,48 @@ const FeatureSection = () => {
                   We add tracking and a simple pipeline so you can see what turns into DMs,
                   bookings, and clients — then double down on what’s proven.
                 </p>
-              </div>
+              </motion.div>
 
-              {/* right metrics: ROWS */}
-              <div className="order-1 md:order-2 max-w-md mx-auto w-full">
+              {/* right metrics (scroll-stagger by progress) */}
+              <motion.div
+                className="order-1 md:order-2 max-w-md mx-auto w-full"
+                style={{ y: stackParallaxY }}
+              >
                 <div className="grid grid-cols-1 gap-3">
-                  {METRICS.map((m) => (
-                    <div
-                      key={m.label}
-                      className={`glass-purple rounded-2xl p-4 border border-white/10 flex items-center justify-between gap-4 ${hoverCard}`}
-                    >
-                      <div className="min-w-0">
-                        <p className="text-white text-xl font-black leading-none truncate">
-                          {m.value}
-                        </p>
-                        <p className="text-white/80 text-[11px] mt-2 leading-snug truncate">
-                          {m.label}
-                        </p>
-                      </div>
+                  {METRICS.map((m, idx) => {
+                    const n = METRICS.length;
+                    const start = idx / n;
+                    const end = Math.min(1, start + 0.22);
 
-                      <p className="text-white/55 text-[10px] text-right whitespace-nowrap">
-                        {m.sub}
-                      </p>
-                    </div>
-                  ))}
+                    const x = useTransform(metricsProgress, [start, end], [42, 0]);
+                    const opacity = useTransform(metricsProgress, [start, end], [0, 1]);
+                    const scale = useTransform(metricsProgress, [start, end], [0.985, 1]);
+
+                    return (
+                      <motion.div
+                        key={m.label}
+                        className={`glass-purple rounded-2xl p-4 border border-white/10 flex items-center justify-between gap-4 ${hoverCard}`}
+                        style={{ x, opacity, scale }}
+                        whileHover={{ y: -3, scale: 1.01 }}
+                        transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                      >
+                        <div className="min-w-0">
+                          <p className="text-white text-xl font-black leading-none truncate">
+                            {m.value}
+                          </p>
+                          <p className="text-white/80 text-[11px] mt-2 leading-snug truncate">
+                            {m.label}
+                          </p>
+                        </div>
+
+                        <p className="text-white/55 text-[10px] text-right whitespace-nowrap">
+                          {m.sub}
+                        </p>
+                      </motion.div>
+                    );
+                  })}
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
 
