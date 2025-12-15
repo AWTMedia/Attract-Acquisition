@@ -98,7 +98,7 @@ const TestimonialsSection = () => {
               variants={headlineItem}
               custom={0}
             >
-              Businesses are{" "}
+              Businesses are {" "}
             </motion.span>
             <motion.span
               className="inline-block text-primary"
