@@ -7,22 +7,30 @@ const MadeWithLoveSection = () => {
       <div className="container mx-auto text-center">
         <p className="text-primary font-semibold mb-4">Get Attractive™</p>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-dark-foreground mb-6 flex items-center justify-center gap-3">
+        <h2 className="text-4xl md:text-5xl font-black text-dark-foreground mb-4 flex items-center justify-center gap-3">
           Built to Convert
           <Heart className="w-7 h-7 fill-primary text-primary" />
         </h2>
 
-        <p className="text-dark-foreground/70 max-w-2xl mx-auto mb-8 text-lg">
-          We believe physical businesses don’t need more content — they need a system
-          that turns attention into clients, every week.
+        <p className="text-dark-foreground/75 max-w-2xl mx-auto mb-8 text-lg leading-relaxed">
+          Physical businesses don’t need more content — they need a system that turns attention into
+          clients, every week.
         </p>
 
-        <Button
-          variant="outline"
-          className="border-primary text-primary hover:bg-primary hover:text-white"
-        >
-          See how it works
-        </Button>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button variant="hero" size="lg" asChild>
+            <a href="#" aria-label="Book a call">
+              Book a Call
+            </a>
+          </Button>
+
+          <a
+            href="#"
+            className="text-dark-foreground/80 hover:text-dark-foreground transition-colors font-medium"
+          >
+            Or DM “ATTRACT” on Instagram
+          </a>
+        </div>
       </div>
     </section>
   );
