@@ -105,7 +105,7 @@ const TestimonialsSection = () => {
               variants={headlineItem}
               custom={1}
             >
-              {" "}Getting Attractive
+              {" "} Getting Attractive
             </motion.span>
           </h2>
 
