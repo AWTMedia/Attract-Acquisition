@@ -28,10 +28,10 @@ const FAQSection = () => {
   return (
     <section className="bg-secondary py-16 md:py-24">
       <div className="container mx-auto">
-        <h2 className="text-3xl md:text-4xl font-black text-center mb-2">
+        <h2 className="text-3xl md:text-4xl font-black text-center mb-2 text-foreground">
           FAQ
         </h2>
-        <p className="text-center text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-center text-foreground/70 max-w-2xl mx-auto">
           Quick answers before you book.
         </p>
 
@@ -44,7 +44,7 @@ const FAQSection = () => {
               <h3 className="font-bold text-foreground mb-3 leading-snug">
                 {faq.question}
               </h3>
-              <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+              <p className="text-foreground/70 text-sm mb-4 leading-relaxed">
                 {faq.description}
               </p>
               <ChevronRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
