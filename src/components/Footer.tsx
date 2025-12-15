@@ -26,22 +26,21 @@ const Footer = () => {
       <div className="container mx-auto relative">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="text-2xl font-black mb-2">Attract Acquisition</h3>
-            <p className="text-sm text-white/75 max-w-xs">
+            <h3 className="text-2xl font-black mb-2 text-white">
+              Attract Acquisition
+            </h3>
+            <p className="text-sm text-white max-w-xs">
               Building Attraction Engines for Physical Businesses.
             </p>
           </div>
 
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold mb-4 text-white/80">{category}</h4>
+              <h4 className="font-semibold mb-4 text-white">{category}</h4>
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
-                    <a
-                      href="#"
-                      className="text-white/70 hover:text-white transition-colors text-sm"
-                    >
+                    <a href="#" className="text-white hover:opacity-90 transition-opacity text-sm">
                       {link}
                     </a>
                   </li>
@@ -58,7 +57,7 @@ const Footer = () => {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="text-white/80 hover:text-white transition-colors"
+                className="text-white hover:opacity-90 transition-opacity"
               >
                 <Icon className="w-5 h-5" />
               </a>
@@ -66,7 +65,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 text-center text-white/60 text-xs">
+        <div className="mt-8 text-center text-white text-xs">
           <p>© 2025 Attract Acquisition. All rights reserved.</p>
         </div>
       </div>
