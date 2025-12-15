@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2, Sparkles, Workflow, Target } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 
+const CALENDLY_URL = "https://calendly.com/attractacquisition/attract-acquisition-1-1-call";
+const INSTAGRAM_URL = "https://www.instagram.com/attractacq/";
+
 const depthLayers = (
   <div className="pointer-events-none absolute inset-0">
     <div className="absolute -top-24 -left-24 h-[520px] w-[520px] rounded-full bg-white/10 blur-[90px]" />
@@ -23,9 +26,6 @@ const stagger = {
   show: { transition: { staggerChildren: 0.1 } },
 };
 
-// -----------------------------
-// Scroll-storytelling helpers (like Features metrics)
-// -----------------------------
 function clamp01(v: number) {
   return Math.max(0, Math.min(1, v));
 }
@@ -42,7 +42,6 @@ function PillScrollStack({ items }: { items: string[] }) {
     offset: ["start 0.85", "end 0.25"],
   });
 
-  // Finish earlier so it's “done” by mid-section
   const progress = useSpedProgress(raw, 1.6);
   const parallaxY = useTransform(progress, [0, 1], [10, -10]);
 
@@ -157,7 +156,12 @@ const AboutPage = () => {
                     </a>
                   </Button>
 
-                  <a href="#" className="text-foreground/80 hover:text-foreground transition-colors font-medium">
+                  <a
+                    href={INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground/80 hover:text-foreground transition-colors font-medium"
+                  >
                     Or DM “ATTRACT” on Instagram
                   </a>
                 </motion.div>
@@ -263,13 +267,12 @@ const AboutPage = () => {
                 </motion.p>
               </motion.div>
 
-              {/* Right side scroll-storytelling pills */}
               <PillScrollStack items={pillars} />
             </div>
           </div>
         </section>
 
-        {/* METHOD (mini engine) */}
+        {/* METHOD */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto">
             <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden aa-bg relative">
@@ -297,6 +300,29 @@ const AboutPage = () => {
                     >
                       A simple 3-stage system that turns attention into clients — every week.
                     </motion.p>
+
+                    {/* (Optional but useful) add a direct booking CTA here */}
+                    <motion.div variants={fadeUp} className="mt-6 flex flex-wrap items-center gap-4">
+                      <Button variant="hero" size="lg" asChild>
+                        <a
+                          href={CALENDLY_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Book a call"
+                        >
+                          Book a Call
+                        </a>
+                      </Button>
+
+                      <a
+                        href={INSTAGRAM_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/85 hover:text-white transition-colors font-medium"
+                      >
+                        Or DM “ATTRACT” on Instagram
+                      </a>
+                    </motion.div>
                   </motion.div>
 
                   <motion.div
@@ -383,7 +409,9 @@ const AboutPage = () => {
 
               <motion.a
                 variants={fadeUp}
-                href="#"
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-foreground/80 hover:text-foreground transition-colors font-medium"
               >
                 Or DM “ATTRACT” on Instagram
