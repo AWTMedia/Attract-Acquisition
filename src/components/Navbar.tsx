@@ -31,13 +31,13 @@ const Navbar = () => {
 
             <div className="hidden md:flex items-center gap-8">
               <a
-                href="#"
+                href="/services"
                 className="text-white/80 font-medium hover:text-white transition-colors"
               >
                 Service
               </a>
               <a
-                href="#"
+                href="/about"
                 className="text-white/80 font-medium hover:text-white transition-colors"
               >
                 About us
@@ -46,7 +46,7 @@ const Navbar = () => {
 
             <div className="flex items-center gap-4">
               <Button variant="dark" size="sm" asChild>
-                <a href="#get-attractive" aria-label="Get Attractive">
+                <a href="/#get-attractive" aria-label="Get Attractive">
                   Get Attractive
                 </a>
               </Button>
@@ -75,7 +75,7 @@ const Navbar = () => {
         {/* Same “outer size” as the glass navbar, but invisible */}
         <div className="rounded-2xl px-5 md:px-6 py-3 bg-transparent">
           <Button variant="dark" size="sm" asChild>
-            <a href="#get-attractive" aria-label="Get Attractive">
+            <a href="/#get-attractive" aria-label="Get Attractive">
               Get Attractive
             </a>
           </Button>
