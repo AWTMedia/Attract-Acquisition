@@ -13,6 +13,10 @@ import {
 } from "lucide-react";
 import PageLayout from "@/components/PageLayout";
 
+const CALENDLY_URL =
+  "https://calendly.com/attractacquisition/attract-acquisition-1-1-call";
+const INSTAGRAM_URL = "https://www.instagram.com/attractacq/";
+
 const depthLayers = (
   <div className="pointer-events-none absolute inset-0">
     <div className="absolute -top-24 -left-24 h-[520px] w-[520px] rounded-full bg-white/10 blur-[90px]" />
@@ -24,7 +28,11 @@ const depthLayers = (
 
 const fadeUp = {
   hidden: { opacity: 0, y: 14 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
 };
 
 const stagger = {
@@ -79,7 +87,9 @@ function ScrollList({
                   {...props}
                   className={[
                     "h-5 w-5",
-                    iconTone === "primary" ? "text-primary" : "text-foreground/50",
+                    iconTone === "primary"
+                      ? "text-primary"
+                      : "text-foreground/50",
                     props?.className || "",
                   ].join(" ")}
                 />
@@ -89,7 +99,9 @@ function ScrollList({
                   {...props}
                   className={[
                     "h-5 w-5",
-                    iconTone === "primary" ? "text-primary" : "text-foreground/50",
+                    iconTone === "primary"
+                      ? "text-primary"
+                      : "text-foreground/50",
                     props?.className || "",
                   ].join(" ")}
                 />
@@ -114,8 +126,14 @@ function ScrollList({
 
 const ServicesPage = () => {
   const deliverables = [
-    { title: "Profile funnel rebuild", desc: "Bio, highlights, pinned posts — engineered for action." },
-    { title: "Weekly content structure", desc: "A repeatable plan that compounds (not random posting)." },
+    {
+      title: "Profile funnel rebuild",
+      desc: "Bio, highlights, pinned posts — engineered for action.",
+    },
+    {
+      title: "Weekly content structure",
+      desc: "A repeatable plan that compounds (not random posting).",
+    },
     { title: "DM → booking flow", desc: "Qualified conversations → appointments → clients." },
     { title: "Scripts + prompts", desc: "Message templates for replies, follow-ups, and booking." },
     { title: "Tracking + pipeline", desc: "See what turns into DMs, bookings, and revenue." },
@@ -164,11 +182,7 @@ const ServicesPage = () => {
     },
   ];
 
-  // -----------------------------
-  // WHO IT'S FOR scroll controller
-  // - First: left column items animate in
-  // - Then: right column items animate in
-  // -----------------------------
+  // WHO IT'S FOR scroll controller (left first, then right)
   const whoRef = useRef<HTMLDivElement | null>(null);
   const { scrollYProgress: whoRaw } = useScroll({
     target: whoRef,
@@ -176,13 +190,17 @@ const ServicesPage = () => {
   });
 
   const whoProgress = useSpedProgress(whoRaw, 1.6);
-
-  // Split the progress so left finishes first, right starts after
   const leftProgress = useTransform(whoProgress, [0, 0.55], [0, 1]);
   const rightProgress = useTransform(whoProgress, [0.45, 1], [0, 1]);
 
-  const forWhoItems: ScrollListItem[] = forWho.map((label) => ({ key: `for-${label}`, label }));
-  const notForItems: ScrollListItem[] = notFor.map((label) => ({ key: `not-${label}`, label }));
+  const forWhoItems: ScrollListItem[] = forWho.map((label) => ({
+    key: `for-${label}`,
+    label,
+  }));
+  const notForItems: ScrollListItem[] = notFor.map((label) => ({
+    key: `not-${label}`,
+    label,
+  }));
 
   return (
     <PageLayout>
@@ -220,12 +238,22 @@ const ServicesPage = () => {
 
                 <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
                   <Button variant="hero" size="lg" asChild>
-                    <a href="#book" aria-label="Book a call">
+                    <a
+                      href={CALENDLY_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Book a call"
+                    >
                       Book a Call <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
 
-                  <a href="#" className="text-foreground/80 hover:text-foreground transition-colors font-medium">
+                  <a
+                    href={INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-foreground/80 hover:text-foreground transition-colors font-medium"
+                  >
                     Or DM “ATTRACT” on Instagram
                   </a>
                 </motion.div>
@@ -279,19 +307,11 @@ const ServicesPage = () => {
         {/* DELIVERABLES */}
         <section className="py-16 md:py-24 bg-secondary">
           <div className="container mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger}
-            >
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger}>
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-black text-foreground text-center">
                 What you get
               </motion.h2>
-              <motion.p
-                variants={fadeUp}
-                className="mt-3 text-center text-foreground/70 max-w-2xl mx-auto leading-relaxed"
-              >
+              <motion.p variants={fadeUp} className="mt-3 text-center text-foreground/70 max-w-2xl mx-auto leading-relaxed">
                 Concrete deliverables that build a predictable acquisition channel.
               </motion.p>
             </motion.div>
@@ -321,13 +341,7 @@ const ServicesPage = () => {
         {/* HOW IT WORKS */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger}
-              className="max-w-3xl"
-            >
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger} className="max-w-3xl">
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-black text-foreground">
                 How it works
               </motion.h2>
@@ -369,12 +383,7 @@ const ServicesPage = () => {
           <div className="container mx-auto">
             <div className="grid lg:grid-cols-2 gap-10 items-start">
               <div>
-                <motion.div
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={stagger}
-                >
+                <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger}>
                   <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-black text-foreground">
                     Who this is for
                   </motion.h2>
@@ -383,19 +392,13 @@ const ServicesPage = () => {
                   </motion.p>
                 </motion.div>
 
-                {/* Scroll-stagger list (LEFT FIRST) */}
                 <div className="mt-6">
                   <ScrollList items={forWhoItems} progress={leftProgress} icon="check" iconTone="primary" />
                 </div>
               </div>
 
               <div>
-                <motion.div
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={stagger}
-                >
+                <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger}>
                   <motion.h3 variants={fadeUp} className="text-2xl font-black text-foreground">
                     Not for
                   </motion.h3>
@@ -404,7 +407,6 @@ const ServicesPage = () => {
                   </motion.p>
                 </motion.div>
 
-                {/* Scroll-stagger list (RIGHT AFTER) */}
                 <div className="mt-6">
                   <ScrollList items={notForItems} progress={rightProgress} icon="x" iconTone="muted" />
                 </div>
@@ -416,13 +418,7 @@ const ServicesPage = () => {
         {/* FAQ */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={stagger}
-              className="text-center"
-            >
+            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger} className="text-center">
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-black text-foreground">
                 FAQ
               </motion.h2>
@@ -431,13 +427,7 @@ const ServicesPage = () => {
               </motion.p>
             </motion.div>
 
-            <motion.div
-              className="mt-12 grid md:grid-cols-2 gap-6"
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.25 }}
-              variants={stagger}
-            >
+            <motion.div className="mt-12 grid md:grid-cols-2 gap-6" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} variants={stagger}>
               {faqs.map((f) => (
                 <motion.div
                   key={f.q}
@@ -462,12 +452,7 @@ const ServicesPage = () => {
             <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden aa-bg relative">
               {depthLayers}
               <div className="relative px-6 md:px-12 py-14 md:py-16 text-center">
-                <motion.div
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={stagger}
-                >
+                <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger}>
                   <motion.p variants={fadeUp} className="text-white/70 font-semibold">
                     Get Attractive™
                   </motion.p>
@@ -482,13 +467,13 @@ const ServicesPage = () => {
                   <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <motion.div whileHover={{ y: -2, scale: 1.01 }} whileTap={{ scale: 0.99 }}>
                       <Button variant="hero" size="lg" asChild>
-                        <a href="#" aria-label="Book a call">
+                        <a href={CALENDLY_URL} target="_blank" rel="noreferrer" aria-label="Book a call">
                           Book a Call
                         </a>
                       </Button>
                     </motion.div>
 
-                    <a href="#" className="text-white/85 hover:text-white transition-colors font-medium">
+                    <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="text-white/85 hover:text-white transition-colors font-medium">
                       Or DM “ATTRACT” on Instagram
                     </a>
                   </motion.div>
