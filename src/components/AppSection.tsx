@@ -1,4 +1,4 @@
-import phoneMockup3 from "@/assets/phone-mockup-3.png";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 const QR_PATTERN = [
@@ -7,40 +7,82 @@ const QR_PATTERN = [
   1, 1, 1, 0, 0,
   0, 0, 1, 1, 0,
   1, 0, 0, 1, 1,
-]; // 25 cells – deterministic placeholder
+];
 
 const AppSection = () => {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <motion.section
+      className="bg-background py-16 md:py-24"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+    >
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* LEFT */}
           <div>
             <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight text-foreground">
-              It all starts
-              <br />
-              <span className="text-primary">with a call.</span>
+              <motion.span
+                className="block"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+              >
+                It all starts
+              </motion.span>
+
+              <motion.span
+                className="text-primary block"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
+              >
+                with a call.
+              </motion.span>
             </h2>
 
-            <p className="text-foreground/70 text-lg mb-6 leading-relaxed max-w-xl">
+            <motion.p
+              className="text-foreground/70 text-lg mb-6 leading-relaxed max-w-xl"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.12 }}
+            >
               Book a 15-minute call and we’ll map your Attraction Engine — profile funnel, content
               structure, and the DM → booking flow for your business.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap gap-3 text-sm text-foreground/60 mb-8">
+            <motion.div
+              className="flex flex-wrap gap-3 text-sm text-foreground/60 mb-8"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.45, ease: "easeOut", delay: 0.18 }}
+            >
               <span>15 minutes</span>
               <span>•</span>
               <span>Free</span>
               <span>•</span>
               <span>Clear next step</span>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-wrap gap-4 items-center">
-              <Button variant="hero" size="lg" asChild>
-                <a href="#" aria-label="Book a call">
-                  Book a Call
-                </a>
-              </Button>
+            <motion.div
+              className="flex flex-wrap gap-4 items-center"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.22 }}
+            >
+              <motion.div whileHover={{ y: -2, scale: 1.01 }} whileTap={{ scale: 0.99 }}>
+                <Button variant="hero" size="lg" asChild>
+                  <a href="#" aria-label="Book a call">
+                    Book a Call
+                  </a>
+                </Button>
+              </motion.div>
 
               <a
                 href="#"
@@ -48,43 +90,79 @@ const AppSection = () => {
               >
                 Or DM “ATTRACT” on Instagram
               </a>
-            </div>
+            </motion.div>
           </div>
 
           {/* RIGHT */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-10">
+            <motion.div
+              className="relative w-full max-w-[320px] md:max-w-[360px]"
+              initial={{ opacity: 0, x: 22, scale: 0.985 }}
+              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+            >
+              {/* one-time glow pulse behind card */}
+              <motion.div
+                aria-hidden
+                className="absolute -inset-6 rounded-[2.5rem] bg-primary/20 blur-2xl"
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: [0, 0.35, 0.12], scale: [0.95, 1.05, 1] }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 1.1, ease: "easeOut" }}
+              />
 
-            <div className="bg-background border border-border rounded-3xl p-7 shadow-xl w-full max-w-[320px] md:max-w-[360px]">
-              <p className="text-xs tracking-widest text-foreground/60 mb-4 text-center">
-                SCAN TO BOOK A CALL
-              </p>
+              <div className="relative bg-background border border-border rounded-3xl p-7 shadow-xl">
+                <p className="text-xs tracking-widest text-foreground/60 mb-4 text-center">
+                  SCAN TO BOOK A CALL
+                </p>
 
-              <p className="font-black text-xl text-foreground mb-4 text-center">
-                Attract Acquisition
-              </p>
+                <p className="font-black text-xl text-foreground mb-4 text-center">
+                  Attract Acquisition
+                </p>
 
-              <div className="w-36 h-36 bg-foreground rounded-2xl flex items-center justify-center mx-auto">
-                <div className="grid grid-cols-5 gap-1.5 p-2.5">
-                  {QR_PATTERN.map((v, i) => (
-                    <div
-                      key={i}
-                      className={`w-4 h-4 rounded-[3px] ${v ? "bg-background" : "bg-foreground"}`}
+                <div className="relative w-36 h-36 bg-foreground rounded-2xl flex items-center justify-center mx-auto overflow-hidden">
+                  {/* optional: scan line */}
+                  <motion.div
+                    aria-hidden
+                    className="absolute inset-0 pointer-events-none"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.35 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <motion.div
+                      className="absolute left-0 right-0 h-8 bg-gradient-to-b from-transparent via-white/35 to-transparent"
+                      initial={{ y: -40, opacity: 0 }}
+                      whileInView={{ y: 160, opacity: [0, 0.7, 0] }}
+                      viewport={{ once: true, amount: 0.35 }}
+                      transition={{ duration: 1.1, ease: "easeOut", delay: 0.25 }}
                     />
-                  ))}
+                  </motion.div>
+
+                  <div className="grid grid-cols-5 gap-1.5 p-2.5">
+                    {QR_PATTERN.map((v, i) => (
+                      <div
+                        key={i}
+                        className={`w-4 h-4 rounded-[3px] ${
+                          v ? "bg-background" : "bg-foreground"
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
+
+                <p className="text-sm text-foreground/60 mt-5 text-center">
+                  Opens a 15-minute
+                  <br />
+                  booking link
+                </p>
               </div>
-
-              <p className="text-sm text-foreground/60 mt-5 text-center">
-                Opens a 15-minute
-                <br />
-                booking link
-              </p>
-
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
