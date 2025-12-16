@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Star } from "lucide-react";
+import { Star, ChevronDown } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 
 const CALENDLY_URL = "https://calendly.com/attractacquisition/attract-acquisition-1-1-call";
@@ -65,6 +65,11 @@ const HeroAndStages = () => {
         },
   };
 
+  const handleScrollCue = () => {
+    const el = document.getElementById("attraction-engine");
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <section className="relative overflow-hidden aa-bg">
       {/* Subtle depth layers */}
@@ -77,70 +82,96 @@ const HeroAndStages = () => {
 
       <div className="container mx-auto relative">
         {/* HERO (FULL SCREEN) */}
-        <div className="min-h-[100svh] flex items-center pt-24 md:pt-28 pb-10">
-          <motion.div className="max-w-3xl" variants={heroContainer} initial="hidden" animate="show">
-            <motion.h1
-              variants={heroItem}
-              className="text-5xl md:text-7xl font-black text-white leading-[1.02] mb-6"
-            >
-              Turn Instagram into clients for your physical business.
-            </motion.h1>
-
-            <motion.p variants={heroItem} className="text-white/80 text-lg md:text-xl mb-7">
-              We build Attraction Engines that convert random posting into DMs, bookings, and sales — without posting
-              more for the sake of it.
-            </motion.p>
-
-            <motion.div variants={heroItem} className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <Button
-                variant="hero"
-                size="lg"
-                asChild
-                className="shadow-[0_18px_50px_rgba(11,15,25,0.45)] hover:shadow-[0_22px_65px_rgba(157,75,255,0.22)] hover:-translate-y-[1px] transition-all"
+        {/* Use a grid so content is vertically centered, with a bottom row reserved for scroll cue */}
+        <div className="min-h-[100svh] grid grid-rows-[1fr_auto]">
+          {/* Center the hero block. Add a bit of top padding to clear navbar, but keep it centered */}
+          <div className="flex items-center pt-20 md:pt-24 pb-8">
+            <motion.div className="max-w-3xl" variants={heroContainer} initial="hidden" animate="show">
+              <motion.h1
+                variants={heroItem}
+                className="text-5xl md:text-7xl font-black text-white leading-[1.02] mb-6"
               >
+                Turn Instagram into clients for your physical business.
+              </motion.h1>
+
+              <motion.p variants={heroItem} className="text-white/80 text-lg md:text-xl mb-7">
+                We build Attraction Engines that convert random posting into DMs, bookings, and sales — without posting
+                more for the sake of it.
+              </motion.p>
+
+              <motion.div variants={heroItem} className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <Button
+                  variant="hero"
+                  size="lg"
+                  asChild
+                  className="shadow-[0_18px_50px_rgba(11,15,25,0.45)] hover:shadow-[0_22px_65px_rgba(157,75,255,0.22)] hover:-translate-y-[1px] transition-all"
+                >
+                  <a
+                    href={CALENDLY_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Get Attractive (Book a call)"
+                  >
+                    Get Attractive
+                  </a>
+                </Button>
+
                 <a
-                  href={CALENDLY_URL}
+                  href={INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="Get Attractive (Book a call)"
+                  className="text-white/75 hover:text-white transition-colors text-sm font-medium"
                 >
-                  Get Attractive
+                  Or DM “ATTRACT” on Instagram →
                 </a>
-              </Button>
+              </motion.div>
 
-              <a
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/75 hover:text-white transition-colors text-sm font-medium"
+              <motion.div variants={heroItem} className="flex items-center gap-2 mt-7">
+                <div className="flex gap-[2px]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-white text-white" />
+                  ))}
+                </div>
+                <span className="text-white/80 text-sm font-medium">
+                  Trustpilot <span className="text-white/60">•</span>{" "}
+                  <span className="text-white/70">Rated 5/5</span>
+                </span>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Scroll cue (bottom of hero) */}
+          <div className="pb-10 md:pb-12 flex justify-center">
+            <button
+              type="button"
+              onClick={handleScrollCue}
+              className="group inline-flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors"
+              aria-label="Scroll to see how it works"
+            >
+              <span className="text-sm font-medium">See how it works</span>
+
+              <motion.div
+                aria-hidden
+                animate={shouldReduceMotion ? undefined : { y: [0, 8, 0] }}
+                transition={shouldReduceMotion ? undefined : { duration: 1.25, repeat: Infinity, ease: "easeInOut" }}
+                className="h-9 w-9 rounded-full border border-white/15 bg-white/5 flex items-center justify-center group-hover:border-white/25 group-hover:bg-white/10 transition-colors"
               >
-                Or DM “ATTRACT” on Instagram →
-              </a>
-            </motion.div>
-
-            <motion.div variants={heroItem} className="flex items-center gap-2 mt-7">
-              <div className="flex gap-[2px]">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-white text-white" />
-                ))}
-              </div>
-              <span className="text-white/80 text-sm font-medium">
-                Trustpilot <span className="text-white/60">•</span>{" "}
-                <span className="text-white/70">Rated 5/5</span>
-              </span>
-            </motion.div>
-          </motion.div>
+                <ChevronDown className="h-4 w-4" />
+              </motion.div>
+            </button>
+          </div>
         </div>
 
         {/* BELOW THE FOLD DIVIDER */}
-        <div className="pb-10 md:pb-12">
+        <div className="pb-8 md:pb-10">
           <div className="h-px w-full bg-white/10" />
         </div>
 
         {/* STAGE SECTION (BELOW FOLD) */}
-        <section className="pb-14 md:pb-16">
+        {/* Reduced top padding so it reads as the next chapter, not a second hero */}
+        <section id="attraction-engine" className="pb-14 md:pb-16 pt-8 md:pt-10">
           <motion.div
-            className="text-center mb-10 md:mb-12"
+            className="text-center mb-8 md:mb-10"
             variants={heroContainer}
             initial="hidden"
             whileInView="show"
