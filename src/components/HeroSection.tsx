@@ -106,35 +106,36 @@ const HeroAndStages = () => {
                 more for the sake of it.
               </motion.p>
 
-              <motion.div
-                variants={heroItem}
-                className="w-full flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 items-center md:items-start"
-              >
-                <Button
-                  variant="hero"
-                  size="lg"
-                  asChild
-                  className="w-full sm:w-auto shadow-[0_18px_50px_rgba(11,15,25,0.45)] hover:shadow-[0_22px_65px_rgba(157,75,255,0.22)] hover:-translate-y-[1px] transition-all"
-                >
-                  <a
-                    href={CALENDLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Get Attractive (Book a call)"
-                  >
-                    Get Attractive
-                  </a>
-                </Button>
+          <motion.div
+  variants={heroItem}
+  className="w-full flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 items-center md:items-start"
+>
+  <Button
+    variant="hero"
+    size="lg"
+    asChild
+    className="w-full sm:w-auto shadow-[0_18px_50px_rgba(11,15,25,0.45)] hover:shadow-[0_22px_65px_rgba(157,75,255,0.22)] hover:-translate-y-[1px] transition-all"
+  >
+    <a
+      href={CALENDLY_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Get Attractive (Book a call)"
+    >
+      Get Attractive
+    </a>
+  </Button>
 
-                <a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/75 hover:text-white transition-colors text-sm font-medium text-center sm:text-left"
-                >
-                  Or DM “ATTRACT” on Instagram →
-                </a>
-              </motion.div>
+  <a
+    href={INSTAGRAM_URL}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-white/75 hover:text-white transition-colors text-sm font-medium text-center sm:text-left
+               2xl:basis-full 2xl:text-left 2xl:ml-0"
+  >
+    Or DM “ATTRACT” on Instagram →
+  </a>
+</motion.div>
 
               <motion.div
                 variants={heroItem}
