@@ -30,7 +30,7 @@ const FAQSection = () => {
           "Not always. We can build done-with-you (you post) or support execution depending on your setup.",
       },
 
-      // up to 10 total
+      // Up to 10 total (expanded view)
       {
         question: "Who is this for?",
         description:
@@ -44,17 +44,17 @@ const FAQSection = () => {
       {
         question: "Do you create content for us?",
         description:
-          "We can. But the core is the engine: profile funnel, content structure, story/DM touchpoints, and the booking flow. Execution can be done-with-you or done-for-you.",
+          "We can — but the core is the engine: profile funnel, content structure, story/DM touchpoints, and the booking flow. Execution can be done-with-you or done-for-you.",
       },
       {
         question: "What if we already have followers?",
         description:
-          "Perfect — the engine helps you convert attention into action. More followers is great, but conversion is what matters.",
+          "Perfect — the engine helps you convert attention into action. Followers help, but conversion is what matters.",
       },
       {
         question: "What if we have low followers?",
         description:
-          "That’s fine. The system works best when it’s focused: profile funnel + strong hooks + a DM booking flow. You don’t need huge numbers to get bookings.",
+          "That’s fine. The system works best when focused: profile funnel + strong hooks + a DM booking flow. You don’t need huge numbers to get bookings.",
       },
       {
         question: "What happens after the engine is built?",
@@ -66,13 +66,14 @@ const FAQSection = () => {
   );
 
   const previewFaqs = faqs.slice(0, 4);
+  const expandedFaqs = faqs.slice(0, 10);
 
-  const container = {
+  const previewContainer = {
     hidden: {},
     show: { transition: { staggerChildren: 0.08, delayChildren: 0.08 } },
   };
 
-  const card = (index: number) => ({
+  const previewCard = (index: number) => ({
     hidden: { opacity: 0, y: 18, x: index % 2 === 0 ? -10 : 10, scale: 0.99 },
     show: {
       opacity: 1,
@@ -83,14 +84,14 @@ const FAQSection = () => {
     },
   });
 
-  const listWrap = {
+  const listStagger = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.07, delayChildren: 0.05 } },
+    show: { transition: { staggerChildren: 0.07, delayChildren: 0.06 } },
   };
 
-  const row = {
+  const rowIn = {
     hidden: { opacity: 0, y: 10 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.32, ease: "easeOut" } },
     exit: { opacity: 0, y: 8, transition: { duration: 0.2, ease: "easeOut" } },
   };
 
@@ -124,15 +125,15 @@ const FAQSection = () => {
             <motion.div
               key="preview"
               className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12"
-              variants={container}
+              variants={previewContainer}
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.28 }}
             >
               {previewFaqs.map((faq, index) => (
                 <motion.div
-                  key={index}
-                  variants={card(index)}
+                  key={faq.question}
+                  variants={previewCard(index)}
                   whileHover={{ y: -6, scale: 1.01 }}
                   className="bg-background rounded-2xl p-6 hover:shadow-lg transition-shadow cursor-pointer group border border-border/60"
                 >
@@ -161,32 +162,29 @@ const FAQSection = () => {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 8 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <motion.div
-                variants={listWrap}
+                className="grid gap-3"
+                variants={listStagger}
                 initial="hidden"
                 animate="show"
-                className="grid gap-3"
               >
-                <AnimatePresence initial={false} mode="popLayout">
-                  {faqs.slice(0, 10).map((faq, idx) => {
+                <AnimatePresence initial={false}>
+                  {expandedFaqs.map((faq, idx) => {
                     const isOpen = openIndex === idx;
 
                     return (
                       <motion.div
                         key={faq.question}
-                        variants={row}
-                        layout
+                        variants={rowIn}
                         className="bg-background rounded-2xl border border-border/60 overflow-hidden"
-                        transition={{ type: "spring", stiffness: 260, damping: 28 }}
                       >
-                        <motion.button
+                        <button
                           type="button"
                           onClick={() => setOpenIndex((v) => (v === idx ? null : idx))}
                           className="w-full flex items-center justify-between gap-4 p-5 text-left"
                           aria-expanded={isOpen}
-                          layout="position"
                         >
                           <span className="font-bold text-foreground leading-snug">
                             {faq.question}
@@ -199,37 +197,29 @@ const FAQSection = () => {
                           >
                             <ChevronDown className="w-5 h-5 text-primary" />
                           </motion.span>
-                        </motion.button>
+                        </button>
 
-                        <AnimatePresence initial={false}>
-                          {isOpen && (
-                            <motion.div
-                              key="content"
-                              layout
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              transition={{
-                                height: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
-                                opacity: { duration: 0.18, ease: "easeOut" },
-                              }}
-                              style={{ overflow: "hidden" }}
-                            >
-                              {/* Padding lives inside so height animation is smoother */}
-                              <motion.div
-                                initial={{ y: -6 }}
-                                animate={{ y: 0 }}
-                                exit={{ y: -6 }}
-                                transition={{ duration: 0.2, ease: "easeOut" }}
-                                className="px-5 pb-5"
-                              >
-                                <p className="text-foreground/70 text-sm leading-relaxed">
-                                  {faq.description}
-                                </p>
-                              </motion.div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
+                        {/* SMOOTH REVEAL: animate grid rows (0fr -> 1fr) instead of height:auto */}
+                        <motion.div
+                          className="grid"
+                          initial={false}
+                          animate={{
+                            gridTemplateRows: isOpen ? "1fr" : "0fr",
+                            opacity: isOpen ? 1 : 0,
+                          }}
+                          transition={{
+                            gridTemplateRows: { duration: 0.28, ease: [0.22, 1, 0.36, 1] },
+                            opacity: { duration: 0.18, ease: "easeOut" },
+                          }}
+                        >
+                          <div className="overflow-hidden">
+                            <div className="px-5 pb-5">
+                              <p className="text-foreground/70 text-sm leading-relaxed">
+                                {faq.description}
+                              </p>
+                            </div>
+                          </div>
+                        </motion.div>
                       </motion.div>
                     );
                   })}
@@ -255,24 +245,6 @@ const FAQSection = () => {
               {expanded ? "See less" : "See all answers"}
             </Button>
           </motion.div>
-
-          {expanded && (
-            <motion.div
-              className="mt-4"
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-            >
-              <a
-                href="https://calendly.com/attractacquisition/attract-acquisition-1-1-call"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-semibold text-primary hover:opacity-90 transition-opacity"
-              >
-                Or just get attractive →
-              </a>
-            </motion.div>
-          )}
         </motion.div>
       </div>
     </section>
