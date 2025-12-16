@@ -87,9 +87,7 @@ function ScrollList({
                   {...props}
                   className={[
                     "h-5 w-5",
-                    iconTone === "primary"
-                      ? "text-primary"
-                      : "text-foreground/50",
+                    iconTone === "primary" ? "text-primary" : "text-foreground/50",
                     props?.className || "",
                   ].join(" ")}
                 />
@@ -99,9 +97,7 @@ function ScrollList({
                   {...props}
                   className={[
                     "h-5 w-5",
-                    iconTone === "primary"
-                      ? "text-primary"
-                      : "text-foreground/50",
+                    iconTone === "primary" ? "text-primary" : "text-foreground/50",
                     props?.className || "",
                   ].join(" ")}
                 />
@@ -239,10 +235,15 @@ const ServicesPage = () => {
 
                 <motion.div
                   variants={fadeUp}
-                  className="mt-8 flex flex-col sm:flex-row sm:flex-wrap items-center justify-center lg:justify-start gap-4"
+                  className="mt-8 flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:gap-4"
                 >
                   <Button variant="hero" size="lg" asChild>
-                    <a href={CALENDLY_URL} target="_blank" rel="noreferrer" aria-label="Book a call">
+                    <a
+                      href={CALENDLY_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Book a call"
+                    >
                       Book a Call <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
                   </Button>
@@ -279,7 +280,7 @@ const ServicesPage = () => {
               >
                 <div className="rounded-[2rem] md:rounded-[2.5rem] overflow-hidden aa-bg relative">
                   {depthLayers}
-                  <div className="relative p-6 md:p-8">
+                  <div className="relative p-6 md:p-8 text-center md:text-left">
                     <p className="text-white/70 text-sm font-semibold">3-stage flow</p>
                     <h2 className="text-white text-2xl md:text-3xl font-black mt-1">The engine</h2>
 
@@ -313,7 +314,10 @@ const ServicesPage = () => {
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-black text-foreground text-center">
                 What you get
               </motion.h2>
-              <motion.p variants={fadeUp} className="mt-3 text-center text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+              <motion.p
+                variants={fadeUp}
+                className="mt-3 text-center text-foreground/70 max-w-2xl mx-auto leading-relaxed"
+              >
                 Concrete deliverables that build a predictable acquisition channel.
               </motion.p>
             </motion.div>
@@ -348,7 +352,7 @@ const ServicesPage = () => {
               whileInView="show"
               viewport={{ once: true, amount: 0.3 }}
               variants={stagger}
-              className="max-w-3xl mx-auto lg:mx-0 text-center lg:text-left"
+              className="max-w-3xl text-center lg:text-left lg:mx-0 mx-auto"
             >
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-black text-foreground">
                 How it works
@@ -371,10 +375,10 @@ const ServicesPage = () => {
                   <motion.div
                     key={s.title}
                     variants={fadeUp}
-                    className="bg-background rounded-2xl p-6 border border-border/60 shadow-sm"
+                    className="bg-background rounded-2xl p-6 border border-border/60 shadow-sm text-center lg:text-left"
                     whileHover={{ y: -4 }}
                   >
-                    <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mx-auto lg:mx-0">
                       <Icon className="h-5 w-5 text-primary" />
                     </div>
                     <p className="mt-4 text-foreground font-black">{s.title}</p>
@@ -390,12 +394,15 @@ const ServicesPage = () => {
         <section className="py-16 md:py-24 bg-secondary" ref={whoRef}>
           <div className="container mx-auto">
             <div className="grid lg:grid-cols-2 gap-10 items-start">
-              <div>
+              <div className="text-center lg:text-left">
                 <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger}>
                   <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-black text-foreground">
                     Who this is for
                   </motion.h2>
-                  <motion.p variants={fadeUp} className="mt-3 text-foreground/70 leading-relaxed max-w-xl">
+                  <motion.p
+                    variants={fadeUp}
+                    className="mt-3 text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                  >
                     If you’re a physical business and you want Instagram to become predictable — this is built for you.
                   </motion.p>
                 </motion.div>
@@ -405,12 +412,15 @@ const ServicesPage = () => {
                 </div>
               </div>
 
-              <div>
+              <div className="text-center lg:text-left">
                 <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger}>
                   <motion.h3 variants={fadeUp} className="text-2xl font-black text-foreground">
                     Not for
                   </motion.h3>
-                  <motion.p variants={fadeUp} className="mt-3 text-foreground/70 leading-relaxed max-w-xl">
+                  <motion.p
+                    variants={fadeUp}
+                    className="mt-3 text-foreground/70 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                  >
                     This only works if you can take leads and execute weekly.
                   </motion.p>
                 </motion.div>
@@ -426,7 +436,13 @@ const ServicesPage = () => {
         {/* FAQ */}
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto">
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={stagger} className="text-center">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={stagger}
+              className="text-center"
+            >
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-black text-foreground">
                 FAQ
               </motion.h2>
@@ -435,7 +451,13 @@ const ServicesPage = () => {
               </motion.p>
             </motion.div>
 
-            <motion.div className="mt-12 grid md:grid-cols-2 gap-6" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.25 }} variants={stagger}>
+            <motion.div
+              className="mt-12 grid md:grid-cols-2 gap-6"
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.25 }}
+              variants={stagger}
+            >
               {faqs.map((f) => (
                 <motion.div
                   key={f.q}
@@ -467,7 +489,10 @@ const ServicesPage = () => {
                   <motion.h2 variants={fadeUp} className="mt-2 text-4xl md:text-5xl font-black text-white">
                     It starts with a call.
                   </motion.h2>
-                  <motion.p variants={fadeUp} className="mt-4 text-white/80 text-lg max-w-2xl mx-auto leading-relaxed">
+                  <motion.p
+                    variants={fadeUp}
+                    className="mt-4 text-white/80 text-lg max-w-2xl mx-auto leading-relaxed"
+                  >
                     Book a 15-minute call and we’ll map your Attraction Engine — profile funnel, content structure, and
                     the DM → booking flow for your business.
                   </motion.p>
@@ -481,7 +506,12 @@ const ServicesPage = () => {
                       </Button>
                     </motion.div>
 
-                    <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="text-white/85 hover:text-white transition-colors font-medium">
+                    <a
+                      href={INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-white/85 hover:text-white transition-colors font-medium"
+                    >
                       Or DM “ATTRACT” on Instagram
                     </a>
                   </motion.div>
