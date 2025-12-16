@@ -51,7 +51,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative overflow-hidden aa-bg text-white py-10 md:py-16">
+    <footer className="relative overflow-hidden aa-bg text-white py-12 md:py-16">
       {/* Hero-style depth layers */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-24 -left-24 h-[520px] w-[520px] rounded-full bg-white/10 blur-[90px]" />
@@ -61,78 +61,76 @@ const Footer = () => {
       </div>
 
       <div className="container mx-auto relative">
-        {/* MOBILE: tighter, centered, 2-col link grid */}
-        <div className="mb-10 md:mb-12">
-          <div className="text-center md:text-left">
+        {/* Desktop stays exactly the same layout; mobile is now centered + stacked */}
+        <div className="grid gap-10 md:grid-cols-4 md:gap-8 mb-10 md:mb-12 text-center md:text-left">
+          <div className="md:col-span-1">
             <Link to="/" className="inline-block">
-              <h3 className="text-3xl md:text-2xl font-black mb-2 text-white">Attract Acquisition</h3>
+              <h3 className="text-2xl font-black mb-2 text-white">Attract Acquisition</h3>
             </Link>
-            <p className="text-white/75 max-w-[32ch] mx-auto md:mx-0 text-base md:text-sm">
+            <p className="text-sm text-white/75 max-w-xs mx-auto md:mx-0">
               Building Attraction Engines for Physical Businesses.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-8 md:grid-cols-4">
-            {Object.entries(footerLinks).map(([category, links]) => (
-              <div key={category} className="text-center md:text-left">
-                <h4 className="font-semibold mb-3 text-white/85">{category}</h4>
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div
+              key={category}
+              className="flex flex-col items-center md:items-start"
+            >
+              <h4 className="font-semibold mb-4 text-white/85">{category}</h4>
 
-                {/* mobile: 2 columns so it doesn’t feel endlessly tall */}
-                <ul className="space-y-2 md:space-y-2 grid grid-cols-2 gap-x-4 gap-y-2 md:block">
-                  {links.map((l) => {
-                    const isHash = l.href.startsWith("/#");
-                    const isInternal = l.href.startsWith("/") && !isHash && l.href !== "/";
+              <ul className="space-y-2 flex flex-col items-center md:items-start">
+                {links.map((l) => {
+                  const isHash = l.href.startsWith("/#");
+                  const isInternal = l.href.startsWith("/") && !isHash && l.href !== "/";
 
-                    const base =
-                      "text-white/75 hover:text-white transition-colors text-sm";
-                    const mobileCenter = "justify-self-center md:justify-self-auto";
+                  const linkClass =
+                    "text-white/75 hover:text-white transition-colors text-sm text-center md:text-left";
 
-                    return (
-                      <li key={l.label} className={mobileCenter}>
-                        {isHash ? (
-                          <button
-                            type="button"
-                            onClick={() => handleHashNav(l.href)}
-                            className={`${base} text-center md:text-left`}
-                          >
-                            {l.label}
-                          </button>
-                        ) : isInternal ? (
-                          <Link to={l.href} className={`${base} text-center md:text-left`}>
-                            {l.label}
-                          </Link>
-                        ) : (
-                          <a href={l.href} className={`${base} text-center md:text-left`}>
-                            {l.label}
-                          </a>
-                        )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ))}
-          </div>
+                  return (
+                    <li key={l.label}>
+                      {isHash ? (
+                        <button
+                          type="button"
+                          onClick={() => handleHashNav(l.href)}
+                          className={linkClass}
+                        >
+                          {l.label}
+                        </button>
+                      ) : isInternal ? (
+                        <Link to={l.href} className={linkClass}>
+                          {l.label}
+                        </Link>
+                      ) : (
+                        <a href={l.href} className={linkClass}>
+                          {l.label}
+                        </a>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="border-t border-white/15 pt-7 md:pt-8 flex flex-col items-center justify-center gap-4">
-          {/* mobile: larger tap targets */}
-          <div className="flex items-center justify-center gap-2">
+        <div className="border-t border-white/15 pt-8 flex flex-col items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-5">
             {socials.map(({ label, href, icon: Icon }) => (
               <a
                 key={label}
                 href={href}
                 aria-label={label}
-                className="text-white/85 hover:text-white transition-colors p-3 rounded-full bg-white/0 hover:bg-white/10"
+                className="text-white/85 hover:text-white transition-colors"
               >
-                <Icon className="w-6 h-6 md:w-5 md:h-5" />
+                <Icon className="w-5 h-5" />
               </a>
             ))}
           </div>
+        </div>
 
-          <div className="text-center text-white/65 text-xs">
-            <p>© 2025 Attract Acquisition. All rights reserved.</p>
-          </div>
+        <div className="mt-8 text-center text-white/65 text-xs">
+          <p>© 2025 Attract Acquisition. All rights reserved.</p>
         </div>
       </div>
     </footer>
