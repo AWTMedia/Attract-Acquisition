@@ -245,6 +245,24 @@ const FAQSection = () => {
               {expanded ? "See less" : "See all answers"}
             </Button>
           </motion.div>
+          {expanded && (
+            <motion.div
+              className="mt-4"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+            >
+              <a
+                href="https://calendly.com/attractacquisition/attract-acquisition-1-1-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-primary hover:opacity-90 transition-opacity"
+              >
+                Or just get attractive →
+              </a>
+            </motion.div>
+          )}
+          
         </motion.div>
       </div>
     </section>
