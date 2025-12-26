@@ -1,89 +1,80 @@
+```css
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Attract Acquisition Brand Tokens
-   Primary: #6A00F4 (deep purple)
-   Support: #EBD7FF (light lavender), #9D4BFF (electric purple), #0B0F19 (deep ink)
+/* Attract Acquisition (AA Studio-style)
+   Deep Ink: #0B0F19-ish
+   Primary Accent: #6A00F4
 */
 
 @layer base {
   :root {
-    /* Core */
-    --background: 0 0% 100%;
-    --foreground: 222 46% 7%; /* ~#0B0F19 */
+    /* AA Studio Brand Colors */
+    --deep-ink: 220 48% 7%;
+    --deep-purple: 268 100% 48%; /* #6A00F4 */
+    --electric-purple: 268 85% 60%;
+    --light-lavender: 268 100% 92%;
+    --pure-white: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 46% 7%;
+    /* Semantic mappings (dark-first) */
+    --background: 220 48% 7%;
+    --foreground: 0 0% 100%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 46% 7%;
+    --card: 220 40% 10%;
+    --card-foreground: 0 0% 100%;
 
-    /* Brand */
-    --primary: 265 100% 48%; /* #6A00F4 */
+    --popover: 220 40% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 268 100% 48%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 100% 92%; /* #EBD7FF */
-    --secondary-foreground: 222 46% 7%;
+    --secondary: 220 40% 14%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 270 60% 96%;
-    --muted-foreground: 222 12% 45%;
+    --muted: 220 30% 18%;
+    --muted-foreground: 220 20% 60%;
 
-    --accent: 267 100% 65%; /* #9D4BFF */
+    /* Keep accent = primary for “one purple” consistency */
+    --accent: 268 100% 48%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* UI */
-    --border: 270 30% 90%;
-    --input: 270 30% 90%;
-    --ring: 265 100% 48%;
+    --border: 220 30% 20%;
+    --input: 220 30% 18%;
+    --ring: 268 100% 48%;
 
-    --radius: 0.75rem;
+    --radius: 1.5rem;
 
-    /* Custom brand helpers */
-    --ink: 222 46% 7%;
-    --ink-foreground: 0 0% 100%;
-    --purple: 265 100% 48%;
-    --purple-soft: 270 100% 92%;
-    --purple-electric: 267 100% 65%;
-    --gray-soft: 270 20% 97%;
+    /* Optional: sidebar-style tokens (safe to keep, harmless if unused) */
+    --sidebar-background: 220 45% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 268 100% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 40% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 30% 15%;
+    --sidebar-ring: 268 100% 48%;
+
+    /* AA helpers */
+    --aa-gradient-primary: linear-gradient(135deg, hsl(268 100% 48%), hsl(268 85% 60%));
+    --aa-gradient-lavender: linear-gradient(135deg, hsl(268 100% 92%), hsl(268 100% 85%));
+    --aa-shadow-glow: 0 0 60px hsl(268 100% 48% / 0.3);
+    --aa-shadow-card: 0 4px 24px hsl(220 48% 7% / 0.4);
 
     /* Helps anchor hash-links below fixed navbar */
     scroll-padding-top: 7.5rem;
   }
 
+  /* If your site uses `class="dark"` it will remain consistent */
   .dark {
-    --background: 222 46% 7%;
+    --background: 220 48% 7%;
     --foreground: 0 0% 100%;
-
-    --card: 222 38% 10%;
-    --card-foreground: 0 0% 100%;
-
-    --popover: 222 38% 10%;
-    --popover-foreground: 0 0% 100%;
-
-    --primary: 265 100% 48%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 222 28% 14%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 222 28% 14%;
-    --muted-foreground: 270 10% 70%;
-
-    --accent: 267 100% 65%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 222 24% 18%;
-    --input: 222 24% 18%;
-    --ring: 267 100% 65%;
   }
 }
 
@@ -98,7 +89,7 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
 
   /* Prevent random horizontal overflow on mobile (glows, transforms, etc.) */
@@ -107,7 +98,6 @@
     overflow-x: clip;
   }
 
-  /* Make media behave nicely on mobile by default */
   img,
   video,
   canvas,
@@ -122,7 +112,7 @@
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight;
+    @apply font-extrabold tracking-tight;
     text-wrap: balance;
   }
 
@@ -131,58 +121,113 @@
   }
 }
 
+@layer components {
+  /* Pills / tags */
+  .aa-pill {
+    @apply inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider;
+  }
+  .aa-pill-primary {
+    @apply aa-pill bg-primary text-primary-foreground;
+  }
+  .aa-pill-outline {
+    @apply aa-pill border border-border text-muted-foreground;
+  }
+
+  /* Cards */
+  .aa-card {
+    @apply rounded-3xl bg-card p-8 border border-border;
+  }
+  .aa-card-elevated {
+    @apply aa-card shadow-[var(--aa-shadow-card)];
+  }
+
+  /* Typography helpers */
+  .aa-headline-xl {
+    @apply text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight;
+  }
+  .aa-headline-lg {
+    @apply text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight;
+  }
+  .aa-headline-md {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+  .aa-body {
+    @apply text-base text-muted-foreground leading-relaxed;
+  }
+
+  /* Panels */
+  .aa-panel {
+    @apply rounded-2xl bg-white/5 p-6 border border-white/10;
+  }
+
+  .aa-underline-bar {
+    @apply h-1 w-16 rounded-full bg-primary mt-4;
+  }
+}
+
 @layer utilities {
-  .text-gradient {
+  .aa-gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
   }
 
-  .purple-glow {
-    box-shadow: 0 0 0 1px hsl(var(--border)), 0 10px 40px -12px hsl(var(--primary) / 0.35);
+  .aa-glow {
+    box-shadow: var(--aa-shadow-glow);
   }
 
-  /* ✅ Purple GLASS that stays purple even on WHITE backgrounds */
+  /* Dark “ink canvas” background with purple radiance (matches AA Studio vibe) */
+  .aa-bg {
+    background:
+      radial-gradient(900px 520px at 18% 10%, hsl(268 100% 48% / 0.22), transparent 60%),
+      radial-gradient(900px 520px at 82% 22%, hsl(268 85% 60% / 0.18), transparent 60%),
+      radial-gradient(700px 420px at 50% 95%, hsl(268 100% 48% / 0.10), transparent 60%),
+      linear-gradient(180deg, hsl(220 48% 7%) 0%, hsl(220 45% 5%) 100%);
+  }
+
+  /* Glass card for dark backgrounds (subtle, not white-glassy) */
   .glass-purple {
     background: linear-gradient(
       135deg,
-      rgba(106, 0, 244, 0.88) 0%,
-      rgba(157, 75, 255, 0.55) 55%,
-      rgba(235, 215, 255, 0.18) 100%
+      hsl(268 100% 48% / 0.22) 0%,
+      hsl(268 85% 60% / 0.10) 55%,
+      hsl(0 0% 100% / 0.04) 100%
     );
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid hsl(0 0% 100% / 0.10);
     box-shadow:
-      0 18px 50px rgba(11, 15, 25, 0.18),
-      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      0 18px 50px hsl(220 48% 7% / 0.35),
+      inset 0 1px 0 hsl(0 0% 100% / 0.08);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-radius: 1.25rem;
+    border-radius: 1.5rem;
   }
 
   .glass-purple-strong {
     background: linear-gradient(
       135deg,
-      rgba(106, 0, 244, 0.95) 0%,
-      rgba(157, 75, 255, 0.65) 60%,
-      rgba(235, 215, 255, 0.22) 100%
+      hsl(268 100% 48% / 0.30) 0%,
+      hsl(268 85% 60% / 0.14) 60%,
+      hsl(0 0% 100% / 0.05) 100%
     );
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid hsl(0 0% 100% / 0.12);
     box-shadow:
-      0 22px 65px rgba(11, 15, 25, 0.22),
-      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      0 22px 65px hsl(220 48% 7% / 0.45),
+      inset 0 1px 0 hsl(0 0% 100% / 0.10);
     backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
-    border-radius: 1.5rem;
-  }
-
-  /* Page background (Naked-style: full purple canvas, subtle depth) */
-  .aa-bg {
-    background:
-      radial-gradient(900px 500px at 20% 10%, rgba(157, 75, 255, 0.35), transparent 60%),
-      radial-gradient(900px 500px at 80% 20%, rgba(106, 0, 244, 0.35), transparent 60%),
-      linear-gradient(180deg, #6A00F4 0%, #4B00C9 55%, #2A0076 100%);
+    border-radius: 1.75rem;
   }
 
   /* ✅ One class to “center on mobile” globally (opt-out per section if needed) */
   .mobile-center {
     @apply text-center md:text-left;
   }
+
+  /* Optional: scrollbar helper */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
+```
