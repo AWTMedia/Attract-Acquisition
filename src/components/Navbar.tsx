@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 const CALENDLY_URL =
   "https://calendly.com/attractacquisition/attract-acquisition-1-1-call";
 
-const LOGIN_URL = "https://attractacq.lovable.app";
+const LOGIN_URL = "https://portal.attractacq.com";
 
 const Navbar = () => {
   const [minimized, setMinimized] = useState(false);
