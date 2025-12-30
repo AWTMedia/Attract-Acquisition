@@ -4,7 +4,8 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/Attract-Acquisition/",
+  // ✅ Custom domain (attractacq.com) serves from root, not /Attract-Acquisition/
+  base: "/",
   server: {
     host: "::",
     port: 8080,
