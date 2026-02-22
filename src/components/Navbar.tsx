@@ -70,7 +70,7 @@ const Navbar = () => {
                   rel="noreferrer"
                   aria-label="Get Attractive"
                 >
-                  Get Attractive
+                  Book A Call
                 </a>
               </Button>
 
@@ -105,7 +105,7 @@ const Navbar = () => {
               rel="noreferrer"
               aria-label="Get Attractive"
             >
-              Get Attractive
+              Book A Call
             </a>
           </Button>
         </div>
