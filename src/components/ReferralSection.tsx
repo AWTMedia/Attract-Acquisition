@@ -39,7 +39,7 @@ const ReferralSection = () => {
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
               >
-                Attraction Audit
+                14-Day
               </motion.span>
 
               <motion.span
@@ -49,7 +49,7 @@ const ReferralSection = () => {
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
               >
-                in 24 hours.
+                Lead Proof Sprint.
               </motion.span>
             </h2>
 
@@ -60,8 +60,15 @@ const ReferralSection = () => {
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.14 }}
             >
-              We’ll show you exactly what to fix to turn views into DMs and bookings — profile
-              funnel, content plan, and conversion path.
+              Test the system. See the leads. No management fee.
+
+Run a short 14-day trial designed to:
+	•	Generate up to 10 highly qualified local enquiries
+	•	You only pay ad spend — our management fee is waived
+	•	Experience the system in action before committing to The Acquisition Engine™
+
+If targets are met, we roll into the full system, delivering predictable, repeatable clients every month.
+
             </motion.p>
 
             <motion.div
@@ -87,7 +94,7 @@ const ReferralSection = () => {
                 href="#"
                 className="text-foreground/80 hover:text-foreground transition-colors font-medium text-center sm:text-left"
               >
-                Or DM “ATTRACT” on Instagram
+                Or Book A Call
               </a>
             </motion.div>
 
@@ -98,7 +105,7 @@ const ReferralSection = () => {
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.45, ease: "easeOut", delay: 0.26 }}
             >
-              Free • 24h turnaround • actionable fixes
+              Free • 14-Day Turnaround • Qualified Clients
             </motion.p>
           </div>
 
@@ -123,7 +130,7 @@ const ReferralSection = () => {
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: 0.18 }}
               >
-                AUDITS
+                Proof Sprints
               </motion.p>
 
               <motion.p
