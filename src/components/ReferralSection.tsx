@@ -84,7 +84,7 @@ const ReferralSection = () => {
               >
                 <Button variant="hero" size="lg" asChild className="w-full sm:w-auto">
                   <a href="#" aria-label="Get a free audit">
-                    Get a free audit
+                    Get a Free Audit
                   </a>
                 </Button>
               </motion.div>
