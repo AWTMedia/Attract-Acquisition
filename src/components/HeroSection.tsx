@@ -98,40 +98,40 @@ const cards = [
                 Guaranteed Flow of Clients for Service Businesses.
               </motion.h1>
 
-              <motion.p
-                variants={heroItem}
-                className="text-white/80 text-base md:text-xl mb-6 md:mb-7 max-w-[42ch] mx-auto md:mx-0"
-              >
-               We install our proven Client Acquisition Engine™ that consistently converts local attention into booked appointments.
-          <motion.div
-  variants={heroItem}
-  className="w-full flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 items-center md:items-start"
->
-  <Button
-    variant="hero"
-    size="lg"
-    asChild
-    className="w-full sm:w-auto shadow-[0_18px_50px_rgba(11,15,25,0.45)] hover:shadow-[0_22px_65px_rgba(157,75,255,0.22)] hover:-translate-y-[1px] transition-all"
+              <motion.div variants={heroItem} className="max-w-[42ch] mx-auto md:mx-0">
+  <p className="text-white/80 text-base md:text-xl mb-6 md:mb-7">
+    We install our proven Client Acquisition Engine™ that consistently converts local attention into booked appointments.
+  </p>
+
+  <motion.div
+    variants={heroItem}
+    className="w-full flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 items-center md:items-start"
   >
+    <Button
+      variant="hero"
+      size="lg"
+      asChild
+      className="w-full sm:w-auto shadow-[0_18px_50px_rgba(11,15,25,0.45)] hover:shadow-[0_22px_65px_rgba(157,75,255,0.22)] hover:-translate-y-[1px] transition-all"
+    >
+      <a
+        href={CALENDLY_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Get Attractive (Book a call)"
+      >
+        Book A Call
+      </a>
+    </Button>
+
     <a
-      href={CALENDLY_URL}
+      href={INSTAGRAM_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Get Attractive (Book a call)"
+      className="text-white/75 hover:text-white transition-colors text-sm font-medium text-center sm:text-left 2xl:basis-full 2xl:text-left 2xl:ml-0"
     >
-      Book A Call
+      Request a Demand Audit
     </a>
-  </Button>
-
-  <a
-    href={INSTAGRAM_URL}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="text-white/75 hover:text-white transition-colors text-sm font-medium text-center sm:text-left
-               2xl:basis-full 2xl:text-left 2xl:ml-0"
-  >
-    Request a Demand Audit
-  </a>
+  </motion.div>
 </motion.div>
 
               <motion.div
