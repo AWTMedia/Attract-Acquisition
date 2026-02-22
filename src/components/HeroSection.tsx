@@ -193,7 +193,7 @@ const cards = [
               variants={heroItem}
               className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.05] md:leading-tight"
             >
-              Local Acquisition Engine™
+              Client Acquisition Engine™
             </motion.h2>
             <motion.p variants={heroItem} className="mt-2 md:mt-3 text-white/70 text-sm sm:text-base md:text-lg">
               Infrastructure that turns local attention into booked revenue - consistently.
