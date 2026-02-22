@@ -95,16 +95,14 @@ const cards = [
                 variants={heroItem}
                 className="text-[clamp(44px,10vw,64px)] md:text-7xl font-black text-white leading-[0.95] md:leading-[1.02] mb-5 md:mb-6"
               >
-                Predictable Flow of Clients.
+                Guaranteed Flow of Clients for Service Businesses.
               </motion.h1>
 
               <motion.p
                 variants={heroItem}
                 className="text-white/80 text-base md:text-xl mb-6 md:mb-7 max-w-[42ch] mx-auto md:mx-0"
               >
-                We install a proven system that consistently turns local attention into booked appointments.
-              </motion.p>
-
+               We install our proven Client Acquisition Engine™ that consistently converts local attention into booked appointments.
           <motion.div
   variants={heroItem}
   className="w-full flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 items-center md:items-start"
