@@ -290,7 +290,7 @@ const FAQSection = () => {
                 rel="noopener noreferrer"
                 className="text-sm font-semibold text-primary hover:opacity-90 transition-opacity"
               >
-                Or just get attractive →
+                Or Book A Call →
               </a>
             </motion.div>
           )}
