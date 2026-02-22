@@ -183,7 +183,7 @@ const FeatureSection = () => {
               <div className="max-w-md mx-auto w-full">
                 <div className="mb-4 text-center md:text-left">
                   <p className="text-white/70 text-sm font-medium">3-stage flow</p>
-                  <p className="text-white text-lg font-bold">The Acquisition Engine™</p>
+                  <p className="text-white text-lg font-bold">The Client Acquisition Engine™</p>
                 </div>
 
                 <div className="relative">
@@ -281,7 +281,7 @@ const FeatureSection = () => {
                   <h2 className="text-[clamp(38px,9vw,56px)] md:text-5xl font-black mb-5 md:mb-6 leading-[1.02] md:leading-tight">
                     
                     <motion.span variants={headlineLine} className="block">
-                      Install a system
+                      Install an engine
                     </motion.span>
                     
             <motion.span className="inline-block text-primary ml-2" variants={headlineItem} custom={1}>
