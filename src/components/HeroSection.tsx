@@ -147,7 +147,7 @@ const cards = [
                 </div>
                 <span className="text-white/80 text-sm font-medium">
                   Trustpilot <span className="text-white/60">•</span>{" "}
-                  <span className="text-white/70">Rated 5/5</span>
+                  <span className="text-white/70">Rated 4.5/5</span>
                 </span>
               </motion.div>
             </motion.div>
