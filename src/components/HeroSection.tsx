@@ -121,7 +121,7 @@ const cards = [
       rel="noopener noreferrer"
       aria-label="Get Attractive (Book a call)"
     >
-      See How It Works
+      Book A Call
     </a>
   </Button>
 
