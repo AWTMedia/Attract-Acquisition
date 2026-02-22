@@ -53,23 +53,22 @@ const ReferralSection = () => {
               </motion.span>
             </h2>
 
-            <motion.p
-              className="text-muted-foreground text-base md:text-lg leading-relaxed mb-7 md:mb-8"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.14 }}
-            >
-              Test the system. See the leads. No management fee.
+<motion.p
+  className="text-muted-foreground text-base md:text-lg leading-relaxed mb-7 md:mb-8 whitespace-pre-line"
+  initial={{ opacity: 0, y: 12 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.35 }}
+  transition={{ duration: 0.5, ease: "easeOut", delay: 0.14 }}
+>
+  Test the system. See the leads. No management fee.
 
-Run a short 14-day trial designed to:
-	•	Generate up to 10 highly qualified local enquiries
-	•	You only pay ad spend — our management fee is waived
-	•	Experience the system in action before committing to The Acquisition Engine™
+  {"\n\n"}Run a short 14-day trial designed to:
+  {"\n"}• Generate up to 10 highly qualified local enquiries
+  {"\n"}• You only pay ad spend — our management fee is waived
+  {"\n"}• Experience the system in action before committing to The Acquisition Engine™
 
-If targets are met, we roll into the full system, delivering predictable, repeatable clients every month.
-
-            </motion.p>
+  {"\n\n"}If targets are met, we roll into the full system, delivering predictable, repeatable clients every month.
+</motion.p>
 
             <motion.div
               className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-4 sm:gap-5"
