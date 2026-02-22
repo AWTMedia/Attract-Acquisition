@@ -95,7 +95,7 @@ const cards = [
                 variants={heroItem}
                 className="text-[clamp(44px,10vw,64px)] md:text-7xl font-black text-white leading-[0.95] md:leading-[1.02] mb-5 md:mb-6"
               >
-                Predictable Flow of Local Enquiries.
+                Predictable Flow of Clients.
               </motion.h1>
 
               <motion.p
