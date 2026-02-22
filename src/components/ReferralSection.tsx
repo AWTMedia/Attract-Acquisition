@@ -49,7 +49,7 @@ const ReferralSection = () => {
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.45, ease: "easeOut", delay: 0.08 }}
               >
-                Lead Proof Sprint.
+                Proof Sprint.
               </motion.span>
             </h2>
 
@@ -60,7 +60,7 @@ const ReferralSection = () => {
   viewport={{ once: true, amount: 0.35 }}
   transition={{ duration: 0.5, ease: "easeOut", delay: 0.14 }}
 >
-  Test the system. See the leads. No management fee.
+  Test the system. See the demand. No management fee.
 
   {"\n\n"}Run a short 14-day trial designed to:
   {"\n"}• Generate up to 10 highly qualified local enquiries
