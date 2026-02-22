@@ -108,7 +108,7 @@ const MadeWithLoveSection = () => {
             rel="noopener noreferrer"
             className="text-white/85 hover:text-white transition-colors font-medium"
           >
-            Or DM “ATTRACT” on Instagram
+            Or Get a Free Audit
           </a>
         </motion.div>
       </div>
