@@ -2,26 +2,26 @@ import { Star, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const TestimonialsSection = () => {
- const testimonials = [
-  {
-    text:
-      "Before this, marketing felt random. Now we can see exactly where enquiries come from, how they move through our pipeline, and what turns into revenue. It’s no longer guesswork.",
-    author: "Gym Owner",
-    verified: true,
-  },
-  {
-    text:
-      "The biggest shift wasn’t more content — it was structure. We now have a clear path from local attention → enquiry → booking → sale. That changed how we think about growth.",
-    author: "Clinic Founder",
-    verified: true,
-  },
-];
+  const testimonials = [
+    {
+      text:
+        "The biggest shift wasn’t more content — it was structure. Now we have a clear path from local attention → enquiry → booking → sale.",
+      author: "Gym Owner",
+      verified: true,
+    },
+    {
+      text:
+        "DMs became qualified conversations, and we track exactly what converts. Growth is predictable.",
+      author: "Clinic Founder",
+      verified: true,
+    },
+  ];
 
-const ratingInfo = {
-  title: "Built for physical businesses",
-  description:
-    "Most agencies add content. We install acquisition infrastructure — positioning, capture pathways, and measurable conversion systems that turn local demand into revenue.",
-};
+  const ratingInfo = {
+    title: "Built for physical businesses",
+    description:
+      "Most agencies add content. We install the infrastructure: positioning, capture pathways, and measurable conversion systems that turn local attention into revenue.",
+  };
 
   // -----------------------------
   // Motion variants
@@ -85,10 +85,10 @@ const ratingInfo = {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-black text-foreground">
             <motion.span className="inline-block" variants={headlineItem} custom={0}>
-              From random marketing to 
+              From Random Marketing to
             </motion.span>
             <motion.span className="inline-block text-primary ml-2" variants={headlineItem} custom={1}>
-              predictable revenue.
+              Predictable Revenue
             </motion.span>
           </h2>
 
@@ -96,7 +96,7 @@ const ratingInfo = {
             className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             variants={subheadIn}
           >
-            Don’t just take our word for it — here’s what happens when local businesses install a predictable acquisition system.
+            See what happens when local businesses install a predictable acquisition system.
           </motion.p>
         </div>
 
@@ -115,72 +115,42 @@ const ratingInfo = {
                   [&::-webkit-scrollbar]:hidden
                 "
               >
-                {/* spacer so first card can snap-center */}
                 <div className="shrink-0 w-2" aria-hidden />
 
-                {/* Card 1 */}
-                <motion.div
-                  variants={cardIn}
-                  whileHover={{ y: -6, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className="
-                    flex-none shrink-0 w-[85%] sm:w-[70%]
-                    snap-center
-                    h-full rounded-2xl p-6 bg-background border border-border
-                    shadow-sm hover:shadow-md transition-shadow
-                  "
-                >
-                  <motion.div className="flex items-center gap-1 mb-4" variants={starsPop}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
+                {testimonials.map((testimonial, index) => (
+                  <motion.div
+                    key={index}
+                    variants={cardIn}
+                    whileHover={{ y: -6, scale: 1.01 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                    className="
+                      flex-none shrink-0 w-[85%] sm:w-[70%]
+                      snap-center
+                      h-full rounded-2xl p-6 bg-background border border-border
+                      shadow-sm hover:shadow-md transition-shadow
+                    "
+                  >
+                    <motion.div className="flex items-center gap-1 mb-4" variants={starsPop}>
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                      ))}
+                    </motion.div>
+
+                    <p className="text-foreground leading-relaxed">{testimonial.text}</p>
+
+                    <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+                      <span>{testimonial.author}</span>
+                      {testimonial.verified && (
+                        <span className="inline-flex items-center gap-1 text-muted-foreground">
+                          <BadgeCheck className="w-4 h-4 text-primary" />
+                          Verified
+                        </span>
+                      )}
+                    </div>
                   </motion.div>
+                ))}
 
-                  <p className="text-foreground leading-relaxed">{testimonials[0].text}</p>
-
-                  <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-                    <span>{testimonials[0].author}</span>
-                    {testimonials[0].verified && (
-                      <span className="inline-flex items-center gap-1 text-muted-foreground">
-                        <BadgeCheck className="w-4 h-4 text-primary" />
-                        Verified
-                      </span>
-                    )}
-                  </div>
-                </motion.div>
-
-                {/* Card 2 */}
-                <motion.div
-                  variants={cardIn}
-                  whileHover={{ y: -6, scale: 1.01 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                  className="
-                    flex-none shrink-0 w-[85%] sm:w-[70%]
-                    snap-center
-                    h-full rounded-2xl p-6 bg-background border border-border
-                    shadow-sm hover:shadow-md transition-shadow
-                  "
-                >
-                  <motion.div className="flex items-center gap-1 mb-4" variants={starsPop}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
-                  </motion.div>
-
-                  <p className="text-foreground leading-relaxed">{testimonials[1].text}</p>
-
-                  <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-                    <span>{testimonials[1].author}</span>
-                    {testimonials[1].verified && (
-                      <span className="inline-flex items-center gap-1 text-muted-foreground">
-                        <BadgeCheck className="w-4 h-4 text-primary" />
-                        Verified
-                      </span>
-                    )}
-                  </div>
-                </motion.div>
-
-                {/* Card 3 (Why this works) */}
+                {/* Card 3: Why this works */}
                 <motion.div
                   variants={cardIn}
                   whileHover={{ y: -6, scale: 1.01 }}
@@ -204,11 +174,10 @@ const ratingInfo = {
                         <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                       ))}
                     </motion.div>
-                    <span className="text-sm text-muted-foreground">Infrastructure built to convert</span>
+                    <span className="text-sm text-muted-foreground">Results-focused systems</span>
                   </div>
                 </motion.div>
 
-                {/* spacer so last card can snap-center */}
                 <div className="shrink-0 w-2" aria-hidden />
               </div>
             </div>
