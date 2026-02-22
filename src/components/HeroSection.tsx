@@ -8,24 +8,24 @@ const INSTAGRAM_URL = "https://www.instagram.com/attractacq/";
 const HeroAndStages = () => {
   const shouldReduceMotion = useReducedMotion();
 
-  const cards = [
-    {
-      title: "We rebuild your profile funnel + content structure so the right people want to DM you.",
-      subtitle: "Stage 1",
-      price: "Attract",
-    },
-    {
-      title: "We install stories + DM touchpoints that build trust and move people forward.",
-      subtitle: "Stage 2",
-      price: "Nurture",
-    },
-    {
-      title: "We create the path from view → DM → booking → sale, with scripts and tracking.",
-      subtitle: "Stage 3",
-      price: "Convert",
-    },
-  ];
-
+const cards = [
+  {
+    subtitle: "Stage 1",
+    price: "Activate",
+    title: "We position your business where local demand already exists — optimising your profile, messaging, and entry points so the right buyers take action."
+  },
+  {
+    subtitle: "Stage 2",
+    price: "Capture",
+    title: "We install structured enquiry pathways — from social, search, and referrals — ensuring every interested prospect is guided into a trackable conversation."
+  },
+  {
+    subtitle: "Stage 3",
+    price: "Convert",
+    title: "We build a measurable pipeline from enquiry → booking → sale, with scripts, automation, and follow-up systems that turn attention into predictable revenue."
+  },
+];
+  
   const heroContainer = {
     hidden: {},
     show: {
@@ -95,15 +95,14 @@ const HeroAndStages = () => {
                 variants={heroItem}
                 className="text-[clamp(44px,10vw,64px)] md:text-7xl font-black text-white leading-[0.95] md:leading-[1.02] mb-5 md:mb-6"
               >
-                Turn Instagram into clients for your physical business.
+                Build a Predictable Flow of Local Enquiries.
               </motion.h1>
 
               <motion.p
                 variants={heroItem}
                 className="text-white/80 text-base md:text-xl mb-6 md:mb-7 max-w-[42ch] mx-auto md:mx-0"
               >
-                We build Attraction Engines that convert random posting into DMs, bookings, and sales — without posting
-                more for the sake of it.
+                We install structured acquisition systems for physical businesses — turning local demand into consistent bookings.
               </motion.p>
 
           <motion.div
@@ -122,7 +121,7 @@ const HeroAndStages = () => {
       rel="noopener noreferrer"
       aria-label="Get Attractive (Book a call)"
     >
-      Get Attractive
+      See How It Works
     </a>
   </Button>
 
@@ -133,7 +132,7 @@ const HeroAndStages = () => {
     className="text-white/75 hover:text-white transition-colors text-sm font-medium text-center sm:text-left
                2xl:basis-full 2xl:text-left 2xl:ml-0"
   >
-    Or DM “ATTRACT” on Instagram →
+    Request a Demand Audit
   </a>
 </motion.div>
 
@@ -194,10 +193,10 @@ const HeroAndStages = () => {
               variants={heroItem}
               className="text-2xl sm:text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.05] md:leading-tight"
             >
-              Instagram Attraction Engine
+              Local Acquisition Engine™
             </motion.h2>
             <motion.p variants={heroItem} className="mt-2 md:mt-3 text-white/70 text-sm sm:text-base md:text-lg">
-              Attract → Nurture → Convert
+              The Local Acquisition Engine™ installs the infrastructure that turns local attention into booked revenue — consistently.
             </motion.p>
           </motion.div>
 
