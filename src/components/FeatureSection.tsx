@@ -175,7 +175,7 @@ const FeatureSection = () => {
               <div className="max-w-md mx-auto w-full">
                 <div className="mb-4 text-center md:text-left">
                   <p className="text-white/70 text-sm font-medium">3-stage flow</p>
-                  <p className="text-white text-lg font-bold">The engine</p>
+                  <p className="text-white text-lg font-bold">The Acquisition Engine™</p>
                 </div>
 
                 <div className="relative">
@@ -200,8 +200,8 @@ const FeatureSection = () => {
                         }}
                       />
                       <p className="text-[11px] uppercase tracking-wide text-white/60 mb-2">Stage 1</p>
-                      <p className="text-3xl font-black text-white">Attract</p>
-                      <p className="text-white/75 text-sm mt-2">Profile + content structure</p>
+                      <p className="text-3xl font-black text-white">Activate</p>
+                      <p className="text-white/75 text-sm mt-2">Profile funnel + positioning</p>
                     </motion.div>
 
                     <div className="absolute left-[18px] -bottom-5 -translate-x-1/2">
@@ -225,8 +225,8 @@ const FeatureSection = () => {
                         }}
                       />
                       <p className="text-[11px] uppercase tracking-wide text-white/60 mb-2">Stage 2</p>
-                      <p className="text-3xl font-black text-white">Nurture</p>
-                      <p className="text-white/75 text-sm mt-2">Stories + DM touchpoints</p>
+                      <p className="text-3xl font-black text-white">Capture</p>
+                      <p className="text-white/75 text-sm mt-2">Engagement & lead qualifying sequences</p>
                     </motion.div>
 
                     <div className="absolute left-[18px] -bottom-5 -translate-x-1/2">
@@ -271,12 +271,9 @@ const FeatureSection = () => {
                 <motion.div variants={headlineWrap} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.35 }}>
                   <h2 className="text-[clamp(38px,9vw,56px)] md:text-5xl font-black mb-5 md:mb-6 leading-[1.02] md:leading-tight">
                     <motion.span variants={headlineLine} className="block">
-                      Build a system
+                      Install a system
                     </motion.span>
-                    <motion.span variants={headlineLine} className="block text-white/70">
-                      not just content
-                    </motion.span>
-                    <motion.span variants={headlineLine} className="block">
+                    <motion.span variants={headlineLine} className="block text-purple">
                       that gets clients
                     </motion.span>
                   </h2>
@@ -289,8 +286,8 @@ const FeatureSection = () => {
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.5, ease: "easeOut", delay: 0.08 }}
                 >
-                  Most agencies add volume. We build the infrastructure behind your content: profile funnel, weekly content
-                  structure, and a DM → booking flow — so Instagram becomes predictable.
+                  We build the infrastructure behind your content: profile funnel, content
+                  structure, lead qualification, and a DM → booking flow - so client acquisition becomes predictable.
                 </motion.p>
               </div>
             </div>
