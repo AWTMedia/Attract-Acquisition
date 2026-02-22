@@ -68,7 +68,7 @@ const Footer = () => {
               <h3 className="text-2xl font-black mb-2 text-white">Attract Acquisition</h3>
             </Link>
             <p className="text-sm text-white/75 max-w-xs mx-auto md:mx-0">
-              Building Attraction Engines for Physical Businesses.
+              Building Acquisition Engines for Physical Businesses.
             </p>
           </div>
 
@@ -130,7 +130,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 text-center text-white/65 text-xs">
-          <p>© 2025 Attract Acquisition. All rights reserved.</p>
+          <p>© 2026 Attract Acquisition. All rights reserved.</p>
         </div>
       </div>
     </footer>
