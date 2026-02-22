@@ -85,7 +85,7 @@ const AppSection = () => {
                 rel="noopener noreferrer"
                 className="text-foreground/80 hover:text-foreground transition-colors font-medium text-center sm:text-left"
               >
-                Or DM “ATTRACT” on Instagram
+                Or Get a Free Audit
               </a>
             </motion.div>
           </div>
