@@ -2,26 +2,26 @@ import { Star, BadgeCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 const TestimonialsSection = () => {
-  const testimonials = [
-    {
-      text:
-        "We finally stopped ‘posting to post’. The profile funnel + weekly structure made DMs predictable — and bookings followed.",
-      author: "Gym Owner",
-      verified: true,
-    },
-    {
-      text:
-        "The DM flow changed everything. Enquiries became qualified conversations, and we started tracking what actually converts.",
-      author: "Clinic Founder",
-      verified: true,
-    },
-  ];
+ const testimonials = [
+  {
+    text:
+      "Before this, marketing felt random. Now we can see exactly where enquiries come from, how they move through our pipeline, and what turns into revenue. It’s no longer guesswork.",
+    author: "Gym Owner",
+    verified: true,
+  },
+  {
+    text:
+      "The biggest shift wasn’t more content — it was structure. We now have a clear path from local attention → enquiry → booking → sale. That changed how we think about growth.",
+    author: "Clinic Founder",
+    verified: true,
+  },
+];
 
-  const ratingInfo = {
-    title: "Built for physical businesses",
-    description:
-      "We turn Instagram attention into qualified DMs, bookings, and clients — with a repeatable weekly system.",
-  };
+const ratingInfo = {
+  title: "Built for physical businesses",
+  description:
+    "Most agencies add content. We install acquisition infrastructure — positioning, capture pathways, and measurable conversion systems that turn local demand into revenue.",
+};
 
   // -----------------------------
   // Motion variants
@@ -85,10 +85,10 @@ const TestimonialsSection = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-black text-foreground">
             <motion.span className="inline-block" variants={headlineItem} custom={0}>
-              Businesses are
+              From random marketing to 
             </motion.span>
             <motion.span className="inline-block text-primary ml-2" variants={headlineItem} custom={1}>
-              Getting Attractive
+              predictable revenue.
             </motion.span>
           </h2>
 
@@ -96,8 +96,7 @@ const TestimonialsSection = () => {
             className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             variants={subheadIn}
           >
-            Don’t just take our word for it — here’s what happens when you stop random posting and
-            install an Attraction Engine.
+            Don’t just take our word for it — here’s what happens when local businesses install a predictable acquisition system.
           </motion.p>
         </div>
 
@@ -205,7 +204,7 @@ const TestimonialsSection = () => {
                         <Star key={i} className="w-4 h-4 fill-primary text-primary" />
                       ))}
                     </motion.div>
-                    <span className="text-sm text-muted-foreground">Results-focused systems</span>
+                    <span className="text-sm text-muted-foreground">Infrastructure built to convert</span>
                   </div>
                 </motion.div>
 
