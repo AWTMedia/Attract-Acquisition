@@ -46,7 +46,7 @@ const AppSection = () => {
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.12 }}
             >
-              Book a 15-minute call and we’ll map your Attraction Engine — profile funnel, content structure, and the DM
+              Book a 15-minute call and we’ll map your Acquisition Engine — profile funnel, content structure, and the DM
               → booking flow for your business.
             </motion.p>
 
