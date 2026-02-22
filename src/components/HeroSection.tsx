@@ -12,17 +12,17 @@ const cards = [
   {
     subtitle: "Stage 1",
     price: "Activate",
-    title: "We position your business where local demand already exists — optimising your profile, messaging, and entry points so the right buyers take action."
+    title: "Position your business where local demand already exists — so the right people take action."
   },
   {
     subtitle: "Stage 2",
     price: "Capture",
-    title: "We install structured enquiry pathways — from social, search, and referrals — ensuring every interested prospect is guided into a trackable conversation."
+    title: "Guide every enquiry into a structured, trackable conversation."
   },
   {
     subtitle: "Stage 3",
     price: "Convert",
-    title: "We build a measurable pipeline from enquiry → booking → sale, with scripts, automation, and follow-up systems that turn attention into predictable revenue."
+    title: "Turn conversations into booked appointments and revenue — consistently."
   },
 ];
   
@@ -102,7 +102,7 @@ const cards = [
                 variants={heroItem}
                 className="text-white/80 text-base md:text-xl mb-6 md:mb-7 max-w-[42ch] mx-auto md:mx-0"
               >
-                We install structured acquisition systems for physical businesses — turning local demand into consistent bookings.
+                We install a proven system that consistently turns local attention into booked appointments.
               </motion.p>
 
           <motion.div
@@ -196,7 +196,7 @@ const cards = [
               Local Acquisition Engine™
             </motion.h2>
             <motion.p variants={heroItem} className="mt-2 md:mt-3 text-white/70 text-sm sm:text-base md:text-lg">
-              The Local Acquisition Engine™ installs the infrastructure that turns local attention into booked revenue — consistently.
+              Infrastructure that turns local attention into booked revenue - consistently.
             </motion.p>
           </motion.div>
 
