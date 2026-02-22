@@ -8,58 +8,70 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqs = useMemo(
-    () => [
-      {
-        question: "How is this different from social media management?",
-        description:
-          "We don’t just post. We build the system behind your content so Instagram becomes a predictable acquisition channel.",
-      },
-      {
-        question: "Do you guarantee results?",
-        description:
-          "We guarantee the engine build (profile funnel + content system + DM → booking flow). Outcomes depend on offer, location, pricing, and execution — but the system makes results repeatable.",
-      },
-      {
-        question: "How long does it take?",
-        description: "Most businesses can have the full engine installed in days, then improved weekly.",
-      },
-      {
-        question: "Do you need access to our Instagram?",
-        description: "Not always. We can build done-with-you (you post) or support execution depending on your setup.",
-      },
-      {
-        question: "Who is this for?",
-        description:
-          "Physical businesses with a clear offer (gyms, clinics, salons, trades, studios) who want consistent inquiries and bookings from Instagram.",
-      },
-      {
-        question: "What do we need before we start?",
-        description:
-          "Your offer details, location, pricing, a quick look at your current IG, and what you want more of (DMs, bookings, walk-ins). That’s it.",
-      },
-      {
-        question: "Do you create content for us?",
-        description:
-          "We can — but the core is the engine: profile funnel, content structure, story/DM touchpoints, and the booking flow. Execution can be done-with-you or done-for-you.",
-      },
-      {
-        question: "What if we already have followers?",
-        description:
-          "Perfect — the engine helps you convert attention into action. Followers help, but conversion is what matters.",
-      },
-      {
+  () => [
+    {
+      question: "How is this different from social media management?",
+      description:
+        "We don’t just post content. We build the system behind your Instagram so your profile becomes a predictable lead-generating channel — from content hooks to DM → booking flow.",
+    },
+    {
+      question: "How many leads can I expect in the first 14 days?",
+      description:
+        "During the 14-Day Lead Proof Sprint, we aim to generate up to 10 highly qualified local enquiries, letting you see the system in action before committing to the full pipeline.",
+    },
+    {
+      question: "Do you guarantee results?",
+      description:
+        "We guarantee the system is installed correctly (profile funnel, content plan, DM → booking flow). Outcomes depend on your offer, pricing, and engagement, but the system makes results repeatable and predictable.",
+    },
+    {
+      question: "Do I have to pay a management fee upfront?",
+      description:
+        "For the 14-Day Lead Proof Sprint, you only cover ad spend — our management fee is waived for this trial. This lets you test the system with minimal risk.",
+    },
+    {
+      question: "How soon will I see results?",
+      description:
+        "You’ll start seeing DMs and bookings within the 14-day sprint. After the sprint, we analyze and refine the system to ensure consistent, repeatable leads every month.",
+    },
+    {
+      question: "Is this only for Instagram?",
+      description:
+        "Instagram is our primary focus. We optimize the profile, content, and DM flow for predictable lead generation.",
+    },
+    {
+      question: "Who is this for?",
+      description:
+        "Physical businesses with a clear offer (gyms, clinics, salons, trades, studios) who want consistent, high-quality enquiries and bookings from Instagram.",
+    },
+          {
         question: "What if we have low followers?",
         description:
           "That’s fine. The system works best when focused: profile funnel + strong hooks + a DM booking flow. You don’t need huge numbers to get bookings.",
       },
-      {
-        question: "What happens after the engine is built?",
-        description:
-          "We iterate weekly: track what converts, double down on winners, refine messaging, and keep compounding the system.",
-      },
-    ],
-    []
-  );
+    {
+      question: "What makes this different from hiring a marketing agency?",
+      description:
+        "Unlike traditional agencies that post content or run ads, we build a complete **engine** for predictable client acquisition — content strategy, DM workflows, booking funnels, and performance tracking — so your results are systematic, not random.",
+    },
+    {
+      question: "How do you measure success?",
+      description:
+        "We track every step: profile visits, engagement, DMs started, bookings, and revenue. This lets us double down on what works and optimize continuously.",
+    },
+    {
+      question: "Can I test this without a long-term contract?",
+      description:
+        "Yes! The 14-Day Lead Proof Sprint is designed as a short, low-risk test. You only commit to the full system if you see results and want predictable monthly leads.",
+    },
+    {
+      question: "Do you provide proof or case studies?",
+      description:
+        "Absolutely — we’ve delivered over +100 audits and sprint campaigns, helping businesses like yours turn views into booked clients consistently.",
+    },
+  ],
+  []
+);
 
   const previewFaqs = faqs.slice(0, 4);
   const expandedFaqs = faqs.slice(0, 10);
