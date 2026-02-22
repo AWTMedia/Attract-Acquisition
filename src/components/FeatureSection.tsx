@@ -269,13 +269,17 @@ const FeatureSection = () => {
               {/* Feature A copy */}
               <div className="text-white text-center md:text-left">
                 <motion.div variants={headlineWrap} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.35 }}>
+                  
                   <h2 className="text-[clamp(38px,9vw,56px)] md:text-5xl font-black mb-5 md:mb-6 leading-[1.02] md:leading-tight">
+                    
                     <motion.span variants={headlineLine} className="block">
                       Install a system
                     </motion.span>
-                    <motion.span variants={headlineLine} className="block text-purple">
-                      that gets clients
-                    </motion.span>
+                    
+            <motion.span className="inline-block text-primary ml-2" variants={headlineItem} custom={1}>
+              that gets clients
+            </motion.span>
+                    
                   </h2>
                 </motion.div>
 
@@ -308,15 +312,19 @@ const FeatureSection = () => {
                 transition={{ duration: 0.55, ease: "easeOut" }}
               >
                 <h2 className="text-[clamp(38px,9vw,56px)] md:text-5xl font-black mb-5 md:mb-6 leading-[1.02] md:leading-tight">
-                  Know what’s working
-                  <br />
-                  <span className="text-white/70">in real time</span>
-                  <br />
-                  and scale it
-                </h2>
+                  motion.span variants={headlineLine} className="block">
+                      Know what’s working
+                    </motion.span>
+                    
+            <motion.span className="inline-block text-primary ml-2" variants={headlineItem} custom={1}>
+              and scale it
+            </motion.span>
+                    
+                  </h2>
+
 
                 <p className="text-white/85 text-base md:text-lg leading-relaxed max-w-[44ch] md:max-w-xl mx-auto md:mx-0">
-                  We add tracking and a simple pipeline so you can see what turns into DMs, bookings, and clients — then
+                  We add dashboard tracking and a live pipeline so you can see what turns into DMs, bookings, and clients — then
                   double down on what’s proven.
                 </p>
               </motion.div>
