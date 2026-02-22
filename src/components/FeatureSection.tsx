@@ -312,7 +312,7 @@ const FeatureSection = () => {
                 transition={{ duration: 0.55, ease: "easeOut" }}
               >
                 <h2 className="text-[clamp(38px,9vw,56px)] md:text-5xl font-black mb-5 md:mb-6 leading-[1.02] md:leading-tight">
-                  motion.span variants={headlineLine} className="block">
+                  <motion.span variants={headlineLine} className="block">
                       Know what’s working
                     </motion.span>
                     
