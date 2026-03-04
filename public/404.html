@@ -4,26 +4,20 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // Safe SPA redirect for GitHub Pages + BrowserRouter
-    // Matches the logic in index.html to avoid loops
     (function() {
-      const originalPath = window.location.pathname + window.location.search + window.location.hash;
-
-      // Already redirected? Clean up and stop
-      if (originalPath.startsWith('/index.html')) {
-        const cleanPath = originalPath.replace(/^\/index\.html/, '') || '/';
-        window.location.replace(cleanPath);
-        return;
-      }
-
-      // Normal case: redirect to index.html + original path
-      window.location.replace('/index.html' + originalPath);
+      var segmentCount = 0; // 0 for root-deployed sites (e.g. attractacq.com)
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + segmentCount).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(segmentCount).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
     })();
   </script>
-  <!-- Fallback if JS is disabled -->
-  <meta http-equiv="refresh" content="0; url=/" />
 </head>
 <body>
-  <p>Redirecting... If nothing happens, <a href="/">go to the home page</a>.</p>
+  <p>Redirecting...</p>
 </body>
 </html>
