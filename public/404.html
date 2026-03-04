@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Redirecting...</title>
-    <script>
-      // Simple SPA redirect for GitHub Pages + BrowserRouter
-      // Redirects /audit → /index.html/audit (React Router handles /audit from there)
-      (function() {
-        const path = window.location.pathname + window.location.search + window.location.hash;
-        // Only redirect if not already at root or index.html
-        if (path !== '/' && path !== '/index.html') {
-          window.location.replace('/index.html' + path);
-        }
-      })();
-    </script>
-    <!-- Optional fallback if JS is disabled -->
-    <meta http-equiv="refresh" content="0; url=/">
-  </head>
-  <body>
-    <p>If not redirected, <a href="/">go to home</a></p>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script>
+    // Clean, safe SPA redirect for BrowserRouter on GitHub Pages
+    (function() {
+      const originalPath = window.location.pathname + window.location.search + window.location.hash;
+      
+      // Prevent loop: don't redirect if already at index.html + path
+      if (originalPath.startsWith('/index.html')) {
+        // Already redirected once – clean up and stop
+        const cleanPath = originalPath.replace(/^\/index\.html/, '') || '/';
+        window.location.replace(cleanPath);
+        return;
+      }
+      
+      // Normal case: redirect to index.html + original path
+      window.location.replace('/index.html' + originalPath);
+    })();
+  </script>
+  <!-- Fallback if JS disabled -->
+  <meta http-equiv="refresh" content="0; url=/">
+</head>
+<body>
+  <p>Redirecting... If nothing happens, <a href="/">go home</a>.</p>
+</body>
 </html>
