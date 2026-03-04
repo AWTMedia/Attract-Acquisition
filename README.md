@@ -1,6 +1,3 @@
-Here is a clean, professional **README.md** for your repository (`AWTMedia/Attract-Acquisition`). It describes the project accurately based on the site's purpose (Attract Acquisition landing page with free "Missed Jobs Report" audit form), tech stack, and deployment setup.
-
-```markdown
 # Attract Acquisition – Landing Page & Lead Capture
 
 ![Hero Preview](https://via.placeholder.com/1200x600/070F0D/00E5C3?text=Attract+Acquisition+Hero)  
@@ -124,15 +121,4 @@ Built with ❤️ in Cape Town by [AWTMedia](https://github.com/AWTMedia) for **
 
 Visit the live site: https://attractacq.com  
 Instagram: [@attractacq](https://instagram.com/attractacq)
-```
 
-### Tips for next steps
-
-- Replace the placeholder image URL with a real screenshot (upload one to repo or imgur).
-- Add a real repo description on GitHub: "Landing page & lead capture for Attract Acquisition – Attraction Engines for local businesses".
-- If you add real backend submission (e.g., via Formspree, Supabase, or custom API), update the README.
-- Consider adding badges (e.g., Vite, React, Tailwind) at the top.
-
-Copy-paste this into your repo's `README.md`, commit & push — it'll look professional immediately.
-
-Let me know if you want tweaks (e.g., add sections for future plans, tech decisions, or make it shorter)!
