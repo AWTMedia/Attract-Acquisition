@@ -3,41 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: Set the document title to the name of your application -->
-    <title>Attract Acquisition — Build a Brand That Gets Clients</title>
-    <meta name="description" content="We build brand infrastructure for service businesses. The system that turns your work into consistent, booked appointments — every month.">
-    <meta name="author" content="Attract Acquisition" />
+
+    <!-- Primary Meta Tags -->
+    <title>Free Missed Jobs Report Cape Town | Attract Acquisition</title>
+    <meta name="description" content="Get your free Missed Jobs Report in 24 hours. See exactly how much revenue your Cape Town business is losing to competitors this month. No obligation – delivered via WhatsApp or email.">
+    <meta name="keywords" content="missed jobs report, Cape Town marketing agency, local business audit, Instagram leads Cape Town, attract acquisition, service business marketing, lost revenue analysis">
+
+    <!-- Robots & Crawler Instructions -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- Favicon & Icons (place files in public/) -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    
-    
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:title" content="Free Missed Jobs Report Cape Town – Attract Acquisition" />
+    <meta property="og:description" content="Discover hidden revenue leaks in your local Cape Town market. Get your personalised Missed Jobs Report free in 24 hours. No obligation." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6f7d022d-feb6-4368-aa58-38e94a65bf66/id-preview-ce539b26--d0826ae0-ed6e-4deb-9427-5ca449379bb2.lovable.app-1772557357556.png">
+    <meta property="og:url" content="https://attractacq.com/" />
+    <meta property="og:image" content="https://attractacq.com/og-image-missed-jobs.jpg" /> <!-- Upload a 1200×630 image to public/ -->
+    <meta property="og:site_name" content="Attract Acquisition" />
+    <meta property="og:locale" content="en_ZA" />
 
+    <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
-    <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6f7d022d-feb6-4368-aa58-38e94a65bf66/id-preview-ce539b26--d0826ae0-ed6e-4deb-9427-5ca449379bb2.lovable.app-1772557357556.png">
-    <meta property="og:title" content="Attract Acquisition — Build a Brand That Gets Clients">
-  <meta name="twitter:title" content="Attract Acquisition — Build a Brand That Gets Clients">
-  <meta property="og:description" content="We build brand infrastructure for service businesses. The system that turns your work into consistent, booked appointments — every month.">
-  <meta name="twitter:description" content="We build brand infrastructure for service businesses. The system that turns your work into consistent, booked appointments — every month.">
-</head>
+    <meta name="twitter:title" content="Free Missed Jobs Report Cape Town – Attract Acquisition" />
+    <meta name="twitter:description" content="See how much revenue your Cape Town business is losing locally. Free personalised report in 24 hours via WhatsApp." />
+    <meta name="twitter:image" content="https://attractacq.com/og-image-missed-jobs.jpg" />
+
+    <!-- Canonical URL (helps prevent duplicate content issues) -->
+    <link rel="canonical" href="https://attractacq.com/" />
+
+    <!-- LocalBusiness Schema (JSON-LD) – boosts local SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Attract Acquisition",
+      "description": "Cape Town marketing agency helping local service businesses turn Instagram into consistent bookings and revenue.",
+      "url": "https://attractacq.com",
+      "logo": "https://attractacq.com/logo.png",
+      "telephone": "+27-81-234-5678", <!-- Replace with real number -->
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Your Address Here",
+        "addressLocality": "Cape Town",
+        "addressRegion": "Western Cape",
+        "postalCode": "8001",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.9249,
+        "longitude": 18.4241
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      "sameAs": [
+        "https://instagram.com/attractacq",
+        "https://www.linkedin.com/company/attract-acquisition"
+      ]
+    }
+    </script>
+
+    <!-- Optional: Preload key assets for faster paint -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
+  </head>
 
   <body>
+    <!-- SPA GitHub Pages redirect script (improved version) -->
     <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
       (function(l) {
-        if (l.search[1] === '/') {
-          var decoded = l.search.slice(1).split('&').map(function(s) {
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
-        }
-      }(window.location))
+        if (l.pathname === '/' || l.pathname === '/index.html') return;
+        var path = l.pathname.replace(/^\/+/, '').replace(/(\/index\.html)+/g, '');
+        var clean = '/' + path + l.search + l.hash;
+        l.replace('/index.html' + clean);
+      })(window.location);
     </script>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
