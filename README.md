@@ -1,73 +1,138 @@
-# Welcome to your Lovable project
+Here is a clean, professional **README.md** for your repository (`AWTMedia/Attract-Acquisition`). It describes the project accurately based on the site's purpose (Attract Acquisition landing page with free "Missed Jobs Report" audit form), tech stack, and deployment setup.
 
-## Project info
+```markdown
+# Attract Acquisition – Landing Page & Lead Capture
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![Hero Preview](https://via.placeholder.com/1200x600/070F0D/00E5C3?text=Attract+Acquisition+Hero)  
+*(Replace with a real screenshot of the /audit page once live)*
 
-## How can I edit this code?
+**Attract Acquisition** builds **Attraction Engines** for physical, local businesses — turning Instagram (posts, Reels, Stories, DMs) into qualified leads, bookings, and paying clients.
 
-There are several ways of editing your application.
+This repository contains the **frontend codebase** for https://attractacq.com — a high-conversion landing page offering a **free Missed Jobs Report** audit. Businesses submit details → get a personalized analysis of lost revenue opportunities in their local market → receive it via WhatsApp/email within 24 hours.
 
-**Use Lovable**
+## Key Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- Dark/teal modern UI with glow effects, noise overlay, and smooth animations
+- Responsive hero layout: compelling copy on left, lead-capture form on right
+- Interactive form with:
+  - Business name & location
+  - Google reviews selector
+  - WhatsApp / Email contact toggle
+  - Simulated submission → redirect to confirmation page
+- Confirmation page with animated checkmark, timeline ("What happens next"), referral/share buttons
+- SPA routing support for GitHub Pages (via `public/404.html` fallback)
+- Custom domain: attractacq.com
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+- **Frontend Framework**: React (with TypeScript)
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Routing**: React Router DOM
+- **State & Data**: TanStack Query (React Query), React Hook Form (optional in future)
+- **UI/UX Extras**: Sonner (toasts), Lucide icons (assumed via shadcn)
+- **Deployment**: GitHub Pages (via GitHub Actions workflow)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Project Structure
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```
+Attract-Acquisition/
+├── public/                # Static assets copied to dist root
+│   ├── 404.html           # SPA routing fallback for GitHub Pages
+│   └── favicon.ico, etc.
+├── src/
+│   ├── components/        # shadcn/ui + custom (Toaster, Tooltip, etc.)
+│   ├── pages/             # Index, Audit, AuditConfirmation, NotFound
+│   ├── App.tsx            # Root with routing & providers
+│   └── main.tsx
+├── .github/workflows/     # deploy.yml – Vite build → GitHub Pages
+├── vite.config.ts
+├── tailwind.config.ts
+├── tsconfig.json
+├── package.json
+└── README.md
+```
 
-Follow these steps:
+## Getting Started
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Prerequisites
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+- Node.js ≥ 18
+- npm or pnpm
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Installation
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Clone the repo
+git clone https://github.com/AWTMedia/Attract-Acquisition.git
+cd Attract-Acquisition
+
+# Install dependencies
+npm install
+# or pnpm install
+```
+
+### Development
+
+```bash
+# Start dev server (http://localhost:5173)
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open http://localhost:5173/audit to see the form.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Build & Preview
 
-**Use GitHub Codespaces**
+```bash
+# Build for production
+npm run build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Preview locally
+npm run preview
+```
 
-## What technologies are used for this project?
+### Deployment (GitHub Pages)
 
-This project is built with:
+1. Ensure **GitHub Pages** is enabled in repo Settings → Pages → Source: **GitHub Actions**
+2. Push to `main` → workflow `.github/workflows/deploy.yml` auto-builds & deploys
+3. Custom domain (attractacq.com) already configured via `CNAME` file + DNS
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Note**: Direct sub-path access (`/audit`, `/audit-confirmation`) works thanks to `public/404.html` redirecting to `index.html` with preserved path.
 
-## How can I deploy this project?
+## Scripts in package.json
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+- `dev` → local dev server
+- `build` → production build (copies to `dist/`)
+- `preview` → serve built files locally
+- (Optional) Add to build: `&& cp dist/index.html dist/404.html` for auto-fallback
 
-## Can I connect a custom domain to my Lovable project?
+## Contributing
 
-Yes, you can!
+Contributions welcome! Especially:
+- Form validation / real API submission
+- Better mobile tweaks
+- Analytics integration
+- Dark mode toggle (if needed)
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Open issues or PRs.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## License
+
+MIT License (or add your preferred one).
+
+Built with ❤️ in Cape Town by [AWTMedia](https://github.com/AWTMedia) for **Attract Acquisition**.
+
+Visit the live site: https://attractacq.com  
+Instagram: [@attractacq](https://instagram.com/attractacq)
+```
+
+### Tips for next steps
+
+- Replace the placeholder image URL with a real screenshot (upload one to repo or imgur).
+- Add a real repo description on GitHub: "Landing page & lead capture for Attract Acquisition – Attraction Engines for local businesses".
+- If you add real backend submission (e.g., via Formspree, Supabase, or custom API), update the README.
+- Consider adding badges (e.g., Vite, React, Tailwind) at the top.
+
+Copy-paste this into your repo's `README.md`, commit & push — it'll look professional immediately.
+
+Let me know if you want tweaks (e.g., add sections for future plans, tech decisions, or make it shorter)!
