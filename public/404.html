@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Redirect to index.html while preserving the original path
+      const segment = window.location.pathname + window.location.search + window.location.hash;
+      window.location.replace("/index.html" + segment);
+    </script>
+  </head>
+  <body></body>
+</html>
