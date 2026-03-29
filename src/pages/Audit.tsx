@@ -605,7 +605,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             </h1>
 
             <p className="hero-sub">
-              In just 30 seconds, we'll analyse your business and show you exactly
+              We will analyse your business and show you exactly
               where clients are slipping through the cracks — the ones who searched,
               found someone else, and paid them instead.
             </p>
