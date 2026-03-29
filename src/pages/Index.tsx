@@ -131,7 +131,8 @@ const Index = () => {
           <li><a href="#results">Results</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a href="https://calendly.com/attractacquisition/attract-acquisition-1-1-call?month=2026-03" target="_blank" rel="noopener noreferrer" className="nav-cta">Book a Call →</a>
+        {/* CHANGED: Main Nav CTA now drives to the Audit */}
+        <a href="/audit" className="nav-cta">Free Demand Audit →</a>
       </nav>
 
       {/* TICKER */}
@@ -170,7 +171,8 @@ const Index = () => {
               We install the brand infrastructure that turns your service business from invisible to the most trusted name in your local market — consistently, measurably, and without you becoming a content creator.
             </p>
             <div className="hero-ctas">
-              <a href="https://calendly.com/attractacquisition/attract-acquisition-1-1-call?month=2026-03" target="_blank" rel="noopener noreferrer" className="btn-hero">Book a Free Call →</a>
+              {/* CHANGED: Primary Hero CTA points to Audit */}
+              <a href="/audit" className="btn-hero">Claim Your Free Audit →</a>
               <a href="#how" className="btn-ghost">See How It Works</a>
             </div>
             <div className="hero-trust">
@@ -330,7 +332,8 @@ const Index = () => {
             <div className="sprint-right">
               <span className="sprint-fee">R0</span>
               <span className="sprint-fee-label">Management fee<br />during trial</span>
-              <a href="https://wa.me/31628960405?text=I'm%20ready%20to%20start%20the%20Proof%20Sprint" target="_blank" rel="noopener noreferrer" className="btn-hero" style={{ marginTop: 20, justifyContent: "center" }}>Start the Sprint →</a>
+              {/* CHANGED: Let's keep one Book a Call here for users who want to discuss the sprint directly, or we can make it an Audit CTA. I've switched it to an Audit CTA so they qualify themselves first. */}
+              <a href="/audit" className="btn-hero" style={{ marginTop: 20, justifyContent: "center" }}>Qualify for the Sprint →</a>
             </div>
           </div>
         </div>
@@ -617,20 +620,20 @@ const Index = () => {
             <p className="cta-note">15 minutes · Free · No obligation · Clear next step</p>
           </div>
           <div className="cta-steps-grid reveal reveal-delay-2">
-            <div>
+           <div>
               <span className="label" style={{ marginBottom: 10, display: "block" }}>Step 01</span>
-              <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 18, fontWeight: 700, marginBottom: 6 }}>Book a Call</div>
-              <p style={{ fontSize: 13, color: "var(--grey)", lineHeight: 1.5 }}>15 minutes. Map the engine for your specific business — profile funnel, content structure, DM-to-booking flow.</p>
+              <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 18, fontWeight: 700, marginBottom: 6 }}>Claim Your MJR</div>
+              <p style={{ fontSize: 13, color: "var(--grey)", lineHeight: 1.5 }}>We audit your current digital footprint to generate your Missed Jobs Report—identifying exactly where high-intent leads are leaking out of your business today.</p>
             </div>
             <div>
               <span className="label" style={{ marginBottom: 10, display: "block" }}>Step 02</span>
-              <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 18, fontWeight: 700, marginBottom: 6 }}>Run the Sprint</div>
-              <p style={{ fontSize: 13, color: "var(--grey)", lineHeight: 1.5 }}>14 days. Ad spend only. R0 management fee. See real local enquiries generated before you commit to anything.</p>
+              <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 18, fontWeight: 700, marginBottom: 6 }}>Run the Proof Sprint</div>
+              <p style={{ fontSize: 13, color: "var(--grey)", lineHeight: 1.5 }}>14 days. We put your best work in front of a targeted local audience to prove the demand exists and generate real-time enquiries before you commit to the full engine.</p>
             </div>
             <div>
               <span className="label" style={{ marginBottom: 10, display: "block" }}>Step 03</span>
-              <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 18, fontWeight: 700, marginBottom: 6 }}>Install the Engine</div>
-              <p style={{ fontSize: 13, color: "var(--grey)", lineHeight: 1.5 }}>Full brand infrastructure. Predictable clients every month. Live pipeline tracking. Your acquisition problem — solved.</p>
+              <div style={{ fontFamily: "'Playfair Display',serif", fontSize: 18, fontWeight: 700, marginBottom: 6 }}>Become a Proof Brand</div>
+              <p style={{ fontSize: 13, color: "var(--grey)", lineHeight: 1.5 }}>We install the full acquisition infrastructure—profile funnels, DM-to-booking flows, and authority content—to scale your business into the most trusted Proof Brand in your market.</p>
             </div>
           </div>
         </div>
