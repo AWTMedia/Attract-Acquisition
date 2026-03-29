@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { supabase } from "../lib/supabase";
 
 export default function Audit() {
   const navigate = useNavigate();
   const [contactMode, setContactMode] = useState<"whatsapp" | "email">("whatsapp");
   const [loading, setLoading] = useState(false);
+  const [businessName, setBusinessName] = useState("");
+  const [location, setLocation] = useState("");
+  const [reviews, setReviews] = useState("");
+  const [contactValue, setContactValue] = useState("");
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
@@ -37,13 +42,32 @@ export default function Audit() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+
+    // Push data to Supabase
+    const { error } = await supabase
+      .from('audit_claims')
+      .insert([
+        { 
+          business_name: businessName,
+          location: location,
+          google_reviews: reviews,
+          contact_method: contactMode,
+          contact_info: contactValue,
+          status: 'pending' // Default status for your team to track
+        }
+      ]);
+
+    if (error) {
+      console.error("Error claiming audit:", error.message);
+      alert("Something went wrong. Please try again.");
+      setLoading(false);
+    } else {
       setLoading(false);
       navigate("/audit-confirmation");
-    }, 1200);
+    }
   };
 
   return (
@@ -611,92 +635,96 @@ export default function Audit() {
             </p>
 
             <form className="form" onSubmit={handleSubmit}>
-              {/* Business Name */}
-              <div className="field">
-                <label>Business Name</label>
-                <div className="field-inner">
-                  <span className="field-icon">🏢</span>
-                  <input
-                    type="text"
-                    placeholder="e.g. Cape Cuts Pet Grooming"
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Location */}
-              <div className="field">
-                <label>Location / Area Served</label>
-                <div className="field-inner">
-                  <span className="field-icon">📍</span>
-                  <input
-                    type="text"
-                    placeholder="e.g. Claremont, Cape Town"
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* Google Reviews */}
-              <div className="field">
-                <label>Google Reviews</label>
-                <div className="field-inner">
-                  <span className="field-icon">⭐</span>
-                  <select required>
-                    <option value="">How many Google reviews?</option>
-                    <option value="0">0</option>
-                    <option value="1-10">1–10</option>
-                    <option value="11-30">11–30</option>
-                    <option value="31-60">31–60</option>
-                    <option value="61+">61+</option>
-                  </select>
-                </div>
-              </div>
-
-              {/* Preferred Contact */}
-              <div className="field">
-                <label>Preferred Contact</label>
-                <div className="contact-toggle">
-                  <button
-                    type="button"
-                    className={`toggle-btn ${contactMode === "whatsapp" ? "active" : ""}`}
-                    onClick={() => setContactMode("whatsapp")}
-                  >
-                    💬 WhatsApp
-                  </button>
-                  <button
-                    type="button"
-                    className={`toggle-btn ${contactMode === "email" ? "active" : ""}`}
-                    onClick={() => setContactMode("email")}
-                  >
-                    ✉️ Email
-                  </button>
-                </div>
-
-                <div className="contact-input-wrap">
-                  <span id="contact-prefix">
-                    {contactMode === "whatsapp" ? "📱" : "✉️"}
-                  </span>
-                  <input
-                    id="contact-input"
-                    type={contactMode === "whatsapp" ? "tel" : "email"}
-                    placeholder={
-                      contactMode === "whatsapp" ? "+27 81 234 5678" : "your@email.com"
-                    }
-                    required
-                  />
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="btn-submit"
-                disabled={loading}
-              >
-                {loading ? "Preparing your report..." : "Send Me My Free Report →"}
-              </button>
-            </form>
+          {/* Business Name */}
+          <div className="field">
+            <label>Business Name</label>
+            <div className="field-inner">
+              <span className="field-icon">🏢</span>
+              <input
+                type="text"
+                placeholder="e.g. Cape Cuts Pet Grooming"
+                value={businessName}
+                onChange={(e) => setBusinessName(e.target.value)}
+                required
+              />
+            </div>
           </div>
+
+          {/* Location */}
+          <div className="field">
+            <label>Location / Area Served</label>
+            <div className="field-inner">
+              <span className="field-icon">📍</span>
+              <input
+                type="text"
+                placeholder="e.g. Claremont, Cape Town"
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          {/* Google Reviews */}
+          <div className="field">
+            <label>Google Reviews</label>
+            <div className="field-inner">
+              <span className="field-icon">⭐</span>
+              <select 
+                value={reviews} 
+                onChange={(e) => setReviews(e.target.value)} 
+                required
+              >
+                <option value="">How many Google reviews?</option>
+                <option value="0">0</option>
+                <option value="1-10">1–10</option>
+                <option value="11-30">11–30</option>
+                <option value="31-60">31–60</option>
+                <option value="61+">61+</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Preferred Contact */}
+          <div className="field">
+            <label>Preferred Contact</label>
+            <div className="contact-toggle">
+              <button
+                type="button"
+                className={`toggle-btn ${contactMode === "whatsapp" ? "active" : ""}`}
+                onClick={() => setContactMode("whatsapp")}
+              >
+                💬 WhatsApp
+              </button>
+              <button
+                type="button"
+                className={`toggle-btn ${contactMode === "email" ? "active" : ""}`}
+                onClick={() => setContactMode("email")}
+              >
+                ✉️ Email
+              </button>
+            </div>
+
+            <div className="contact-input-wrap">
+              <span id="contact-prefix">
+                {contactMode === "whatsapp" ? "📱" : "✉️"}
+              </span>
+              <input
+                id="contact-input"
+                type={contactMode === "whatsapp" ? "tel" : "email"}
+                placeholder={contactMode === "whatsapp" ? "+27 81 234 5678" : "your@email.com"}
+                value={contactValue}
+                onChange={(e) => setContactValue(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" className="btn-submit" disabled={loading}>
+            {loading ? "Preparing your report..." : "Send Me My Free Report →"}
+          </button>
+        </form>
+      </div>
         </main>
       </div>
     </>
