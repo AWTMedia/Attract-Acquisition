@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Proof Brand — Attract Acquisition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --teal:#00E5C3;--teal-dark:#00B89E;--teal-deeper:#007A6A;
+      --bg-ink:#070F0D;--bg-deep:#0A1714;--bg-mid:#0E1E1A;--bg-raised:#122420;
+      --white:#EEF2F1;--grey-light:#A8BCBA;--grey-mid:#7A9490;--grey-dark:#3D5550;
+      --grey-border:rgba(255,255,255,0.06);--teal-border:rgba(0,229,195,0.14);
+      --teal-faint:rgba(0,229,195,0.07);--teal-faint2:rgba(0,229,195,0.12);
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--bg-ink);color:var(--white);font-family:'Barlow',sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,195,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,195,0.022) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+
+    .doc{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:0 32px 120px}
+
+    /* ── HERO ── */
+    .hero{padding:72px 0 64px;text-align:center;position:relative}
+    .hero-glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(0,229,195,0.08) 0%,transparent 70%);pointer-events:none}
+    .badge-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px}
+    .badge{width:36px;height:36px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:13px;color:var(--bg-ink)}
+    .wordmark{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--white)}
+    .wordmark-sub{font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-mid);letter-spacing:.14em;text-transform:uppercase}
+
+    .hero-eyebrow{font-family:'DM Mono',monospace;font-size:10px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;color:var(--teal);margin-bottom:24px;display:flex;align-items:center;justify-content:center;gap:10px}
+    .hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:32px;height:1px;background:var(--teal);opacity:.4}
+
+    .hero-title{font-family:'Playfair Display',serif;font-weight:900;font-size:72px;line-height:.90;letter-spacing:-.025em;color:var(--white);margin-bottom:12px}
+    .hero-title em{font-style:italic;color:var(--teal)}
+    .hero-title .sub{display:block;font-size:38px;font-weight:700;color:rgba(238,242,241,.5);margin-top:8px}
+
+    .hero-body{font-size:18px;font-weight:300;color:rgba(238,242,241,.55);max-width:560px;margin:24px auto 0;line-height:1.65}
+
+    /* ── SPRINT CALLBACK ── */
+    .sprint-callback{background:var(--bg-mid);border:1px solid var(--teal-border);border-radius:12px;padding:32px 36px;margin:48px 0;text-align:left;position:relative;overflow:hidden}
+    .sprint-callback::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--teal),transparent)}
+    .sprint-callback-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px rgba(0,229,195,0.18)}
+    .sprint-title{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--white);margin-bottom:16px}
+    .sprint-metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .sprint-metric{background:var(--bg-raised);border:1px solid var(--grey-border);border-radius:6px;padding:14px 12px;text-align:center}
+    .sm-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--teal);line-height:1;margin-bottom:4px}
+    .sm-key{font-family:'DM Mono',monospace;font-size:8px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--grey-mid)}
+    .sprint-note{margin-top:16px;font-size:13px;color:var(--grey-mid);line-height:1.6}
+    .sprint-note strong{color:var(--white)}
+
+    /* ── SECTION ── */
+    .section{margin-bottom:72px}
+    .eyebrow{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+    .eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--teal);opacity:.5}
+    .section-title{font-family:'Playfair Display',serif;font-weight:900;font-size:38px;color:var(--white);letter-spacing:-.015em;line-height:1.0;margin-bottom:10px}
+    .section-title em{font-style:italic;color:var(--teal)}
+    .section-body{font-size:15px;color:var(--grey-mid);line-height:1.7;max-width:660px;margin-bottom:28px}
+    .section-body strong{color:var(--grey-light)}
+    hr.div{border:none;border-top:1px solid var(--grey-border);margin:64px 0}
+
+    /* ── PROBLEM LIST ── */
+    .problem-grid{display:flex;flex-direction:column;gap:0}
+    .problem-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--grey-border)}
+    .problem-item:last-child{border-bottom:none}
+    .problem-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(238,242,241,.7);line-height:1.4;flex:1}
+    .problem-truth{font-size:12px;color:var(--grey-mid);line-height:1.6;flex:1;padding-top:2px}
+    .problem-truth strong{color:rgba(238,242,241,.5)}
+
+    /* ── SOLUTION STACK ── */
+    .solution-stack{display:flex;flex-direction:column;gap:12px}
+    .solution-item{background:var(--bg-mid);border:1px solid var(--grey-border);border-radius:8px;overflow:hidden;transition:border-color .2s}
+    .solution-item:hover{border-color:var(--teal-border)}
+    .solution-header{display:flex;align-items:center;gap:0;padding:0}
+    .solution-num{width:52px;height:52px;background:var(--bg-raised);border-right:1px solid var(--grey-border);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--teal);flex-shrink:0}
+    .solution-name-wrap{flex:1;padding:14px 20px}
+    .solution-name{font-weight:600;font-size:14px;color:var(--white);margin-bottom:2px}
+    .solution-problem-tag{font-family:'DM Mono',monospace;font-size:8px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--grey-mid)}
+    .solution-value{width:110px;padding:14px 16px;text-align:right;flex-shrink:0;border-left:1px solid var(--grey-border)}
+    .solution-value-num{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--teal)}
+    .solution-value-label{font-family:'DM Mono',monospace;font-size:8px;color:var(--grey-dark);letter-spacing:.08em;text-transform:uppercase}
+    .solution-body{padding:14px 20px 16px 72px;border-top:1px solid var(--grey-border);background:var(--bg-deep)}
+    .solution-body p{font-size:13px;color:var(--grey-mid);line-height:1.65}
+    .solution-body p strong{color:var(--grey-light)}
+    .solution-tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .tool-tag{font-family:'DM Mono',monospace;font-size:8px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--teal-dark);background:rgba(0,184,158,0.08);border:1px solid rgba(0,184,158,0.2);border-radius:2px;padding:3px 7px}
+
+    /* ── VALUE STACK ── */
+    .value-table{background:var(--bg-mid);border:1px solid var(--grey-border);border-radius:10px;overflow:hidden}
+    .vt-row{display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid var(--grey-border);gap:16px}
+    .vt-row:last-child{border-bottom:none}
+    .vt-row.header{background:var(--bg-raised);padding:10px 20px}
+    .vt-row.total{background:var(--bg-raised);border-top:1px solid var(--teal-border)}
+    .vt-check{font-size:13px;color:var(--teal);flex-shrink:0;width:16px}
+    .vt-name{flex:1;font-size:13px;color:var(--grey-light)}
+    .vt-name strong{color:var(--white);font-weight:600}
+    .vt-value{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--teal);min-width:100px;text-align:right}
+    .vt-value.grey{color:var(--grey-mid)}
+    .vt-header-label{font-family:'DM Mono',monospace;font-size:8px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-mid)}
+    .vt-total-label{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:var(--white)}
+    .vt-total-value{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;color:var(--teal)}
+    .vt-strikethrough{text-decoration:line-through;color:var(--grey-dark);font-size:14px;margin-right:8px}
+
+    /* ── BONUSES ── */
+    .bonus-grid{display:flex;flex-direction:column;gap:10px}
+    .bonus-card{display:flex;gap:16px;background:var(--bg-mid);border:1px solid var(--teal-border);border-radius:8px;padding:18px 20px;align-items:flex-start}
+    .bonus-badge{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--bg-ink);background:var(--teal);border-radius:2px;padding:4px 8px;flex-shrink:0;margin-top:2px}
+    .bonus-content{flex:1}
+    .bonus-name{font-weight:600;font-size:14px;color:var(--white);margin-bottom:4px}
+    .bonus-desc{font-size:12px;color:var(--grey-mid);line-height:1.6}
+    .bonus-desc strong{color:var(--grey-light)}
+    .bonus-value{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--teal);flex-shrink:0;min-width:80px;text-align:right;margin-top:2px}
+
+    /* ── GUARANTEE ── */
+    .guarantee-block{background:var(--bg-deep);border:1px solid var(--teal-border);border-radius:12px;padding:48px;text-align:center;position:relative;overflow:hidden}
+    .guarantee-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,229,195,0.07) 0%,transparent 65%);pointer-events:none}
+    .guarantee-icon{font-size:48px;margin-bottom:20px;line-height:1}
+    .guarantee-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+    .guarantee-title{font-family:'Playfair Display',serif;font-weight:900;font-size:38px;color:var(--white);line-height:1.05;letter-spacing:-.015em;margin-bottom:20px}
+    .guarantee-title em{font-style:italic;color:var(--teal)}
+    .guarantee-body{font-size:15px;color:var(--grey-mid);line-height:1.75;max-width:560px;margin:0 auto 24px}
+    .guarantee-body strong{color:var(--white)}
+    .guarantee-fine{font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-dark);letter-spacing:.08em;margin-top:16px}
+
+    /* ── WHAT YOU DON'T DO ── */
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .compare-card{background:var(--bg-mid);border:1px solid var(--grey-border);border-radius:8px;padding:24px}
+    .compare-card.them{border-color:rgba(255,80,80,.15)}
+    .compare-card.us{border-color:var(--teal-border);background:linear-gradient(135deg,var(--teal-faint) 0%,var(--bg-mid) 80%)}
+    .compare-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;padding:4px 8px;border-radius:2px;display:inline-block}
+    .compare-label.them{color:rgba(255,100,100,.7);background:rgba(255,100,100,.07);border:1px solid rgba(255,100,100,.15)}
+    .compare-label.us{color:var(--teal);background:var(--teal-faint);border:1px solid var(--teal-border)}
+    .compare-title{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;color:var(--white);margin-bottom:16px}
+    .compare-list{display:flex;flex-direction:column;gap:8px}
+    .compare-row{display:flex;gap:10px;font-size:13px;line-height:1.5}
+    .compare-check.bad{color:rgba(255,100,100,.6);flex-shrink:0}
+    .compare-check.good{color:var(--teal);flex-shrink:0}
+    .compare-text{color:var(--grey-mid)}
+    .compare-text strong{color:var(--grey-light)}
+
+    /* ── PRICE REVEAL ── */
+    .price-block{background:var(--bg-mid);border:1px solid var(--teal-border);border-radius:12px;overflow:hidden}
+    .price-header{background:linear-gradient(135deg,var(--teal-faint2) 0%,transparent 70%);padding:36px 40px;border-bottom:1px solid var(--teal-border)}
+    .price-tag{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+    .price-name{font-family:'Playfair Display',serif;font-weight:900;font-size:32px;color:var(--white);margin-bottom:4px}
+    .price-sub{font-size:13px;color:var(--grey-mid)}
+    .price-body{padding:36px 40px}
+    .price-row{display:flex;align-items:baseline;gap:16px;margin-bottom:16px}
+    .price-was{font-family:'DM Mono',monospace;font-size:16px;color:var(--grey-dark);text-decoration:line-through}
+    .price-amount{font-family:'Playfair Display',serif;font-weight:900;font-size:56px;color:var(--teal);line-height:1;letter-spacing:-.02em}
+    .price-period{font-family:'DM Mono',monospace;font-size:13px;color:var(--grey-mid);margin-bottom:24px}
+    .price-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+    .price-item{background:var(--bg-raised);border:1px solid var(--grey-border);border-radius:4px;padding:12px 14px}
+    .pi-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px}
+    .pi-val{font-family:'DM Mono',monospace;font-size:15px;font-weight:500;color:var(--white)}
+    .price-cta{display:block;width:100%;background:var(--teal);color:var(--bg-ink);font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:none;border-radius:3px;padding:18px 32px;cursor:pointer;text-align:center;transition:background .15s,transform .15s}
+    .price-cta:hover{background:var(--teal-dark);transform:translateY(-2px)}
+    .price-guarantee-note{margin-top:14px;text-align:center;font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-mid);letter-spacing:.08em}
+
+    /* ── FINAL CLOSE ── */
+    .close-block{text-align:center;padding:64px 0 0}
+    .close-title{font-family:'Playfair Display',serif;font-weight:900;font-size:48px;color:var(--white);line-height:.95;letter-spacing:-.02em;margin-bottom:20px}
+    .close-title em{font-style:italic;color:var(--teal)}
+    .close-body{font-size:16px;font-weight:300;color:rgba(238,242,241,.5);max-width:500px;margin:0 auto 32px;line-height:1.7}
+    .close-stats{display:flex;justify-content:center;gap:48px;margin-top:40px}
+    .cs-item{text-align:center}
+    .cs-val{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--teal);margin-bottom:4px}
+    .cs-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-mid)}
+
+    /* ── FOOTER ── */
+    .doc-footer{border-top:1px solid var(--teal-border);padding:28px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:80px}
+    .footer-txt{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-dark)}
+
+    /* ── PULL QUOTE ── */
+    .pull-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:rgba(238,242,241,.55);line-height:1.5;text-align:center;padding:40px 0;border-top:1px solid var(--grey-border);border-bottom:1px solid var(--grey-border);margin:48px 0}
+    .pull-quote span{color:var(--teal)}
+
+    @media(max-width:680px){
+      .hero-title{font-size:46px}.hero-title .sub{font-size:26px}
+      .sprint-metrics{grid-template-columns:repeat(3,1fr)}
+      .compare-grid{grid-template-columns:1fr}
+      .price-breakdown{grid-template-columns:1fr}
+      .close-stats{flex-direction:column;gap:24px}
+      .price-amount{font-size:42px}
+      .section-title{font-size:28px}
+    }
+    @media print{body::before{display:none}.doc{padding:0 20px 60px}}
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1911004419525632');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1911004419525632&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+<div class="doc">
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <div class="hero">
+    <div class="hero-glow"></div>
+    <div class="badge-row">
+      <div class="badge">AA</div>
+      <div>
+        <div class="wordmark">Attract Acquisition</div>
+        <div class="wordmark-sub">The Proof Brand · Core Offer</div>
+      </div>
+    </div>
+
+    <div class="hero-eyebrow">Tier 1 — Full Infrastructure Build</div>
+
+    <div class="hero-title">
+      You've seen the<br>
+      <em>proof.</em>
+      <span class="sub">Now install the engine.</span>
+    </div>
+
+    <div class="hero-body">
+      The Proof Sprint showed you what the system produces on one ad set, no brand infrastructure, and a 14-day window. What follows is what happens when the full engine runs.
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       SPRINT RESULTS CALLBACK
+  ══════════════════════════════════════════ -->
+  <div class="sprint-callback">
+    <div class="sprint-callback-label"><div class="live-dot"></div>Your Proof Sprint — What We Just Built Together</div>
+    <div class="sprint-title">14 days. One ad set. No brand infrastructure. Here is what that produced.</div>
+    <div class="sprint-metrics">
+      <div class="sprint-metric"><div class="sm-val">14d</div><div class="sm-key">Duration</div></div>
+      <div class="sprint-metric"><div class="sm-val">1</div><div class="sm-key">Ad Set</div></div>
+      <div class="sprint-metric"><div class="sm-val">R0</div><div class="sm-key">Mgmt Fee</div></div>
+      <div class="sprint-metric"><div class="sm-val">R1,500</div><div class="sm-key">Ad Spend</div></div>
+      <div class="sprint-metric"><div class="sm-val">Partial</div><div class="sm-key">Profile</div></div>
+    </div>
+    <div class="sprint-note">
+      <strong>This was the system with one hand tied behind its back.</strong> No brand infrastructure. No full profile funnel. No nurture sequences. No conversion campaign. No authority content. One ad set, a partially prepared profile, and a small budget. The results you saw came despite the constraints — not because of ideal conditions. The Proof Brand installs everything that was missing.
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       THE PROBLEM — 5 PAINS
+  ══════════════════════════════════════════ -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">Why Your Business Is Still Invisible</div>
+    <div class="section-title">You don't have a<br><em>marketing problem.</em></div>
+    <div class="section-body">You have an infrastructure problem. And these are the exact gaps costing you bookings every single month — even after a Proof Sprint that generated real results.</div>
+
+    <div class="problem-grid">
+      <div class="problem-item">
+        <div class="problem-quote">"We get enquiries, but they don't convert."</div>
+        <div class="problem-truth">No DM-to-booking flow. No qualifying sequence. Leads arrive, feel nothing, and leave. <strong>Without conversion infrastructure, traffic is expensive noise.</strong></div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-quote">"Our profile looks weak compared to competitors."</div>
+        <div class="problem-truth">No systematic proof content. No brand voice. No consistent posting. Visitors land, see an inconsistent feed, and leave before they trust. <strong>Perceived authority is built through volume and consistency — not single posts.</strong></div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-quote">"We boosted a post once. Got likes. No clients."</div>
+        <div class="problem-truth">Awareness without infrastructure produces vanity metrics. <strong>Running ads to a weak brand is like pouring water into a bucket with holes.</strong> The infrastructure seals the bucket before the ads run.</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-quote">"I don't know which part of my marketing is working."</div>
+        <div class="problem-truth">No pipeline tracking. No attribution. No live visibility from profile visit to cash collected. <strong>You can't optimise what you can't measure.</strong> The AA Portal fixes this — permanently.</div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-quote">"We rely on word of mouth. It's unpredictable."</div>
+        <div class="problem-truth">Word of mouth is a by-product of trust. The Proof Brand builds that trust at scale — systematically, measurably, and without requiring you to become a content creator or rely on who referred whom last month.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pull-quote">
+    "The Sprint proved the system works. The Proof Brand installs every component that was missing — so the results you saw are <span>the floor, not the ceiling.</span>"
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       SOLUTION STACK — DELIVERABLES
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="eyebrow">Everything That Gets Built</div>
+    <div class="section-title">The complete<br><em>infrastructure stack.</em></div>
+    <div class="section-body">Every component below is a specific solution to a specific gap in your current business. Nothing in this stack is decorative — each piece has one job: move a stranger from invisible awareness to cash collected in your account.</div>
+
+    <div class="solution-stack">
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">01</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Client Onboarding & Infrastructure Audit</div>
+            <div class="solution-problem-tag">Solves: starting without clarity → wasted build time and misdirected spend</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R4,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>A dedicated onboarding call collects every asset, access credential, and strategic input needed before a single piece of infrastructure is built. Your sector, target client profile, average job value, conversion objective, and brand voice are locked in. <strong>Nothing is built on assumptions.</strong> Everything built after this point is specific to your business, your city, and your market — not a template.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Client Portal</span><span class="tool-tag">Onboarding Brief</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">02</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Conversion Infrastructure Build</div>
+            <div class="solution-problem-tag">Solves: traffic arriving with nowhere to go and no reason to act</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R6,000</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>Your conversion infrastructure is optimised end-to-end for your specific conversion objective — whether that's WhatsApp enquiries, website form submissions, or direct DM bookings. <strong>A conversion landing page is built using your brand, your proof, and psychology-driven copy</strong> that speaks directly to the specific fears and desires of your local target client. Every element is A/B tested from Week 1.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Client Portal</span><span class="tool-tag">Lovable Landing Page</span><span class="tool-tag">WhatsApp Business</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">03</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Attraction Positioning Document + Campaign</div>
+            <div class="solution-problem-tag">Solves: cold audiences who don't know you exist and don't trust you yet</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R5,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>A master Attraction document is built that defines your top-of-funnel content strategy — credibility-driven proof content that builds awareness and trust with cold local audiences. <strong>Every attraction post and ad is designed to answer one question in a cold prospect's mind: "Does this business do great work?"</strong> Job documentation, process footage, results, and proof of quality — systematised and distributed at volume. This is the brand-first layer that makes every rand of ad spend more effective.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Studio</span><span class="tool-tag">Meta Ads Manager</span><span class="tool-tag">AA Client Portal</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">04</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Nurture Positioning Document + Campaign</div>
+            <div class="solution-problem-tag">Solves: warm audiences who've seen you but haven't committed</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R5,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>A master Nurture document structures your middle-of-funnel content — credibility-driven posts and ads that retarget warm audiences who've already engaged with your profile or ads. <strong>This is where most agencies have no system at all.</strong> People who see your work once and leave are expensive to re-acquire cold. The nurture campaign keeps your brand visible and trust compounding with people who are already interested — so when they're ready to book, you're the only name they think of.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Studio</span><span class="tool-tag">Meta Retargeting</span><span class="tool-tag">AA Client Portal</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">05</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Conversion Positioning Document + Campaign</div>
+            <div class="solution-problem-tag">Solves: warm audiences who want to book but haven't been asked in the right way</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R5,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>A master Conversion document drives your bottom-of-funnel — psychologically sequenced content and ads built to move a warm prospect from consideration to commitment. <strong>Every conversion campaign is structured around the specific decision-making psychology of your target client</strong> — their primary objection, their deepest hesitation, and the exact proof point that converts them. This is where revenue is made. Most businesses never get here because they run ads without the infrastructure above it.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Studio</span><span class="tool-tag">Meta Conversion Ads</span><span class="tool-tag">AA Client Portal</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">06</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">DM → Booking → Cash Conversion Flow</div>
+            <div class="solution-problem-tag">Solves: enquiries that die in your DMs and never become booked appointments</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R4,000</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>A fully documented DM qualifier and booking sequence is installed and coached from Week 1. <strong>Every inbound message is handled through a proven framework:</strong> qualifier questions that filter serious leads from window-shoppers → appointment booking → confirmation message → show-up follow-up the day before. Your account manager manages DMs alongside you for the first 48 hours of each new campaign cycle — coaching in real time until the flow is second nature.</p>
+          <div class="solution-tools"><span class="tool-tag">WhatsApp Business</span><span class="tool-tag">DM Script Framework</span><span class="tool-tag">AA Client Portal</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">07</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Full Meta Ad Campaign Structure — 3 Objectives</div>
+            <div class="solution-problem-tag">Solves: one-dimensional ad spending with no sequenced funnel logic</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R8,000</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>Unlike the Proof Sprint's single ad set, the full Engine runs three coordinated campaign objectives simultaneously: <strong>Attraction (awareness + reach), Nurture (engagement + retargeting), and Conversion (lead gen + direct response).</strong> Each campaign is hyper-targeted to your local radius with audiences built from your specific client profile. Minimum two creative variants per campaign. CPL monitored weekly. Underperformers killed at 7 days. New variants tested in every bi-weekly cycle.</p>
+          <div class="solution-tools"><span class="tool-tag">Meta Ads Manager</span><span class="tool-tag">AA Studio Creatives</span><span class="tool-tag">Master Ad Script Pack</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">08</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">AA Client Portal — Live Pipeline Dashboard</div>
+            <div class="solution-problem-tag">Solves: having no visibility into what your marketing is actually producing</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R3,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>Your live pipeline is set up, populated, and updated by your account manager every 24 hours. From the moment the engine is live, you can see: Profile Visits → DMs Started → Qualified Leads → Appointments Booked → Cash Collected. <strong>You will know, in real time, exactly which campaign is producing revenue and which isn't.</strong> No guessing. No waiting for a monthly report. No wondering if your marketing is working. The data is live. The answer is always available.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Portal</span><span class="tool-tag">Daily AM Updates</span><span class="tool-tag">Meta Ads Integration</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">09</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Bi-Weekly Optimisation Cycle — Every Month</div>
+            <div class="solution-problem-tag">Solves: campaigns that run flat with no improvement and no accountability</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R6,000</div><div class="solution-value-label">Per month value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>Every two weeks, your account manager reviews all campaign performance, kills underperforming creative, builds and approves the next 14-day campaign cycle, and manages inbound DMs and engagement throughout the test period. <strong>The system never stagnates — it optimises on every cycle.</strong> Content is produced, approved via the AA Portal, and live before the next cycle begins. You review and approve. Nothing goes out without your sign-off. Week 1: Optimise, Build & Approve. Week 2: Test and convert.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Studio</span><span class="tool-tag">AA Portal Approval Flow</span><span class="tool-tag">AA CRM</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">10</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Client Orientation Call + Engine Go-Live</div>
+            <div class="solution-problem-tag">Solves: launching before the client understands the system and can maximise it</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R2,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>Before a single campaign goes live, a dedicated orientation call confirms everything is in place: positioning documents approved, conversion infrastructure live, ad creatives reviewed, and DM flow understood. <strong>You give explicit permission to launch — and the engine goes live only when you're fully confident in the system.</strong> No surprises. No confusion. A clear launch moment with full visibility from Day 1.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Client Portal</span><span class="tool-tag">Launch Checklist</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       VALUE STACK
+  ══════════════════════════════════════════ -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">What This Is Worth</div>
+    <div class="section-title">The value stack,<br><em>itemised.</em></div>
+    <div class="section-body">Every component of the Proof Brand has a standalone market value based on what a competent freelancer or specialist agency would charge to deliver it individually — without the strategic integration, the proprietary tooling, or the bi-weekly optimisation cycle that ties it together.</div>
+
+    <div class="value-table">
+      <div class="vt-row header">
+        <div class="vt-check"></div>
+        <div class="vt-name"><span class="vt-header-label">Deliverable</span></div>
+        <div class="vt-value grey"><span class="vt-header-label">Market Rate</span></div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Client Onboarding & Infrastructure Audit</strong></div>
+        <div class="vt-value">R4,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Conversion Landing Page + Infrastructure Build</strong></div>
+        <div class="vt-value">R6,000</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Attraction Positioning Document + Campaign Build</strong></div>
+        <div class="vt-value">R5,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Nurture Positioning Document + Campaign Build</strong></div>
+        <div class="vt-value">R5,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Conversion Positioning Document + Campaign Build</strong></div>
+        <div class="vt-value">R5,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>DM → Booking → Cash Conversion Flow</strong></div>
+        <div class="vt-value">R4,000</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Full 3-Objective Meta Campaign Structure</strong></div>
+        <div class="vt-value">R8,000</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>AA Client Portal — Live Pipeline Dashboard</strong></div>
+        <div class="vt-value">R3,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Bi-Weekly Optimisation Cycle — 3 months</strong> <span style="color:var(--grey-mid);font-size:11px">(R6,000 × 6 cycles)</span></div>
+        <div class="vt-value">R36,000</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Client Orientation Call + Engine Go-Live</strong></div>
+        <div class="vt-value">R2,500</div>
+      </div>
+      <div class="vt-row total">
+        <div class="vt-check" style="color:var(--teal);font-size:16px">◉</div>
+        <div class="vt-name"><span class="vt-total-label">Total Market Value — 3 Months</span></div>
+        <div class="vt-value"><span class="vt-strikethrough">R81,000</span><span class="vt-total-value">R18k + R30k</span></div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-dark);letter-spacing:.06em">Market rate total: R81,000 over 3 months. Proof Brand: R18,000 setup + R10,000/month × 3 = R48,000. You receive R81,000 in market value for R48,000.</div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       BONUSES
+  ══════════════════════════════════════════ -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">Included — No Extra Charge</div>
+    <div class="section-title">What else comes<br><em>with the engine.</em></div>
+
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-badge">Bonus 01</div>
+        <div class="bonus-content">
+          <div class="bonus-name">Master Ad Script Pack — Your Sector</div>
+          <div class="bonus-desc">A full library of proven ad scripts, hooks, and CTA frameworks written specifically for your sector. <strong>Not generic ad templates — sector-specific psychological triggers</strong> calibrated to the exact fears, desires, and decision-making patterns of your local target client. Updated every cycle based on what's converting.</div>
+        </div>
+        <div class="bonus-value">R3,500</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">Bonus 02</div>
+        <div class="bonus-content">
+          <div class="bonus-name">Instagram Profile Full Rebuild</div>
+          <div class="bonus-desc">Bio rewrite, highlights structure, pinned post strategy, and link-in-bio page — all built to convert profile visitors into DM enquiries before a single ad fires. <strong>The profile is the brand's first impression.</strong> It is rebuilt to function as a conversion asset, not just an aesthetic one.</div>
+        </div>
+        <div class="bonus-value">R2,500</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">Bonus 03</div>
+        <div class="bonus-content">
+          <div class="bonus-name">Proof Content Foundation — First 6 Posts</div>
+          <div class="bonus-desc">The first six proof posts for your profile are built, captioned, and approved before the engine goes live. <strong>No ads run to an empty or inconsistent profile.</strong> The brand is ready to receive traffic from Day 1. These posts form the credibility foundation that all subsequent content builds on.</div>
+        </div>
+        <div class="bonus-value">R3,000</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">Bonus 04</div>
+        <div class="bonus-content">
+          <div class="bonus-name">48-Hour Account Manager DM Co-Management</div>
+          <div class="bonus-desc">At every new campaign launch, your account manager manages your DM inbox alongside you for the first 48 hours — coaching in real time on how to handle each enquiry, apply the qualifier sequence, and book the appointment. <strong>This is the fastest way to make the DM flow second nature.</strong> Most clients are self-sufficient within the first cycle.</div>
+        </div>
+        <div class="bonus-value">R2,000</div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-raised);border:1px solid var(--grey-border);border-radius:6px;padding:16px 20px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--grey-mid);letter-spacing:.10em;text-transform:uppercase">Total Bonus Value — Included at No Extra Cost</div>
+      <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--teal)">R11,000</div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       THE GUARANTEE
+  ══════════════════════════════════════════ -->
+  <hr class="div">
+  <div class="guarantee-block">
+    <div class="guarantee-icon">⚙</div>
+    <div class="guarantee-label">The Attract Acquisition Performance Guarantee</div>
+    <div class="guarantee-title">If the engine doesn't<br>beat the Sprint —<br><em>we work for free.</em></div>
+    <div class="guarantee-body">
+      The Proof Sprint ran on one ad set, no brand infrastructure, a partially prepared profile, and a 14-day window. The Proof Brand installs the full system: three campaign objectives, a complete conversion funnel, nurture sequences, authority content, and a live pipeline dashboard.<br><br>
+      <strong>If your Proof Brand results — measured in qualified enquiries, appointments booked, and revenue generated — do not materially exceed what the Proof Sprint produced, we continue working at zero management fee until they do.</strong><br><br>
+      No negotiation. No conditions. No management fee charged until the engine is outperforming the Sprint — which, given what we've now built together, is the only rational outcome.
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:12px;background:var(--teal-faint);border:1px solid var(--teal-border);border-radius:4px;padding:12px 20px">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--teal)">R0 management fee</div>
+      <div style="width:1px;height:20px;background:var(--teal-border)"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--grey-mid)">until engine beats Sprint</div>
+      <div style="width:1px;height:20px;background:var(--teal-border)"></div>
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--grey-mid)">unconditional</div>
+    </div>
+    <div class="guarantee-fine">Guarantee applies to the full 3-month minimum engagement. Measurement is based on AA Portal pipeline data — the same live dashboard you have access to at all times.</div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       COMPARE
+  ══════════════════════════════════════════ -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">What You're Choosing Between</div>
+    <div class="section-title">Every other agency.<br><em>Or this.</em></div>
+
+    <div class="compare-grid">
+      <div class="compare-card them">
+        <div><span class="compare-label them">Every Other Agency</span></div>
+        <div class="compare-title">Content without infrastructure</div>
+        <div class="compare-list">
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">Post content and boost — no strategy behind the spend</span></div>
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">Run ads to a weak profile that isn't ready to convert</span></div>
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">No DM qualifying sequence — leads die in the inbox</span></div>
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">No pipeline visibility — you never know what's working</span></div>
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">Monthly reports that show follower counts, not revenue</span></div>
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">Charge the same fee regardless of results</span></div>
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">One-size content strategy — not built for your sector</span></div>
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">No proof of performance before you commit</span></div>
+          <div class="compare-row"><span class="compare-check bad">✗</span><span class="compare-text">No guarantee of any kind</span></div>
+        </div>
+      </div>
+      <div class="compare-card us">
+        <div><span class="compare-label us">Attract Acquisition — Proof Brand</span></div>
+        <div class="compare-title">Infrastructure that compounds</div>
+        <div class="compare-list">
+          <div class="compare-row"><span class="compare-check good">✓</span><span class="compare-text"><strong>Brand built first</strong> — ads only run when the profile is ready</span></div>
+          <div class="compare-row"><span class="compare-check good">✓</span><span class="compare-text"><strong>Three campaign objectives</strong> — Attract, Nurture, Convert — running simultaneously</span></div>
+          <div class="compare-row"><span class="compare-check good">✓</span><span class="compare-text"><strong>Full DM-to-booking flow</strong> — every enquiry handled by a proven sequence</span></div>
+          <div class="compare-row"><span class="compare-check good">✓</span><span class="compare-text"><strong>Live pipeline dashboard</strong> — profile visit to cash collected, updated daily</span></div>
+          <div class="compare-row"><span class="compare-check good">✓</span><span class="compare-text"><strong>Bi-weekly optimisation</strong> — underperformers killed, new variants live every cycle</span></div>
+          <div class="compare-row"><span class="compare-check good">✓</span><span class="compare-text"><strong>Sector-specific strategy</strong> — built for your business, your city, your client</span></div>
+          <div class="compare-row"><span class="compare-check good">✓</span><span class="compare-text"><strong>Performance already demonstrated</strong> — you watched the Sprint run</span></div>
+          <div class="compare-row"><span class="compare-check good">✓</span><span class="compare-text"><strong>Unconditional guarantee</strong> — beat the Sprint or we work for free</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PRICE
+  ══════════════════════════════════════════ -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">The Investment</div>
+    <div class="section-title">What the full engine<br><em>costs to install.</em></div>
+    <div class="section-body">You've seen R81,000 in market value. You've seen R11,000 in bonuses. You've seen the guarantee. Here is what the Proof Brand Package actually costs — and why the question isn't whether you can afford it, but whether you can afford another month of the system running at Proof Sprint capacity.</div>
+
+    <div class="price-block">
+      <div class="price-header">
+        <div class="price-tag">Tier 1 — Core Offer · 3-Month Minimum</div>
+        <div class="price-name">The Proof Brand</div>
+        <div class="price-sub">Full Attraction Engine™ installation + bi-weekly delivery + live pipeline tracking</div>
+      </div>
+      <div class="price-body">
+        <div style="margin-bottom:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--grey-mid);letter-spacing:.10em;text-transform:uppercase">Setup Investment</div>
+        <div class="price-row">
+          <div class="price-was">R81,000 market value</div>
+          <div class="price-amount">R18,000</div>
+        </div>
+        <div class="price-period">One-time setup fee · Infrastructure built once, compounds indefinitely</div>
+
+        <div style="margin-bottom:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--grey-mid);letter-spacing:.10em;text-transform:uppercase">Monthly Retainer</div>
+        <div class="price-row" style="margin-bottom:8px">
+          <div class="price-amount" style="font-size:42px">R10,000</div>
+        </div>
+        <div class="price-period" style="margin-bottom:28px">Per month · 3-month minimum · Bi-weekly delivery cycle · Full account management</div>
+
+        <div class="price-breakdown">
+          <div class="price-item">
+            <div class="pi-label">Total 3-Month Investment</div>
+            <div class="pi-val">R48,000</div>
+          </div>
+          <div class="price-item">
+            <div class="pi-label">Market Value Received</div>
+            <div class="pi-val" style="color:var(--teal)">R92,000</div>
+          </div>
+          <div class="price-item">
+            <div class="pi-label">Management Fee if No Results</div>
+            <div class="pi-val" style="color:var(--teal)">R0</div>
+          </div>
+          <div class="price-item">
+            <div class="pi-label">Your Risk</div>
+            <div class="pi-val" style="color:var(--teal)">Setup fee only</div>
+          </div>
+        </div>
+
+        <button class="price-cta">Install The Engine — Start Today →</button>
+        <div class="price-guarantee-note">Protected by the Attract Acquisition Performance Guarantee · If the engine doesn't beat the Sprint, we work at R0 management fee until it does</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CLOSE
+  ══════════════════════════════════════════ -->
+  <div class="close-block">
+    <div class="close-title">The Sprint was<br>one hand tied.<br><em>This is the engine.</em></div>
+    <div class="close-body">Every week the full engine isn't running is a week of warm audiences cooling, competitors compounding their position, and local demand going to whoever shows up first. The infrastructure exists. The proof exists. The only question is when.</div>
+    <div class="close-stats">
+      <div class="cs-item"><div class="cs-val">100+</div><div class="cs-label">Proof Sprints Delivered</div></div>
+      <div class="cs-item"><div class="cs-val">4.5★</div><div class="cs-label">Trustpilot Rating</div></div>
+      <div class="cs-item"><div class="cs-val">R0</div><div class="cs-label">Fee Until Engine Beats Sprint</div></div>
+      <div class="cs-item"><div class="cs-val">14d</div><div class="cs-label">To Engine Live</div></div>
+    </div>
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="footer-txt">Attract Acquisition · The Proof Brand · Tier 1 Core Offer · 2026</div>
+    <div class="footer-txt">attractacq.com</div>
+  </div>
+
+</div>
+</body>
+</html>

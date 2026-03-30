@@ -7,6 +7,9 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Audit from "./pages/Audit";
 import AuditConfirmation from "./pages/AuditConfirmation";
+import AuthorityBrandOffer from "./pages/AuthorityBrandOffer";
+import ProofBrandOffer from "./pages/ProofBrandOffer";
+import ProofSprintOffer from "./pages/ProofSprintOffer";
 
 
 
@@ -22,6 +25,9 @@ const App = () => (
   <Route path="/" element={<Index />} />
   <Route path="/audit" element={<Audit />} />
   <Route path="/audit-confirmation" element={<AuditConfirmation />} />
+  <Route path="/authoritybrand" element={<AuthorityBrandOffer />} />
+  <Route path="/proofbrand" element={<ProofBrandOffer />} />
+  <Route path="/proofsprint" element={<ProofSprintOffer />} />
   <Route path="*" element={<NotFound />} />
 </Routes>
       </BrowserRouter>
