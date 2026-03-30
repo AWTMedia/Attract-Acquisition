@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Authority Brand — Attract Acquisition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --teal:#00E5C3;--teal-dark:#00B89E;--teal-deeper:#007A6A;
+      --gold:#C9A84C;--gold-dark:#A8893A;--gold-faint:rgba(201,168,76,0.07);--gold-border:rgba(201,168,76,0.18);
+      --bg-ink:#070F0D;--bg-deep:#0A1714;--bg-mid:#0E1E1A;--bg-raised:#122420;
+      --white:#EEF2F1;--grey-light:#A8BCBA;--grey-mid:#7A9490;--grey-dark:#3D5550;
+      --grey-border:rgba(255,255,255,0.06);--teal-border:rgba(0,229,195,0.14);
+      --teal-faint:rgba(0,229,195,0.07);
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--bg-ink);color:var(--white);font-family:'Barlow',sans-serif;font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(201,168,76,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,0.018) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+    .doc{position:relative;z-index:1;max-width:880px;margin:0 auto;padding:0 32px 120px}
+
+    /* ── HERO ── */
+    .hero{padding:72px 0 64px;text-align:center;position:relative}
+    .hero-glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(201,168,76,0.08) 0%,transparent 70%);pointer-events:none}
+    .badge-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:40px}
+    .badge{width:36px;height:36px;background:var(--teal);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:900;font-size:13px;color:var(--bg-ink)}
+    .wordmark{font-family:'Playfair Display',serif;font-weight:700;font-size:14px;color:var(--white)}
+    .wordmark-sub{font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-mid);letter-spacing:.14em;text-transform:uppercase}
+    .hero-eyebrow{font-family:'DM Mono',monospace;font-size:10px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;justify-content:center;gap:10px}
+    .hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:32px;height:1px;background:var(--gold);opacity:.5}
+    .hero-title{font-family:'Playfair Display',serif;font-weight:900;font-size:72px;line-height:.90;letter-spacing:-.025em;color:var(--white);margin-bottom:12px}
+    .hero-title em{font-style:italic;color:var(--gold)}
+    .hero-title .sub{display:block;font-size:38px;font-weight:700;color:rgba(238,242,241,.5);margin-top:8px}
+    .hero-body{font-size:18px;font-weight:300;color:rgba(238,242,241,.55);max-width:560px;margin:24px auto 0;line-height:1.65}
+
+    /* ── PROOF BRAND CALLBACK ── */
+    .pb-callback{background:var(--bg-mid);border:1px solid var(--gold-border);border-radius:12px;padding:32px 36px;margin:48px 0;text-align:left;position:relative;overflow:hidden}
+    .pb-callback::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(to bottom,var(--gold),transparent)}
+    .pb-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+    .live-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,0.2)}
+    .pb-title{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--white);margin-bottom:16px}
+    .pb-metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+    .pb-metric{background:var(--bg-raised);border:1px solid var(--grey-border);border-radius:6px;padding:14px 12px;text-align:center}
+    .pm-val{font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--gold);line-height:1;margin-bottom:4px}
+    .pm-key{font-family:'DM Mono',monospace;font-size:8px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--grey-mid)}
+    .pb-note{margin-top:16px;font-size:13px;color:var(--grey-mid);line-height:1.6}
+    .pb-note strong{color:var(--white)}
+
+    /* ── CEILING CALLOUT ── */
+    .ceiling-block{background:var(--gold-faint);border:1px solid var(--gold-border);border-left:3px solid var(--gold);border-radius:6px;padding:18px 22px;margin:28px 0;font-size:14px;color:rgba(238,242,241,.7);line-height:1.65}
+    .ceiling-block strong{color:var(--white)}
+
+    /* ── SECTION ── */
+    .section{margin-bottom:72px}
+    .eyebrow{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+    .eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);opacity:.5}
+    .section-title{font-family:'Playfair Display',serif;font-weight:900;font-size:38px;color:var(--white);letter-spacing:-.015em;line-height:1.0;margin-bottom:10px}
+    .section-title em{font-style:italic;color:var(--gold)}
+    .section-body{font-size:15px;color:var(--grey-mid);line-height:1.7;max-width:660px;margin-bottom:28px}
+    .section-body strong{color:var(--grey-light)}
+    hr.div{border:none;border-top:1px solid var(--grey-border);margin:64px 0}
+
+    /* ── CEILING PROBLEMS ── */
+    .ceiling-grid{display:flex;flex-direction:column;gap:0}
+    .ceiling-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--grey-border)}
+    .ceiling-item:last-child{border-bottom:none}
+    .ceiling-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:rgba(238,242,241,.7);line-height:1.4;flex:1}
+    .ceiling-truth{font-size:12px;color:var(--grey-mid);line-height:1.6;flex:1;padding-top:2px}
+    .ceiling-truth strong{color:rgba(238,242,241,.5)}
+
+    /* ── PULL QUOTE ── */
+    .pull-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:rgba(238,242,241,.55);line-height:1.5;text-align:center;padding:40px 0;border-top:1px solid var(--grey-border);border-bottom:1px solid var(--grey-border);margin:48px 0}
+    .pull-quote span{color:var(--gold)}
+
+    /* ── TIER UPGRADE VISUAL ── */
+    .tier-progression{display:grid;grid-template-columns:1fr 32px 1fr;gap:0;align-items:center;margin-bottom:36px}
+    .tier-card{border-radius:8px;padding:24px 22px;border:1px solid}
+    .tier-card.from{background:var(--teal-faint);border-color:var(--teal-border)}
+    .tier-card.to{background:var(--gold-faint);border-color:var(--gold-border)}
+    .tier-label{font-family:'DM Mono',monospace;font-size:8px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;padding:4px 8px;border-radius:2px;display:inline-block}
+    .tier-label.t1{color:var(--teal);background:var(--teal-faint);border:1px solid var(--teal-border)}
+    .tier-label.t2{color:var(--gold);background:var(--gold-faint);border:1px solid var(--gold-border)}
+    .tier-name{font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:var(--white);margin-bottom:8px}
+    .tier-desc{font-size:12px;color:var(--grey-mid);line-height:1.55}
+    .tier-price{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--grey-light);margin-top:12px}
+    .tier-arrow{display:flex;align-items:center;justify-content:center;font-size:22px;color:var(--gold);opacity:.6}
+
+    /* ── SOLUTION STACK ── */
+    .solution-stack{display:flex;flex-direction:column;gap:12px}
+    .solution-item{background:var(--bg-mid);border:1px solid var(--grey-border);border-radius:8px;overflow:hidden;transition:border-color .2s}
+    .solution-item:hover{border-color:var(--gold-border)}
+    .solution-item.avatar-highlight{border-color:var(--gold-border);background:linear-gradient(135deg,var(--gold-faint) 0%,var(--bg-mid) 80%)}
+    .solution-header{display:flex;align-items:center;gap:0;padding:0}
+    .solution-num{width:52px;height:52px;background:var(--bg-raised);border-right:1px solid var(--grey-border);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--gold);flex-shrink:0}
+    .solution-name-wrap{flex:1;padding:14px 20px}
+    .solution-name{font-weight:600;font-size:14px;color:var(--white);margin-bottom:2px}
+    .solution-problem-tag{font-family:'DM Mono',monospace;font-size:8px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--grey-mid)}
+    .solution-value{width:110px;padding:14px 16px;text-align:right;flex-shrink:0;border-left:1px solid var(--grey-border)}
+    .solution-value-num{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--gold)}
+    .solution-value-label{font-family:'DM Mono',monospace;font-size:8px;color:var(--grey-dark);letter-spacing:.08em;text-transform:uppercase}
+    .solution-body{padding:14px 20px 16px 72px;border-top:1px solid var(--grey-border);background:var(--bg-deep)}
+    .solution-body p{font-size:13px;color:var(--grey-mid);line-height:1.65}
+    .solution-body p strong{color:var(--grey-light)}
+    .solution-tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+    .tool-tag{font-family:'DM Mono',monospace;font-size:8px;font-weight:400;letter-spacing:.10em;text-transform:uppercase;color:var(--gold-dark);background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:2px;padding:3px 7px}
+
+    /* Avatar OR UGC fork */
+    .fork-block{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+    .fork-option{background:var(--bg-raised);border:1px solid var(--grey-border);border-radius:6px;padding:14px 16px}
+    .fork-option.primary{border-color:var(--gold-border);background:var(--gold-faint)}
+    .fork-tag{font-family:'DM Mono',monospace;font-size:8px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:2px;display:inline-block;margin-bottom:8px}
+    .fork-tag.primary{color:var(--bg-ink);background:var(--gold)}
+    .fork-tag.alt{color:var(--grey-mid);background:rgba(255,255,255,.05);border:1px solid var(--grey-border)}
+    .fork-title{font-size:12px;font-weight:600;color:var(--white);margin-bottom:4px}
+    .fork-desc{font-size:11px;color:var(--grey-mid);line-height:1.55}
+
+    /* ── VALUE STACK TABLE ── */
+    .value-table{background:var(--bg-mid);border:1px solid var(--grey-border);border-radius:10px;overflow:hidden}
+    .vt-row{display:flex;align-items:center;padding:14px 20px;border-bottom:1px solid var(--grey-border);gap:16px}
+    .vt-row:last-child{border-bottom:none}
+    .vt-row.header{background:var(--bg-raised);padding:10px 20px}
+    .vt-row.total{background:var(--bg-raised);border-top:1px solid var(--gold-border)}
+    .vt-row.included{background:rgba(0,229,195,0.03)}
+    .vt-check{font-size:13px;color:var(--gold);flex-shrink:0;width:16px}
+    .vt-check.teal{color:var(--teal)}
+    .vt-name{flex:1;font-size:13px;color:var(--grey-light)}
+    .vt-name strong{color:var(--white);font-weight:600}
+    .vt-name em{color:var(--teal);font-style:normal;font-size:11px}
+    .vt-value{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--gold);min-width:100px;text-align:right}
+    .vt-value.teal{color:var(--teal)}
+    .vt-value.grey{color:var(--grey-mid)}
+    .vt-header-label{font-family:'DM Mono',monospace;font-size:8px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-mid)}
+    .vt-total-label{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;color:var(--white)}
+    .vt-total-value{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;color:var(--gold)}
+    .vt-strikethrough{text-decoration:line-through;color:var(--grey-dark);font-size:14px;margin-right:8px}
+    .vt-section-label{font-family:'DM Mono',monospace;font-size:8px;color:var(--grey-dark);letter-spacing:.14em;text-transform:uppercase;padding:8px 20px;background:var(--bg-raised);border-bottom:1px solid var(--grey-border);font-weight:400}
+
+    /* ── BONUSES ── */
+    .bonus-grid{display:flex;flex-direction:column;gap:10px}
+    .bonus-card{display:flex;gap:16px;background:var(--bg-mid);border:1px solid var(--gold-border);border-radius:8px;padding:18px 20px;align-items:flex-start}
+    .bonus-badge{font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--bg-ink);background:var(--gold);border-radius:2px;padding:4px 8px;flex-shrink:0;margin-top:2px}
+    .bonus-content{flex:1}
+    .bonus-name{font-weight:600;font-size:14px;color:var(--white);margin-bottom:4px}
+    .bonus-desc{font-size:12px;color:var(--grey-mid);line-height:1.6}
+    .bonus-desc strong{color:var(--grey-light)}
+    .bonus-value{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;color:var(--gold);flex-shrink:0;min-width:80px;text-align:right;margin-top:2px}
+
+    /* ── GUARANTEE ── */
+    .guarantee-block{background:var(--bg-deep);border:1px solid var(--gold-border);border-radius:12px;padding:48px;text-align:center;position:relative;overflow:hidden}
+    .guarantee-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 65%);pointer-events:none}
+    .guarantee-icon{font-size:48px;margin-bottom:20px;line-height:1}
+    .guarantee-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.20em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+    .guarantee-title{font-family:'Playfair Display',serif;font-weight:900;font-size:38px;color:var(--white);line-height:1.05;letter-spacing:-.015em;margin-bottom:20px}
+    .guarantee-title em{font-style:italic;color:var(--gold)}
+    .guarantee-body{font-size:15px;color:var(--grey-mid);line-height:1.75;max-width:560px;margin:0 auto 24px}
+    .guarantee-body strong{color:var(--white)}
+    .guarantee-pills{display:inline-flex;align-items:center;gap:0;background:var(--gold-faint);border:1px solid var(--gold-border);border-radius:4px;overflow:hidden}
+    .gpill{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;color:var(--gold);padding:12px 18px;border-right:1px solid var(--gold-border)}
+    .gpill:last-child{border-right:none}
+    .guarantee-fine{margin-top:16px;font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-dark);letter-spacing:.08em}
+
+    /* ── COMPARE ── */
+    .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .compare-card{background:var(--bg-mid);border:1px solid var(--grey-border);border-radius:8px;padding:24px}
+    .compare-card.proof{border-color:var(--teal-border);background:rgba(0,229,195,.03)}
+    .compare-card.authority{border-color:var(--gold-border);background:var(--gold-faint)}
+    .compare-label{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;padding:4px 8px;border-radius:2px;display:inline-block}
+    .compare-label.proof{color:var(--teal);background:var(--teal-faint);border:1px solid var(--teal-border)}
+    .compare-label.authority{color:var(--gold);background:var(--gold-faint);border:1px solid var(--gold-border)}
+    .compare-title{font-family:'Playfair Display',serif;font-weight:700;font-size:17px;color:var(--white);margin-bottom:16px}
+    .compare-list{display:flex;flex-direction:column;gap:8px}
+    .compare-row{display:flex;gap:10px;font-size:13px;line-height:1.5}
+    .compare-check.teal{color:var(--teal);flex-shrink:0}
+    .compare-check.gold{color:var(--gold);flex-shrink:0}
+    .compare-text{color:var(--grey-mid)}
+    .compare-text strong{color:var(--grey-light)}
+
+    /* ── AUTHORITY LADDER ── */
+    .authority-ladder{display:flex;flex-direction:column;gap:0}
+    .ladder-step{display:flex;gap:20px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--grey-border)}
+    .ladder-step:last-child{border-bottom:none}
+    .ladder-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--gold);width:32px;flex-shrink:0;padding-top:2px}
+    .ladder-content{flex:1}
+    .ladder-title{font-weight:600;font-size:15px;color:var(--white);margin-bottom:4px}
+    .ladder-desc{font-size:13px;color:var(--grey-mid);line-height:1.6}
+    .ladder-desc strong{color:var(--grey-light)}
+    .ladder-unlock{font-family:'DM Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:.10em;text-transform:uppercase;margin-top:8px;display:flex;align-items:center;gap:6px}
+    .ladder-unlock::before{content:'↳';color:var(--gold);opacity:.6}
+
+    /* ── PRICE ── */
+    .price-block{background:var(--bg-mid);border:1px solid var(--gold-border);border-radius:12px;overflow:hidden}
+    .price-header{background:linear-gradient(135deg,var(--gold-faint) 0%,transparent 70%);padding:36px 40px;border-bottom:1px solid var(--gold-border)}
+    .price-tag{font-family:'DM Mono',monospace;font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+    .price-name{font-family:'Playfair Display',serif;font-weight:900;font-size:32px;color:var(--white);margin-bottom:4px}
+    .price-sub{font-size:13px;color:var(--grey-mid)}
+    .price-body{padding:36px 40px}
+    .price-row{display:flex;align-items:baseline;gap:16px;margin-bottom:16px}
+    .price-was{font-family:'DM Mono',monospace;font-size:16px;color:var(--grey-dark);text-decoration:line-through}
+    .price-amount{font-family:'Playfair Display',serif;font-weight:900;font-size:56px;color:var(--gold);line-height:1;letter-spacing:-.02em}
+    .price-period{font-family:'DM Mono',monospace;font-size:13px;color:var(--grey-mid);margin-bottom:24px}
+    .price-breakdown{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+    .price-item{background:var(--bg-raised);border:1px solid var(--grey-border);border-radius:4px;padding:12px 14px}
+    .pi-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-mid);margin-bottom:4px}
+    .pi-val{font-family:'DM Mono',monospace;font-size:15px;font-weight:500;color:var(--white)}
+    .price-cta{display:block;width:100%;background:var(--gold);color:var(--bg-ink);font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:none;border-radius:3px;padding:18px 32px;cursor:pointer;text-align:center;transition:background .15s,transform .15s}
+    .price-cta:hover{background:var(--gold-dark);transform:translateY(-2px)}
+    .price-guarantee-note{margin-top:14px;text-align:center;font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-mid);letter-spacing:.08em}
+
+    /* ── CLOSE ── */
+    .close-block{text-align:center;padding:64px 0 0}
+    .close-title{font-family:'Playfair Display',serif;font-weight:900;font-size:48px;color:var(--white);line-height:.95;letter-spacing:-.02em;margin-bottom:20px}
+    .close-title em{font-style:italic;color:var(--gold)}
+    .close-body{font-size:16px;font-weight:300;color:rgba(238,242,241,.5);max-width:500px;margin:0 auto 32px;line-height:1.7}
+    .close-stats{display:flex;justify-content:center;gap:48px;margin-top:40px;flex-wrap:wrap}
+    .cs-item{text-align:center}
+    .cs-val{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--gold);margin-bottom:4px}
+    .cs-label{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-mid)}
+
+    /* ── FOOTER ── */
+    .doc-footer{border-top:1px solid var(--gold-border);padding:28px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:80px}
+    .footer-txt{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-dark)}
+
+    /* ── NOTE ── */
+    .note{background:var(--gold-faint);border:1px solid var(--gold-border);border-left:3px solid var(--gold);border-radius:4px;padding:14px 18px;font-size:12px;color:var(--grey-light);line-height:1.65;margin-top:14px}
+    .note strong{color:var(--white)}
+
+    @media(max-width:680px){
+      .hero-title{font-size:46px}.hero-title .sub{font-size:26px}
+      .pb-metrics{grid-template-columns:repeat(3,1fr)}
+      .compare-grid,.fork-block,.tier-progression{grid-template-columns:1fr}
+      .price-breakdown{grid-template-columns:1fr}
+      .close-stats{flex-direction:column;gap:24px}
+      .price-amount{font-size:42px}
+      .section-title{font-size:28px}
+      .tier-arrow{display:none}
+    }
+    @media print{body::before{display:none}.doc{padding:0 20px 60px}}
+  </style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-glow"></div>
+    <div class="badge-row">
+      <div class="badge">AA</div>
+      <div>
+        <div class="wordmark">Attract Acquisition</div>
+        <div class="wordmark-sub">The Authority Brand · Tier 2 Upsell</div>
+      </div>
+    </div>
+
+    <div class="hero-eyebrow">Tier 2 — Full-Stack Authority Build</div>
+
+    <div class="hero-title">
+      You're credible.<br>
+      Now become<br>
+      <em>the authority.</em>
+      <span class="sub">The engine that makes you impossible to ignore.</span>
+    </div>
+
+    <div class="hero-body">
+      The Proof Brand made your business visible, credible, and converting. What follows is what happens when your brand stops competing for attention — and starts commanding it.
+    </div>
+  </div>
+
+
+  <!-- PROOF BRAND CALLBACK -->
+  <div class="pb-callback">
+    <div class="pb-label"><div class="live-dot"></div>Your Proof Brand — What The System Has Built So Far</div>
+    <div class="pb-title">Three months. Full engine. Brand infrastructure live. Here is where you stand.</div>
+    <div class="pb-metrics">
+      <div class="pb-metric"><div class="pm-val">3mo+</div><div class="pm-key">Engine Live</div></div>
+      <div class="pb-metric"><div class="pm-val">3</div><div class="pm-key">Campaigns</div></div>
+      <div class="pb-metric"><div class="pm-val">Live</div><div class="pm-key">AA Portal</div></div>
+      <div class="pb-metric"><div class="pm-val">Proven</div><div class="pm-key">Pipeline</div></div>
+      <div class="pb-metric"><div class="pm-val">↑</div><div class="pm-key">Compounding</div></div>
+    </div>
+    <div class="pb-note">
+      <strong>The Proof Brand has done its job.</strong> Your infrastructure is built. Your campaigns are running. Your pipeline is visible and producing. You have proof volume, a conversion system, and a local market that now knows you exist. That is the foundation. The Authority Brand is what you build on top of it — the layer that turns credibility into category dominance and makes your brand the only logical choice in your market.
+    </div>
+  </div>
+
+  <div class="ceiling-block">
+    <strong>Here is the honest truth about the Proof Brand ceiling:</strong> Proof-only content builds credibility — but it cannot build authority. Without a human element, your content answers "do they do good work?" but never answers "do I know and trust these people?" The Authority Brand installs the mechanism that closes that gap — and unlocks the algorithmic reach that proof-only content structurally cannot achieve.
+  </div>
+
+
+  <!-- TIER PROGRESSION -->
+  <div class="section">
+    <div class="eyebrow">The Upgrade</div>
+    <div class="section-title">From credible<br><em>to dominant.</em></div>
+    <div class="section-body">The brand maturity pathway has two levels. You've built Level 1. Here is what Level 2 unlocks — and why the distance between them is not incremental.</div>
+
+    <div class="tier-progression">
+      <div class="tier-card from">
+        <span class="tier-label t1">Tier 1 — Completed</span>
+        <div class="tier-name">Proof Brand</div>
+        <div class="tier-desc">Credibility-driven content. Proof volume established. Three-campaign conversion system live. Local audience knows you exist and can see your work is excellent.</div>
+        <div class="tier-price">R18k setup · R10k/month · 3-month minimum</div>
+      </div>
+      <div class="tier-arrow">→</div>
+      <div class="tier-card to">
+        <span class="tier-label t2">Tier 2 — Now</span>
+        <div class="tier-name">Authority Brand</div>
+        <div class="tier-desc">Human element introduced. Brand Avatar or UGC framework installed. Educational and opinion content unlocked. Algorithmic reach expands. Market begins to see your brand as the category leader — not just a competent option.</div>
+        <div class="tier-price" style="color:var(--gold)">R20–33k setup · R14–21k/month · 6-month recommended</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- THE CEILING PROBLEMS -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">Where The Proof Brand Stops</div>
+    <div class="section-title">The credibility ceiling<br><em>is real.</em></div>
+    <div class="section-body">The Proof Brand solves visibility and credibility. But there is a ceiling it cannot break through — and your competitors will eventually reach the same baseline infrastructure. Here is where you are now, and what the Proof Brand alone cannot fix.</div>
+
+    <div class="ceiling-grid">
+      <div class="ceiling-item">
+        <div class="ceiling-quote">"We're producing results — but still losing jobs to businesses with weaker work."</div>
+        <div class="ceiling-truth">Credibility content answers "can they do the job?" but <strong>authority content answers "do I feel like I already know them?"</strong> The second question is the one that converts warm audiences. Your competitors aren't beating you on quality — they're beating you on relatability and perceived personality.</div>
+      </div>
+      <div class="ceiling-item">
+        <div class="ceiling-quote">"Our ads are performing, but organic reach has a ceiling."</div>
+        <div class="ceiling-truth">Proof-only content is optimised for direct response — it performs in ad campaigns but rarely goes further. <strong>Human-led content — talking heads, opinion reels, educational carousels — is the content type that the algorithm distributes organically</strong> at scale. Without it, you're paying for every impression.</div>
+      </div>
+      <div class="ceiling-item">
+        <div class="ceiling-quote">"We're trusted by the people who've worked with us. But strangers still hesitate."</div>
+        <div class="ceiling-truth">Trust with strangers is built faster through familiarity than through proof. <strong>Seeing a face, hearing a voice, watching someone explain their craft — this triggers the psychological mechanisms that make a stranger feel like they already know you.</strong> No amount of before/after content replicates this effect.</div>
+      </div>
+      <div class="ceiling-item">
+        <div class="ceiling-quote">"Our market is starting to understand what we do. But we're not the obvious first choice yet."</div>
+        <div class="ceiling-truth">Being the first choice requires more than visibility — it requires positioning as the category expert. <strong>Educational content, opinion pieces, and sector insight posts build the intellectual authority that moves you from "one of the good ones" to "the one everyone recommends."</strong> This is what authority content does at scale.</div>
+      </div>
+      <div class="ceiling-item">
+        <div class="ceiling-quote">"A new competitor has entered our local market and they're growing fast."</div>
+        <div class="ceiling-truth">Authority compounds in a way that credibility alone cannot defend. A business with 12 months of authority content — recognised faces, expert positioning, community trust — is <strong>structurally difficult for a new entrant to displace.</strong> The time to build the moat is before the competition arrives at scale.</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pull-quote">
+    "The Proof Brand made you visible. The Authority Brand makes you<br><span>the only name they think of.</span>"
+  </div>
+
+
+  <!-- WHAT AUTHORITY UNLOCKS -->
+  <div class="section">
+    <div class="eyebrow">The Authority Mechanism</div>
+    <div class="section-title">What the human element<br><em>actually unlocks.</em></div>
+    <div class="section-body">The Authority Brand is not simply "more content." It is a structural upgrade to the content system — one that unlocks campaign objectives, algorithmic behaviours, and audience psychology that proof-only content cannot access.</div>
+
+    <div class="authority-ladder">
+      <div class="ladder-step">
+        <div class="ladder-num">01</div>
+        <div class="ladder-content">
+          <div class="ladder-title">Video View Campaigns — Unlocked</div>
+          <div class="ladder-desc">Human-led video content enables <strong>video view campaign objectives in Meta</strong> — the cheapest way to build warm audiences at scale. Every view builds a retargeting pool of people who've watched your brand. Proof content cannot run this objective at the same effectiveness. Video views at R0.05–R0.15 each build warm audiences that convert at 3–5× the rate of cold traffic.</div>
+          <div class="ladder-unlock">Requires Brand Avatar or UGC creator content</div>
+        </div>
+      </div>
+      <div class="ladder-step">
+        <div class="ladder-num">02</div>
+        <div class="ladder-content">
+          <div class="ladder-title">Engagement Campaigns — Unlocked</div>
+          <div class="ladder-desc">Comment engagement and post interaction rate increases dramatically when a recognisable face is attached to the brand. <strong>The algorithm rewards engagement with organic distribution — turning a R150/day ad spend into platform-amplified reach.</strong> Proof content generates saves and visits. Authority content generates saves, comments, shares, and follows — compounding all four simultaneously.</div>
+          <div class="ladder-unlock">Requires consistent human-led content volume</div>
+        </div>
+      </div>
+      <div class="ladder-step">
+        <div class="ladder-num">03</div>
+        <div class="ladder-content">
+          <div class="ladder-title">Warm Audience Retargeting — Maximised</div>
+          <div class="ladder-desc">A brand with a recognisable face retargets with far higher conversion rates because the warm audience member already has a parasocial relationship with the brand. <strong>"I already know this person and trust them"</strong> is the state you want a prospect in before they see a conversion ad. Authority content builds this state systematically. The Proof Brand builds recognition — the Authority Brand builds relationship.</div>
+          <div class="ladder-unlock">Compounds on existing Proof Brand warm audience pools</div>
+        </div>
+      </div>
+      <div class="ladder-step">
+        <div class="ladder-num">04</div>
+        <div class="ladder-content">
+          <div class="ladder-title">Educational Content — Category Leadership</div>
+          <div class="ladder-desc">Opinion reels, sector insight posts, and process explainers <strong>position the brand as the expert voice in its local market.</strong> A fabrication business that explains "why your quote is cheaper and why that will cost you more" doesn't just demonstrate quality — it educates the buyer's criteria in a way that makes every competitor look less competent. Educational content is a competitive moat that is extremely difficult to replicate.</div>
+          <div class="ladder-unlock">Requires branded voice and on-camera presence or UGC</div>
+        </div>
+      </div>
+      <div class="ladder-step">
+        <div class="ladder-num">05</div>
+        <div class="ladder-content">
+          <div class="ladder-title">Organic Algorithm Distribution — Activated</div>
+          <div class="ladder-desc">Instagram's algorithm distributes content that generates saves, shares, and watch time. Proof content generates saves. Human-led content generates all three simultaneously. <strong>A brand with consistent authority content in rotation is receiving free distribution</strong> — impressions that cost nothing but still convert. At scale, organic reach from authority content compounds the paid media ROI significantly.</div>
+          <div class="ladder-unlock">Compounds indefinitely with consistent posting volume</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SOLUTION STACK -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">Everything That Gets Added</div>
+    <div class="section-title">The full Authority<br><em>infrastructure stack.</em></div>
+    <div class="section-body">Everything from the Proof Brand continues running. These are the additional components installed on top of the existing engine — each one a specific mechanism for moving from credibility to category authority.</div>
+
+    <div class="solution-stack">
+
+      <div class="solution-item avatar-highlight">
+        <div class="solution-header">
+          <div class="solution-num" style="color:var(--gold)">01</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Authority Onboarding Call + Brand Direction Brief</div>
+            <div class="solution-problem-tag">Solves: installing a human element without a clear voice, character, or positioning direction</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R5,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>Before a Brand Avatar is sourced or a UGC creator is briefed, a dedicated Authority Onboarding session maps the brand's on-camera direction. <strong>What voice does the brand need? What sector knowledge should be communicated? What personality should the audience associate with this business?</strong> The answers define the brief that makes every piece of human-led content coherent — not just a collection of videos with a face in them. This session produces the Brand Direction Document that governs all authority content going forward.</p>
+          <div class="solution-tools"><span class="tool-tag">Brand Direction Brief</span><span class="tool-tag">AA Client Portal</span><span class="tool-tag">AA Studio</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item avatar-highlight">
+        <div class="solution-header">
+          <div class="solution-num" style="color:var(--gold)">02</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Brand Avatar or UGC Creator — Sourcing, Onboarding & Direction</div>
+            <div class="solution-problem-tag">Solves: needing a human presence without the owner appearing on camera</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R12,000</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>The core mechanism of the Authority Brand. Two implementation paths — both deliver the human element required for authority content production. <strong>You choose the path that fits your brand and your owner's preference.</strong></p>
+          <div class="fork-block">
+            <div class="fork-option primary">
+              <span class="fork-tag primary">Brand Avatar — Primary Path</span>
+              <div class="fork-title">Professionally Directed On-Camera Representative</div>
+              <div class="fork-desc">A Brand Avatar is sourced through AA's talent partner network — a professional on-camera representative who is briefed, directed, trained, and filmed to represent your brand with conviction. The Avatar is not a spokesperson. They are <strong>a professionally constructed brand voice</strong> — directed by AA Studio, scripted by AA Studio, and produced to the same standard as broadcast media. Not the owner. Better than the owner. No owner camera nerves, no scheduling conflicts, no inconsistency.</div>
+            </div>
+            <div class="fork-option">
+              <span class="fork-tag alt">UGC Creator Framework — Alternative Path</span>
+              <div class="fork-title">Sourced Creators + AA-Managed Production</div>
+              <div class="fork-desc">If Brand Avatar is not the right fit: UGC creators are sourced, briefed with an AA-produced creator brief, and integrated into the existing content system. <strong>UGC adds relatability and reach</strong> without requiring on-location filming or owner involvement. Multiple creators can be used simultaneously to test different angles, tones, and audience resonances. Integrated into the bi-weekly delivery cycle alongside proof content.</div>
+            </div>
+          </div>
+          <div class="solution-tools" style="margin-top:14px"><span class="tool-tag">AA Talent Partner Network</span><span class="tool-tag">AA Studio Direction</span><span class="tool-tag">AA CRM</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">03</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Authority Nurture Positioning — Upgraded</div>
+            <div class="solution-problem-tag">Solves: nurture content that builds credibility but not trust, familiarity, or relationship</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R6,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>The Proof Brand's nurture positioning document is upgraded with authority-level content architecture. The existing credibility framework is expanded with <strong>educational reels, opinion content, sector insight posts, and process explainers</strong> — all delivered through the Brand Avatar or UGC system. The nurture layer now moves a warm prospect from "they do good work" to "I feel like I know this business and trust their expertise." This is the shift from credibility to authority.</p>
+          <div class="solution-tools"><span class="tool-tag">Updated Nurture Positioning Doc</span><span class="tool-tag">AA Studio</span><span class="tool-tag">Meta Nurture Campaigns</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">04</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Authority Attraction Positioning — Upgraded</div>
+            <div class="solution-problem-tag">Solves: TOF content that earns views but not followers, saves, or algorithmic distribution</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R6,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>The attraction layer is upgraded from proof-only to authority-first. <strong>Video view campaigns are now viable</strong> — the cheapest and most scalable way to build warm audiences on Meta. Hook content, sector-relevant opinion pieces, and "insider knowledge" posts are added to the attraction layer. The content now generates not just awareness but engagement, follows, and saves — all signals that tell the algorithm to distribute it further at no additional cost.</p>
+          <div class="solution-tools"><span class="tool-tag">Updated Attraction Doc</span><span class="tool-tag">Meta Video View Campaigns</span><span class="tool-tag">AA Studio Reels Production</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">05</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Authority Conversion Positioning — Upgraded</div>
+            <div class="solution-problem-tag">Solves: conversion content that asks for the booking but hasn't built the relationship that makes saying yes easy</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R6,500</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>The conversion positioning layer is upgraded with <strong>human-led objection-handling content, testimonial framing videos, and direct-to-camera booking CTAs</strong> — all delivered by the Brand Avatar or UGC framework. A prospect who has watched 4–6 videos featuring a recognisable face they trust converts at a materially higher rate than one who has only seen static before/after content. The conversion document is rebuilt to incorporate this mechanism into every campaign cycle.</p>
+          <div class="solution-tools"><span class="tool-tag">Updated Conversion Doc</span><span class="tool-tag">Meta Conversion Campaigns</span><span class="tool-tag">AA Studio</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">06</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Bi-Weekly Avatar Content Production Cycle</div>
+            <div class="solution-problem-tag">Solves: having a Brand Avatar or UGC creator with no consistent production structure to activate them</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R8,000</div><div class="solution-value-label">Per month value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>A dedicated Avatar production cycle is integrated into the existing bi-weekly delivery cadence. Every two weeks: <strong>AA Studio reviews prior campaign performance, writes new scripts based on what's converting, briefs the Avatar or UGC creator, films or collects content, edits to brand standard, and schedules within the campaign structure.</strong> The Brand Avatar is never left to improvise — every piece of content is scripted, directed, and purposeful. Week 1 of every cycle: review + script + film. Week 2: edit + approve + launch.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Studio Direction</span><span class="tool-tag">Avatar Brief Templates</span><span class="tool-tag">AA Portal Approval Flow</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">07</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Full Funnel Paid Media — 5 Campaign Objectives</div>
+            <div class="solution-problem-tag">Solves: only running lead-gen campaigns when video view and engagement campaigns compound ROI at lower cost</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R10,000</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>The Proof Brand runs three campaign objectives. The Authority Brand expands to five: <strong>Awareness (broad reach), Video Views (cheapest warm audience building), Engagement (algorithm distribution signals), Nurture Retargeting (warm audiences who've watched), and Conversion (hot audiences ready to book).</strong> Each objective feeds the next. Video view campaigns build the pool that engagement campaigns activate, that nurture campaigns convert, that conversion campaigns close. The full funnel — running simultaneously — compounds the performance of every individual layer.</p>
+          <div class="solution-tools"><span class="tool-tag">Meta Ads Manager</span><span class="tool-tag">5-Objective Campaign Structure</span><span class="tool-tag">AA Studio Creatives</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">08</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Priority Account Management + Monthly Strategy Call</div>
+            <div class="solution-problem-tag">Solves: scaling a more complex content system without dedicated strategic oversight</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R7,500</div><div class="solution-value-label">Per month value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>Authority Brand clients receive priority account management — <strong>a dedicated account manager with a smaller client load, faster response times, and a monthly strategy call</strong> to review brand positioning, content direction, and campaign scaling decisions. The monthly call covers: what's compounding, what to kill, where to increase ad spend, and whether the Avatar or UGC direction needs adjustment. At this level, the brand is a strategic asset — and it is managed accordingly.</p>
+          <div class="solution-tools"><span class="tool-tag">Priority AM Assignment</span><span class="tool-tag">Monthly Strategy Call</span><span class="tool-tag">AA Portal Advanced Reporting</span></div>
+        </div>
+      </div>
+
+      <div class="solution-item">
+        <div class="solution-header">
+          <div class="solution-num">09</div>
+          <div class="solution-name-wrap">
+            <div class="solution-name">Authority Orientation Call + Full System Go-Live</div>
+            <div class="solution-problem-tag">Solves: launching upgraded campaigns without aligning on the expanded strategy and Avatar integration</div>
+          </div>
+          <div class="solution-value"><div class="solution-value-num">R3,000</div><div class="solution-value-label">Standalone value</div></div>
+        </div>
+        <div class="solution-body">
+          <p>Before any authority content goes live, a dedicated orientation call confirms the Brand Avatar or UGC framework is operational, all positioning documents have been upgraded, the five-campaign structure is approved, and the first 14-day authority cycle is ready to launch. <strong>You see the full upgraded plan before a single piece of content is published.</strong> Nothing launches without your sign-off. The go-live is a moment — a clear before and after for the brand's positioning in your market.</p>
+          <div class="solution-tools"><span class="tool-tag">AA Client Portal</span><span class="tool-tag">Launch Checklist</span><span class="tool-tag">Avatar Go-Live Brief</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- VALUE STACK -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">What This Is Worth</div>
+    <div class="section-title">The full Authority Brand<br><em>value stack.</em></div>
+    <div class="section-body">Below is the complete market value of everything included — the Authority Brand additions plus the Proof Brand foundation that continues running underneath it. This is what a business would pay to assemble this stack from individual specialists.</div>
+
+    <div class="value-table">
+      <div class="vt-row header">
+        <div class="vt-check"></div>
+        <div class="vt-name"><span class="vt-header-label">Deliverable</span></div>
+        <div class="vt-value grey"><span class="vt-header-label">Market Rate</span></div>
+      </div>
+
+      <div class="vt-section-label">Proof Brand Foundation — Continues Running</div>
+
+      <div class="vt-row included">
+        <div class="vt-check teal">✓</div>
+        <div class="vt-name"><strong>3-Objective Meta Campaign Structure</strong> <em>· Continues</em></div>
+        <div class="vt-value teal">R8,000</div>
+      </div>
+      <div class="vt-row included">
+        <div class="vt-check teal">✓</div>
+        <div class="vt-name"><strong>Bi-Weekly Optimisation Cycle</strong> <em>· Continues · 6 months</em></div>
+        <div class="vt-value teal">R36,000</div>
+      </div>
+      <div class="vt-row included">
+        <div class="vt-check teal">✓</div>
+        <div class="vt-name"><strong>AA Client Portal — Live Pipeline Dashboard</strong> <em>· Continues</em></div>
+        <div class="vt-value teal">R3,500</div>
+      </div>
+      <div class="vt-row included">
+        <div class="vt-check teal">✓</div>
+        <div class="vt-name"><strong>DM → Booking → Cash Conversion Flow</strong> <em>· Continues</em></div>
+        <div class="vt-value teal">R4,000</div>
+      </div>
+
+      <div class="vt-section-label">Authority Brand — New Additions</div>
+
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Authority Onboarding Call + Brand Direction Brief</strong></div>
+        <div class="vt-value">R5,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Brand Avatar Sourcing + Onboarding + Direction</strong> <span style="color:var(--grey-dark);font-size:11px">or UGC Framework</span></div>
+        <div class="vt-value">R12,000</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Authority Nurture Positioning — Upgraded</strong></div>
+        <div class="vt-value">R6,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Authority Attraction Positioning — Upgraded</strong></div>
+        <div class="vt-value">R6,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Authority Conversion Positioning — Upgraded</strong></div>
+        <div class="vt-value">R6,500</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Bi-Weekly Avatar Content Production Cycle</strong> <span style="color:var(--grey-dark);font-size:11px">× 6 months</span></div>
+        <div class="vt-value">R48,000</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Full Funnel Paid Media — 5 Campaign Objectives</strong></div>
+        <div class="vt-value">R10,000</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Priority Account Management + Monthly Strategy Call</strong> <span style="color:var(--grey-dark);font-size:11px">× 6 months</span></div>
+        <div class="vt-value">R45,000</div>
+      </div>
+      <div class="vt-row">
+        <div class="vt-check">✓</div>
+        <div class="vt-name"><strong>Authority Orientation Call + System Go-Live</strong></div>
+        <div class="vt-value">R3,000</div>
+      </div>
+      <div class="vt-row total">
+        <div class="vt-check" style="color:var(--gold);font-size:16px">◉</div>
+        <div class="vt-name"><span class="vt-total-label">Total Market Value — 6 Months</span></div>
+        <div class="vt-value"><span class="vt-strikethrough">R194,500</span><span class="vt-total-value">R25k + R102k</span></div>
+      </div>
+    </div>
+    <div style="margin-top:12px;font-family:'DM Mono',monospace;font-size:9px;color:var(--grey-dark);letter-spacing:.06em">Market rate total: R194,500 over 6 months. Authority Brand: R25,000 setup + R17,000/month × 6 = R127,000. You receive R194,500 in market value for R127,000.</div>
+  </div>
+
+
+  <!-- BONUSES -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">Included — No Extra Charge</div>
+    <div class="section-title">What else comes<br><em>with authority.</em></div>
+
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <div class="bonus-badge">Bonus 01</div>
+        <div class="bonus-content">
+          <div class="bonus-name">Avatar Script Library — First 12 Scripts</div>
+          <div class="bonus-desc">The first 12 Brand Avatar or UGC scripts are produced before go-live — covering three content categories: educational hooks, objection-handling, and direct conversion CTAs. <strong>Four scripts per category, each tested against a different psychological trigger</strong> for your sector's specific audience. The Avatar never steps in front of a camera without a fully produced script. These 12 scripts form the content foundation for the first two months of authority content.</div>
+        </div>
+        <div class="bonus-value">R4,500</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">Bonus 02</div>
+        <div class="bonus-content">
+          <div class="bonus-name">Profile Authority Rebuild — Highlights, Bio & Link Page</div>
+          <div class="bonus-desc">The Instagram profile is rebuilt to reflect the authority positioning — not just the proof brand. <strong>New bio positioning that signals category expertise. Highlights rebuilt to include a "Start Here" brand introduction sequence, an FAQ highlight, and a social proof highlight.</strong> The link-in-bio page updated with authority-level copy and a refined conversion path. A profile that says "credible business" is replaced by one that says "the expert in this space."</div>
+        </div>
+        <div class="bonus-value">R3,000</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">Bonus 03</div>
+        <div class="bonus-content">
+          <div class="bonus-name">First Authority Content Drop — 6 Pre-Production Posts</div>
+          <div class="bonus-desc">Before the authority engine goes live, six authority posts are produced, approved, and ready to publish — creating an immediate visual and content shift on the profile. <strong>The audience sees the upgrade on Day 1.</strong> The first six posts establish the new content tone, introduce the Avatar or UGC voice, and signal to existing followers that the brand has moved to a new level. No cold-start. No adjustment period. Momentum from launch.</div>
+        </div>
+        <div class="bonus-value">R3,500</div>
+      </div>
+      <div class="bonus-card">
+        <div class="bonus-badge">Bonus 04</div>
+        <div class="bonus-content">
+          <div class="bonus-name">Sector Authority Positioning Workshop — 1 Session</div>
+          <div class="bonus-desc">A dedicated 60-minute positioning session maps the intellectual territory your brand will own in its local sector — the specific opinions, insights, and knowledge that no competitor can credibly replicate. <strong>What does your business know about your sector that your clients don't? That knowledge is your authority content framework.</strong> This session extracts it and turns it into a 6-month content direction brief that powers every educational and opinion piece the Avatar produces.</div>
+        </div>
+        <div class="bonus-value">R4,000</div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg-raised);border:1px solid var(--grey-border);border-radius:6px;padding:16px 20px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;color:var(--grey-mid);letter-spacing:.10em;text-transform:uppercase">Total Bonus Value — Included at No Extra Cost</div>
+      <div style="font-family:'DM Mono',monospace;font-size:18px;font-weight:500;color:var(--gold)">R15,000</div>
+    </div>
+  </div>
+
+
+  <!-- GUARANTEE -->
+  <hr class="div">
+  <div class="guarantee-block">
+    <div class="guarantee-icon">⚙</div>
+    <div class="guarantee-label">The Attract Acquisition Authority Guarantee</div>
+    <div class="guarantee-title">If the Authority Brand<br>doesn't outperform<br>the Proof Brand —<br><em>we work for free.</em></div>
+    <div class="guarantee-body">
+      The Proof Brand has produced a baseline of results you can measure: qualified enquiries, appointments booked, cash collected. The Authority Brand adds five upgraded campaign objectives, a human content layer, sector authority positioning, and a full-funnel paid media structure.<br><br>
+      <strong>If your Authority Brand results — measured in qualified enquiries, appointments booked, and revenue generated — do not materially exceed what your Proof Brand was producing in its final month, we continue working at zero management fee until they do.</strong><br><br>
+      The guarantee is anchored in your own real numbers. The bar is something you've already measured. And given what the Authority Brand structurally adds to the system, the only rational outcome is meaningfully higher performance.
+    </div>
+    <div class="guarantee-pills">
+      <div class="gpill">R0 mgmt fee</div>
+      <div class="gpill">until results exceed Proof Brand</div>
+      <div class="gpill">unconditional</div>
+    </div>
+    <div class="guarantee-fine">Guarantee applies to the full 6-month recommended engagement. Measurement baseline is the final Proof Brand month's AA Portal data — agreed in writing at Authority Brand sign-up.</div>
+  </div>
+
+
+  <!-- COMPARE: PROOF vs AUTHORITY -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">What You're Choosing Between</div>
+    <div class="section-title">Stay at Proof Brand.<br><em>Or become the authority.</em></div>
+    <p style="color:var(--grey-mid);font-size:13px;max-width:600px;line-height:1.7;margin-bottom:24px">The Proof Brand is excellent. It does what it was built to do. But "excellent" and "dominant" are different competitive positions — and the distance between them is exactly what the Authority Brand closes.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card proof">
+        <div><span class="compare-label proof">Proof Brand — Current</span></div>
+        <div class="compare-title">Credibility that converts</div>
+        <div class="compare-list">
+          <div class="compare-row"><span class="compare-check teal">✓</span><span class="compare-text">Profile visits convert to DM enquiries</span></div>
+          <div class="compare-row"><span class="compare-check teal">✓</span><span class="compare-text">3 Meta campaign objectives running</span></div>
+          <div class="compare-row"><span class="compare-check teal">✓</span><span class="compare-text">Proof content proves quality</span></div>
+          <div class="compare-row"><span class="compare-check teal">✓</span><span class="compare-text">Live pipeline dashboard active</span></div>
+          <div class="compare-row"><span class="compare-check teal">✓</span><span class="compare-text">Local market knows you exist</span></div>
+          <div class="compare-row" style="color:var(--grey-dark)"><span style="flex-shrink:0;margin-right:10px">–</span><span class="compare-text" style="color:var(--grey-dark)">No human element or recognisable brand voice</span></div>
+          <div class="compare-row" style="color:var(--grey-dark)"><span style="flex-shrink:0;margin-right:10px">–</span><span class="compare-text" style="color:var(--grey-dark)">Video view campaigns not viable</span></div>
+          <div class="compare-row" style="color:var(--grey-dark)"><span style="flex-shrink:0;margin-right:10px">–</span><span class="compare-text" style="color:var(--grey-dark)">Organic algorithmic distribution limited</span></div>
+          <div class="compare-row" style="color:var(--grey-dark)"><span style="flex-shrink:0;margin-right:10px">–</span><span class="compare-text" style="color:var(--grey-dark)">No educational authority positioning</span></div>
+        </div>
+      </div>
+      <div class="compare-card authority">
+        <div><span class="compare-label authority">Authority Brand — Upgrade</span></div>
+        <div class="compare-title">Authority that dominates</div>
+        <div class="compare-list">
+          <div class="compare-row"><span class="compare-check gold">✓</span><span class="compare-text"><strong>Everything in Proof Brand continues running</strong></span></div>
+          <div class="compare-row"><span class="compare-check gold">✓</span><span class="compare-text"><strong>Brand Avatar or UGC creator — brand voice installed</strong></span></div>
+          <div class="compare-row"><span class="compare-check gold">✓</span><span class="compare-text"><strong>5 Meta campaign objectives — full funnel</strong></span></div>
+          <div class="compare-row"><span class="compare-check gold">✓</span><span class="compare-text"><strong>Video view campaigns compound warm audience pools</strong></span></div>
+          <div class="compare-row"><span class="compare-check gold">✓</span><span class="compare-text"><strong>Algorithmic organic distribution activated</strong></span></div>
+          <div class="compare-row"><span class="compare-check gold">✓</span><span class="compare-text"><strong>Educational content — category leadership positioning</strong></span></div>
+          <div class="compare-row"><span class="compare-check gold">✓</span><span class="compare-text"><strong>Priority AM + monthly strategy call</strong></span></div>
+          <div class="compare-row"><span class="compare-check gold">✓</span><span class="compare-text"><strong>Performance guarantee — beat Proof Brand or R0 fee</strong></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PRICE -->
+  <hr class="div">
+  <div class="section">
+    <div class="eyebrow">The Investment</div>
+    <div class="section-title">What the authority layer<br><em>costs to install.</em></div>
+    <div class="section-body">You've seen R194,500 in market value. You've seen R15,000 in bonuses. You've seen the guarantee. Here is what the Authority Brand upgrade actually costs — and why the question isn't whether you can afford the upgrade, but whether you can afford another six months without the mechanism that makes you the only name in your market.</div>
+
+    <div class="price-block">
+      <div class="price-header">
+        <div class="price-tag">Tier 2 — Upsell · 6-Month Recommended</div>
+        <div class="price-name">The Authority Brand</div>
+        <div class="price-sub">Full Attraction Engine™ upgraded + Brand Avatar system + 5-objective paid media + priority management</div>
+      </div>
+      <div class="price-body">
+        <div style="margin-bottom:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--grey-mid);letter-spacing:.10em;text-transform:uppercase">Setup Investment</div>
+        <div class="price-row">
+          <div class="price-was">R194,500 market value</div>
+          <div class="price-amount">R25,000</div>
+        </div>
+        <div class="price-period">One-time upgrade fee · Authority infrastructure built on top of existing Proof Brand engine</div>
+
+        <div style="margin-bottom:8px;font-family:'DM Mono',monospace;font-size:10px;color:var(--grey-mid);letter-spacing:.10em;text-transform:uppercase">Monthly Retainer</div>
+        <div class="price-row" style="margin-bottom:8px">
+          <div class="price-amount" style="font-size:42px">R17,000</div>
+        </div>
+        <div class="price-period" style="margin-bottom:28px">Per month · 6-month recommended · Avatar production included · Priority account management · 5-objective campaign structure</div>
+
+        <div class="price-breakdown">
+          <div class="price-item">
+            <div class="pi-label">Total 6-Month Investment</div>
+            <div class="pi-val">R127,000</div>
+          </div>
+          <div class="price-item">
+            <div class="pi-label">Market Value Received</div>
+            <div class="pi-val" style="color:var(--gold)">R209,500</div>
+          </div>
+          <div class="price-item">
+            <div class="pi-label">Management Fee if No Results</div>
+            <div class="pi-val" style="color:var(--gold)">R0</div>
+          </div>
+          <div class="price-item">
+            <div class="pi-label">Competitor Who Has This</div>
+            <div class="pi-val" style="color:var(--gold)">None</div>
+          </div>
+        </div>
+
+        <button class="price-cta">Install The Authority Layer — Start Today →</button>
+        <div class="price-guarantee-note">Protected by the Attract Acquisition Authority Guarantee · If results don't exceed your Proof Brand baseline, we work at R0 management fee until they do</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- CLOSE -->
+  <div class="close-block">
+    <div class="close-title">The Proof Brand was<br>the foundation.<br><em>This is the category.</em></div>
+    <div class="close-body">Every month without a Brand Avatar is a month a competitor could install one first. Local authority compounds in one direction — toward whoever builds it earliest. The infrastructure exists. The proof exists. The only variable is whether you claim your category now or wait for someone else to.</div>
+    <div class="close-stats">
+      <div class="cs-item"><div class="cs-val">R0</div><div class="cs-label">Fee if Proof Brand not beaten</div></div>
+      <div class="cs-item"><div class="cs-val">5</div><div class="cs-label">Campaign objectives unlocked</div></div>
+      <div class="cs-item"><div class="cs-val">R194k</div><div class="cs-label">Market value delivered</div></div>
+      <div class="cs-item"><div class="cs-val">0</div><div class="cs-label">SA competitors with this model</div></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="footer-txt">Attract Acquisition · The Authority Brand · Tier 2 Upsell · 2026</div>
+    <div class="footer-txt">attractacq.com</div>
+  </div>
+
+</div>
+</body>
+</html>
