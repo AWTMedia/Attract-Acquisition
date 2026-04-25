@@ -4,36 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SPA redirect decode: must come before React mounts -->
+    <!-- Cookiebot must load before GA4 and Meta Pixel -->
+    <script
+      id="Cookiebot"
+      src="https://consent.cookiebot.com/uc.js"
+      data-cbid="692c8992-75bc-4466-8900-37138bee4163"
+      data-blockingmode="auto"
+      type="text/javascript">
+    </script>
+
+    <!-- SPA redirect decode -->
     <script>
       (function(l) {
         if (l.search[1] === '/') {
           var decoded = l.search.slice(1).split('&').map(function(s) {
             return s.replace(/~and~/g, '&');
           }).join('?');
-          window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
         }
       }(window.location));
     </script>
 
-    <!-- Primary Meta Tags -->
     <title>Attract Acquisition | Brand Infrastructure for Service Businesses</title>
     <meta name="description" content="We build the brand infrastructure that turns service businesses from invisible to the most trusted name in their local market. Proof-first model. R0 management fee trial. 14 days to first results. Cape Town, South Africa." />
     <meta name="keywords" content="brand infrastructure South Africa, service business marketing Cape Town, brand building for trades, metal fabrication marketing, local service business brand, attract acquisition, proof sprint, AA Studio, brand infrastructure agency, Cape Town marketing agency, JHB service business marketing" />
 
-    <!-- Robots & Crawler Instructions -->
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
 
-    <!-- Geo / Location Meta Tags -->
     <meta name="geo.region" content="ZA-WC" />
     <meta name="geo.placename" content="Cape Town, Western Cape, South Africa" />
     <meta name="geo.position" content="-33.9249;18.4241" />
     <meta name="ICBM" content="-33.9249, 18.4241" />
 
-    <!-- Favicon & Icons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -41,23 +44,24 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRG891XSW6"></script>
-    <script>
+    <!-- Google Analytics 4: only loads after Statistics consent -->
+    <script
+      type="text/plain"
+      data-cookieconsent="statistics"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-TRG891XSW6">
+    </script>
+    <script type="text/plain" data-cookieconsent="statistics">
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-TRG891XSW6');
     </script>
 
-    <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Attract Acquisition | Brand Infrastructure for Service Businesses" />
     <meta property="og:description" content="Your work is world-class. Nobody knows it yet. We install the brand infrastructure that turns your service business into the most trusted name in your local market — in 14 days, proof-first, R0 management fee trial." />
     <meta property="og:type" content="website" />
@@ -66,22 +70,19 @@
     <meta property="og:site_name" content="Attract Acquisition" />
     <meta property="og:locale" content="en_ZA" />
 
-    <!-- Twitter / X Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Attract Acquisition | Brand Infrastructure for Service Businesses" />
     <meta name="twitter:description" content="Your work is world-class. Nobody knows it yet. We build the brand infrastructure that makes you the most trusted name in your local market. Proof-first. R0 trial fee. 14 days to first results." />
     <meta name="twitter:image" content="https://attractacq.com/og-image-missed-jobs.jpg" />
 
-    <!-- Canonical -->
     <link rel="canonical" href="https://attractacq.com/" />
 
-    <!-- LocalBusiness Schema (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MarketingAgency",
       "name": "Attract Acquisition",
-      "description": "Brand infrastructure agency helping South African service businesses — fabricators, trades, logistics, and clinics — become the most trusted name in their local market through the Attraction Engine™. Proof-first commercial model. R0 management fee trial.",
+      "description": "Brand infrastructure agency helping South African service businesses become the most trusted name in their local market through the Attraction Engine.",
       "url": "https://attractacq.com",
       "logo": "https://attractacq.com/logo.png",
       "telephone": "+27-81-234-5678",
@@ -99,99 +100,30 @@
         "latitude": -33.9249,
         "longitude": 18.4241
       },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Cape Town"
-        },
-        {
-          "@type": "City",
-          "name": "Johannesburg"
-        },
-        {
-          "@type": "City",
-          "name": "Pretoria"
-        },
-        {
-          "@type": "Country",
-          "name": "South Africa"
-        }
-      ],
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "17:00"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.5",
-        "reviewCount": "100",
-        "bestRating": "5"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Brand Infrastructure Packages",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "name": "14-Day Proof Sprint",
-            "description": "Live demonstration of the Attraction Engine™. Ad spend only. R0 management fee. Up to 10 qualified local enquiries in 14 days.",
-            "price": "0",
-            "priceCurrency": "ZAR"
-          },
-          {
-            "@type": "Offer",
-            "name": "Tier 1 — The Proof Brand",
-            "description": "Full Attraction Engine™ build. AI-powered brand content, Meta ad campaigns, profile funnel, DM-to-booking conversion flow, and live AA Client Portal.",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "8000",
-              "priceCurrency": "ZAR",
-              "unitText": "month"
-            }
-          },
-          {
-            "@type": "Offer",
-            "name": "Tier 2 — The Authority Brand",
-            "description": "Everything in Tier 1 plus Brand Avatar or UGC creator content, educational content strategy, and wider algorithmic reach.",
-            "priceSpecification": {
-              "@type": "UnitPriceSpecification",
-              "price": "14000",
-              "priceCurrency": "ZAR",
-              "unitText": "month"
-            }
-          }
-        ]
-      },
+      "areaServed": ["Cape Town", "Johannesburg", "Pretoria", "South Africa"],
       "sameAs": [
         "https://instagram.com/attractacq",
         "https://www.linkedin.com/company/attract-acquisition"
       ]
     }
     </script>
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1911004419525632');
-    fbq('track', 'PageView');
+
+    <!-- Meta Pixel: only loads after Marketing consent -->
+    <script type="text/plain" data-cookieconsent="marketing">
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1911004419525632');
+      fbq('track', 'PageView');
     </script>
-    <!-- End Meta Pixel Code -->
   </head>
 
   <body>
-    <!-- Meta Pixel noscript fallback -->
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1911004419525632&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- No redirect script here – handled only by 404.html to avoid loops -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
