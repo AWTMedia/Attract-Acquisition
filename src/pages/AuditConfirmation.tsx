@@ -44,7 +44,7 @@ export default function AuditConfirmation() {
   }, []);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText("https://attractacquisition.com/referral?ref=example123");
+    navigator.clipboard.writeText("https://attractacq.com/referral?ref=example123");
     setCopied(true);
   };
 
@@ -692,7 +692,7 @@ export default function AuditConfirmation() {
               </button>
 
               <a
-                href="https://wa.me/?text=Check%20this%20out%20—%20free%20Missed%20Jobs%20Report%20for%20your%20business!%20https://attractacquisition.com/referral?ref=example123"
+                href="https://wa.me/?text=Check%20this%20out%20—%20free%20Missed%20Jobs%20Report%20for%20your%20business!%20https://attractacq.com/referral?ref=example123"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="share-btn whatsapp"
